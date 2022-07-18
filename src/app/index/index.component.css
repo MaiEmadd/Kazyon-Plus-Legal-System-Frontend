@@ -1,0 +1,76 @@
+
+.s,.f,.t{
+    width: 180px;
+    height: 70px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: auto;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.summary{
+color: white;
+font-size: 25px;
+font-weight: 700;
+}
+
+.s{
+    background-color:#01C165;
+}
+.f{
+    background-color:#F76000;
+}
+.t{
+    background-color: #AE0C00;
+}
+
+table {
+    width: 100%;
+  }
+ 
+th{
+    font-size: 18px;
+}  
+
+
+.addBtn{
+    background-color: #01C165;
+    padding: 12px 0px ;
+    color: white;
+    font-weight: 700;
+    box-shadow: none;
+}  
+
+.state{
+    width: 132px;
+    height: 33px;
+    color: white;
+    margin: auto;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    filter: drop-shadow(0px 4px 4px rgba(203, 203, 203, 0.45));
+}
+
+.mat-cell{
+    border: none;
+    height: 60px;
+}   
+
+.alternate{
+    background-color: rgba(217, 217, 217,0.4);
+}
+
+.greenClass{
+    background-color: #01C165;
+}
+.redClass{
+    background-color: #AE0C00;
+}
+.orangeClass{
+    background-color: #F76000;
+}
