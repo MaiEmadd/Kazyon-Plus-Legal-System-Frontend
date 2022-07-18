@@ -1,0 +1,67 @@
+<div class="container-fluid content mt-4" dir="rtl">
+    <h3 class="me-4 ">العقود</h3>
+    <div class="row justify-content-around align-items-center mt-4 summary">
+        <div class="col-md-4 my-3">
+            <div class="s d-flex align-items-center justify-content-center "> ساري : 55</div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="f d-flex align-items-center justify-content-center ">فسخ :  55</div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="t d-flex align-items-center justify-content-center ">تجديد : 55</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5 text-center" dir="rtl">          
+    <ng-container matColumnDef="#" >
+        <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="كود التشغيل">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> كود التشغيل 
+            <a href="" class="text-black"><i class="fa fa-sort me-1 fa-xs"></i></a>
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.sapCode}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="الفرع">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> 
+            الفرع
+            
+        </th>
+        <td mat-cell *matCellDef="let element"> {{element.storeName}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="المحافظة">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> المحافظة </th>
+        <td mat-cell *matCellDef="let element"> {{element.governorate}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="الاقليم">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> الاقليم </th>
+        <td mat-cell *matCellDef="let element"> {{element.region}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="الحالة">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> الحالة </th>
+        <td mat-cell *matCellDef="let element"> 
+            <div class="state pt-1" [ngClass]="{greenClass: element.state=='ساري', redClass: element.state=='فسخ',orangeClass: element.state=='مطلوب التجديد' }">{{element.state}}</div>
+         </td>
+    </ng-container>
+    
+    <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;" [ngClass]="{alternate: index % 2 == 0 }"></tr>
+</table>
+
+
+
+<button class="btn m-5 px-4 addBtn ">اضافة عقد</button>
+          
+          
+        
+
