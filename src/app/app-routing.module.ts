@@ -8,7 +8,7 @@ const routes: Routes = [
   // {path: 'contractcomponent',
   // loadChildren: ()=> import("./contracts/contract-components/contract-components.module").then(m => m.ContractComponentsModule)}
   {path: '', component:ShowContractComponent}
-];
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

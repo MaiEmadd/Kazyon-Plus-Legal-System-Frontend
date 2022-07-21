@@ -16,6 +16,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddContractComponent } from './contracts/add-contract/add-contract.component';
 import { ShowContractComponent } from './contracts/show-contract/show-contract.component';
+import {HttpClientModule} from '@angular/common/http';
+import  * as _ from 'lodash';
+import {MatSortModule} from '@angular/material/sort';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +42,9 @@ import { ShowContractComponent } from './contracts/show-contract/show-contract.c
     MatStepperModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]
