@@ -28,12 +28,26 @@ font-weight: 700;
 
 table {
     width: 100%;
+    font-family: 'Almarai' !important;
+
   }
  
 th{
     font-size: 18px;
+    font-weight:700 ;   
+    color: black;
 }  
 
+td{
+    font-size: 17px;
+
+}
+
+::ng-deep .mat-select-placeholder {
+    color: black !important;
+    font-family: 'Almarai' !important;
+
+}
 
 .addBtn{
     background-color: #01C165;
@@ -58,7 +72,7 @@ th{
 
 .mat-cell{
     border: none;
-    height: 60px;
+    height: 65px;
 }   
 
 .alternate{
@@ -74,3 +88,53 @@ th{
 .orangeClass{
     background-color: #F76000;
 }
+i{
+    color: #808080;
+}
+
+.table{
+height: 295px;
+overflow-y: scroll;
+}
+/* 
+@media only screen and (max-width: 800px) {
+    
+.table{
+    height: 200px;
+    width: 98%;
+    overflow-y: scroll;
+    font-size:14px !important;
+    }
+
+} */
+
+.mostly-customized-scrollbar::-webkit-scrollbar 
+{
+    width: 6px;
+    background-color: rgb(252, 252, 252);
+}
+  
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb 
+{
+    height: 20px;
+    border-radius:20px;
+    background: rgb(116, 116, 116);
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -ms-border-radius:20px;
+    -o-border-radius:20px;
+}
+  
+
+
+
+
+th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 999999999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
