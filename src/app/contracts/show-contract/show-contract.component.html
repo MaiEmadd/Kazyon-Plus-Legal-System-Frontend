@@ -89,7 +89,7 @@
 
   <fieldset class="mt-4 mx-auto fieldset-border">
     <legend class="float-none w-auto " tabIndex="0" (click)="colapse('branchInfo')">
-      <i [@smoothCollapse]="isCollapsed.branchInfo" class="fas fa-angle-down"></i>معلومات الفرع
+      <i [@smoothCollapse]="isCollapsed.branchInfo? 'initialArrow':'invertedArrow'" class="fas fa-angle-down"></i>معلومات الفرع
     </legend>
     <div [@smoothCollapse]="isCollapsed.branchInfo?'initial':'final'">
     <div>
@@ -120,29 +120,29 @@
     <div class="row mb-4 mt-4">
 
       <div class="col-lg-4 d-flex justify-contstateent-end ">
-              <mat-select [disabled]="!editState" dir="rtl" class="ms-auto" placeholder="القسم" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                  <mat-option *ngFor="let dep of departments"  [value]="dep.value">
-                      {{ dep.name }}
+              <mat-select [disabled]="!editState" dir="rtl" class="ms-auto" placeholder="المحافظة" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
+                  <mat-option *ngFor="let gov of governorates"  [value]="gov">
+                      {{ gov }}
                   </mat-option>
               </mat-select>
 
             </div>
       <div class="col-lg-2 d-flex justify-content-center">
-          <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">القسم</h4>
+          <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">المحافظة</h4>
       </div>
 
 
           <div class="col-lg-4 d-flex justify-content-end">
-                <mat-select [disabled]="!editState" dir="rtl" placeholder="النوع" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                    <mat-option *ngFor="let type of types" [value]="type.value">
-                        {{ type.name }}
+                <mat-select [disabled]="!editState" dir="rtl" placeholder="الإقليم" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option *ngFor="let area of areas" [value]="area">
+                        {{ area }}
                     </mat-option>
 
                 </mat-select>
 
               </div>
         <div class="col-lg-2 d-flex justify-content-center">
-            <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">نوع العقد</h4>
+            <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">الإقليم</h4>
         </div>
     </div>
   </div>
