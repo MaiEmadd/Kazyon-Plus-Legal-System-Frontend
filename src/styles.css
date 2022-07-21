@@ -1,4 +1,12 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 body{
     font-size: 16px;
     font-family: 'Almarai';
+}
+
+
+.myPanelClass {
+  margin-top: 20px !important;
 }
