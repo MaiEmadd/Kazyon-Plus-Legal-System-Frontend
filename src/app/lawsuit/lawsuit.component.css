@@ -1,0 +1,30 @@
+.controls{
+    width: 100%;
+    margin: auto;
+    margin: 20px 0;
+}
+button{
+    padding: 60px 60px;
+    border: none;
+    outline: none;
+    background-color: orange;
+    margin-right: 40px;
+    color: white;
+    border-radius: 10px;  
+}
+
+.content{
+    width: 95%;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 10px #e7e6e6;
+}
+.breadcramps{
+    width: 100%;
+    
+    
+}
+.sign{
+    width: 100%; 
+    margin: -38px 0 0 -21px;
+}

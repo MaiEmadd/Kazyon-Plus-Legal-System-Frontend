@@ -1,0 +1,56 @@
+<div class="container-fluid case mt-4 case" dir="rtl">
+    <input type="text" placeholder=" اسم الموكل " >
+    <i class="fa-solid fa-magnifying-glass"></i>
+  <br>
+  <br>
+  </div>    
+  
+  <div class="container-fluid box mt-4 " dir="rtl">
+    <br>
+      <h2>القضايا</h2>
+      <hr>
+  <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8 mt-5 text-center" dir="rtl"> 
+    <ng-container matColumnDef="#" >
+        <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+      <ng-container matColumnDef="رقم القضيه">
+          <th mat-header-cell *matHeaderCellDef class="text-center"> رقم القضيه
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.casenum}} </td>
+          <td>
+          </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="نوع القضية">
+          <th mat-header-cell *matHeaderCellDef class="text-center"> نوع القضية    
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.casetype}} </td>
+      </ng-container>
+      <ng-container matColumnDef="السنة">
+          <th mat-header-cell *matHeaderCellDef class="text-center">  السنة
+             
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+      <ng-container matColumnDef="اسم الموكل">
+          <th mat-header-cell *matHeaderCellDef class="text-center">  اسم الموكل
+              
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.clientname}} </td>
+      </ng-container>
+      <ng-container matColumnDef="اسم الخصم">
+          <th mat-header-cell *matHeaderCellDef class="text-center"> اسم الخصم
+              
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.opponentname}} </td>
+      </ng-container>
+      
+      
+      <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
+  </table>
+  
+</div>
+<a href="http://localhost:4200/case2"><button class="btn m-5 px-4 addbtn">اضافة قضية </button></a>

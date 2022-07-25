@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Case1Component implements OnInit {
   data:any[] = [
-    {id:'1', casenum: '#324511', casetype: 'جنح', year: 2018, clientname: 'عماد الدين احمد', opponentname:'محسن محمد', casedetails:'', edit:''}, 
-    {id:'2', casenum: '#894254', casetype: 'جنح', year: 2020, clientname: 'عمر عاصم', opponentname:'عادل احمد', casedetails:'',edit:''}, 
-    {id:'3', casenum: '#324846', casetype: 'جنح', year: 2022, clientname: 'عبدالله اشرف', opponentname:'محمد حسام', casedetails:'',edit:''}, 
-    {id:'4', casenum: '#547204', casetype: 'جنح', year: 2007, clientname: 'عامر عصام', opponentname:'عادل عبدالهادي', casedetails:'',edit:''}, 
+    {id:'1', casenum: '#324511', casetype: 'جنح', year: 2018, clientname: 'عماد الدين احمد', opponentname:'محسن محمد'}, 
+    {id:'2', casenum: '#894254', casetype: 'جنح', year: 2020, clientname: 'عمر عاصم', opponentname:'عادل احمد'}, 
+    {id:'3', casenum: '#324846', casetype: 'جنح', year: 2022, clientname: 'عبدالله اشرف', opponentname:'محمد حسام'}, 
+    {id:'4', casenum: '#547204', casetype: 'جنح', year: 2007, clientname: 'عامر عصام', opponentname:'عادل عبدالهادي'}, 
   ];
 
   
-  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','تفاصيل القضيه','تعديل'];
+  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم'];
  dataSource = this.data;
 
   constructor() { 

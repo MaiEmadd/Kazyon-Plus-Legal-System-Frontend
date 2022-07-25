@@ -7,12 +7,24 @@ import { IndexComponent } from './contracts/index/index.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatInputModule } from '@angular/material/input';
 import {MatSelectModule } from '@angular/material/select';
+import { LawsuitComponent } from './lawsuit/lawsuit.component';
+import { Case1Component } from './case1/case1.component';
+import { ProcurationComponent } from './procuration/procuration.component';
+import { Procuration1Component } from './procuration1/procuration1.component';
+import { Case2Component } from './case2/case2.component';
+import { Case3Component } from './case3/case3.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     NavbarComponent,
+    LawsuitComponent,
+    Case1Component,
+    ProcurationComponent,
+    Procuration1Component,
+    Case2Component,
+    Case3Component,
   ],
   imports: [
     BrowserModule,
