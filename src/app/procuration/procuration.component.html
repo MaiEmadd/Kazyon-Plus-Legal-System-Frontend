@@ -5,7 +5,7 @@
   <br>
   <br>
   </div>    
-  <div>
+  <div class="container-fluid case2 mt-4 case2">
     <br>
     <h2>التوكيلات</h2>
     <hr>
@@ -18,45 +18,36 @@
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
   
-      <ng-container matColumnDef=" رقم القضيه">
-          <th mat-header-cell *matHeaderCellDef class="text-center"> رقم القضيه
+      <ng-container matColumnDef="اسم الموكل">
+          <th mat-header-cell *matHeaderCellDef class="text-center">اسم الموكل  
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.casenum}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.clientname}} </td>
       </ng-container>
-      <ng-container matColumnDef="نوع القضية">
-          <th mat-header-cell *matHeaderCellDef class="text-center"> نوع القضية    
+      <ng-container matColumnDef="رقم التوكيل">
+          <th mat-header-cell *matHeaderCellDef class="text-center">رقم التوكيل    
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.casetype}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.procurationnum}} </td>
       </ng-container>
       <ng-container matColumnDef="السنة">
-          <th mat-header-cell *matHeaderCellDef class="text-center">  السنة
+          <th mat-header-cell *matHeaderCellDef class="text-center">السنة
              
           </th>
           <td mat-cell *matCellDef="let element"> {{element.year}} </td>
       </ng-container>
-      <ng-container matColumnDef="اسم الموكل">
-          <th mat-header-cell *matHeaderCellDef class="text-center">  اسم الموكل
+      <ng-container matColumnDef="مكتب التوثيق">
+          <th mat-header-cell *matHeaderCellDef class="text-center">مكتب التوثيق
               
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.clientname}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.regoffice}} </td>
       </ng-container>
-      <ng-container matColumnDef="اسم الخصم">
-          <th mat-header-cell *matHeaderCellDef class="text-center"> اسم الخصم
+      <ng-container matColumnDef="رقم التوكيل بالمكتب">
+          <th mat-header-cell *matHeaderCellDef class="text-center">رقم التوكيل بالمكتب
               
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.opponentname}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.procurationoffice}} </td>
       </ng-container>
-      <ng-container matColumnDef="تفاصيل القضيه">
-          <th mat-header-cell *matHeaderCellDef class="text-center"> تفاصيل القضيه
-              
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.casedetails}} </td>
-      </ng-container>
-      <ng-container matColumnDef="تعديل">
-          <th mat-header-cell *matHeaderCellDef class="text-center">تعديل 
-          </th>
-          <td mat-cell *matCellDef="let element"> {{element.edit}} </td>
-      </ng-container>
+
+  
       
       
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
