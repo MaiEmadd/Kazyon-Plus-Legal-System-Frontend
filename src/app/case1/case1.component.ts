@@ -18,7 +18,6 @@ export class Case1Component implements OnInit {
  dataSource = this.data;
 
   constructor() { 
-
     
   }
 

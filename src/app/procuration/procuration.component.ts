@@ -8,14 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProcurationComponent implements OnInit {
 
   data:any[] = [
-    {id:'1', casenum: '#324511', casetype: 'جنح', year: 2018, clientname: 'عماد الدين احمد', opponentname:'محسن محمد', casedetails:'1',edit:'1'}, 
-    {id:'2', casenum: '#894254', casetype: 'جنح', year: 2020, clientname: 'عمر عاصم', opponentname:'عادل احمد', casedetails:'1',edit:'1'}, 
-    {id:'3', casenum: '#324846', casetype: 'جنح', year: 2022, clientname: 'عبدالله اشرف', oponentname:'محمد حسام', casedetails:'1',edit:'1'}, 
-    {id:'4', casenum: '#547204', casetype: 'جنح', year: 2007, clientname: 'عامر عصام', opponentname:'عادل عبدالهادي', casedetails:'1',edit:'1'}, 
+    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
+    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
+    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
+    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
+
   ];
 
   
-  displayedColumns: string[] = ['#',' رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','تفاصيل القضيه','تعديل'];
+  displayedColumns: string[] = ['#','اسم الموكل', 'رقم التوكيل', 'السنة', 'مكتب التوثيق', 'رقم التوكيل بالمكتب','btn'];
  dataSource = this.data;
 
   constructor() { 
