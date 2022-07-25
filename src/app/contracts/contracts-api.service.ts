@@ -15,10 +15,10 @@ export class ContractsApiService {
 
   constructor(private _HttpClient:HttpClient) { }
 
-  api = 'http://localhost:8080/contract/'
+  api = 'http://kazyonlegal.uksouth.cloudapp.azure.com/api/contract/'
 
-  getAllContracts():Observable<Contract[]> {
-    return this._HttpClient.get<Contract[]>(this.api + "filter");
+  getAllContracts(filter_string?:String):Observable<Contract[]> {
+    return this._HttpClient.get<Contract[]>(this.api + "filter?" + filter_string);
   }
 
   getContractById(id: Number):Observable<Contract> {

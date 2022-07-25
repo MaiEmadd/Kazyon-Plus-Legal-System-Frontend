@@ -31,10 +31,9 @@
 
         <ng-container matColumnDef="الفرع" >
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                    <mat-select  (selectionChange)="AddressFilter($event,dataSource)" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
-                        <mat-option [value]="0">الفرع</mat-option>
-                        <mat-option *ngFor="let row of apidata" [value]="row.Address">
-                            {{ row.Address }}
+                    <mat-select (selectionChange)="changeFilter($event, 'branch')" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                        <mat-option *ngFor="let row of apidata" [value]="row.branch_name">
+                            {{ row.branch_name }}
                         </mat-option>
                     </mat-select>
             </th>
@@ -45,7 +44,7 @@
 
         <ng-container matColumnDef="المحافظة">
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                <mat-select (selectionChange)="governorateFilter($event,dataSource)" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                <mat-select (selectionChange)="changeFilter($event, 'governorate')" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_governorate" [value]="row">
                         {{ row }}
                     </mat-option>
@@ -58,7 +57,7 @@
 
         <ng-container matColumnDef="الاقليم">
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                <mat-select (selectionChange)="nameFilter($event,dataSource)" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                <mat-select (selectionChange)="changeFilter($event, 'province')" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_name" [value]="row">
                         {{ row }}
                     </mat-option>
@@ -98,7 +97,7 @@
 
         <ng-container matColumnDef="الحالة">
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                <mat-select (selectionChange)="statusFilter($event,dataSource)" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                <mat-select (selectionChange)="changeFilter($event, 'status')" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option value="ساري">ساري</mat-option>
                     <mat-option value="فسخ">فسخ</mat-option>
                     <mat-option value="مطلوب تجديده">مطلوب تجديده</mat-option>
