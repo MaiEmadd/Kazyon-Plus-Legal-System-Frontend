@@ -31,12 +31,12 @@ table {
     font-family: 'Almarai' !important;
 
   }
- 
+
 th{
     font-size: 18px;
-    font-weight:700 ;   
+    font-weight:700 ;
     color: black;
-}  
+}
 
 td{
     font-size: 17px;
@@ -55,7 +55,7 @@ td{
     color: white;
     font-weight: 700;
     box-shadow: none;
-}  
+}
 
 .state{
     width: 132px;
@@ -73,7 +73,7 @@ td{
 .mat-cell{
     border: none;
     height: 65px;
-}   
+}
 
 .alternate{
     background-color: rgba(217, 217, 217,0.4);
@@ -96,9 +96,9 @@ i{
 height: 295px;
 overflow-y: scroll;
 }
-/* 
+/*
 @media only screen and (max-width: 800px) {
-    
+
 .table{
     height: 200px;
     width: 98%;
@@ -108,13 +108,13 @@ overflow-y: scroll;
 
 } */
 
-.mostly-customized-scrollbar::-webkit-scrollbar 
+.mostly-customized-scrollbar::-webkit-scrollbar
 {
     width: 6px;
     background-color: rgb(252, 252, 252);
 }
-  
-.mostly-customized-scrollbar::-webkit-scrollbar-thumb 
+
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb
 {
     height: 20px;
     border-radius:20px;
@@ -124,7 +124,7 @@ overflow-y: scroll;
     -ms-border-radius:20px;
     -o-border-radius:20px;
 }
-  
+
 
 
 
@@ -138,3 +138,6 @@ th{
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
 
+tr:hover {
+  cursor: pointer;
+}

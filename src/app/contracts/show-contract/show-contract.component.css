@@ -6,23 +6,13 @@
   border-radius: 20px;
   width: 95%;
   margin: auto;
-  min-height: 110vh;
+  min-height: 80vh;
 }
 
 /*  */
 
 
 /* Container Div For Dates  */
-#containerDiv {
-  float:right;
-  display: grid;
-  width: 60%;
-  margin: auto;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 600px;
-  margin-bottom: 30px;
-  grid-row-gap: 30px;
-}
 
 .editBtnsContainer {
   width: 95%;
@@ -88,12 +78,7 @@ fieldset {
   width: 95%;
 }
 
-mat-label {
-  float: right;
-  text-align: right;
-  font-size: 20px;
-  color: black ;
-}
+
 
 mat-form-field {
   text-align: right
@@ -115,51 +100,32 @@ mat-option {
 }
 
 
-/* Styling for dropdown */
 
-::ng-deep #status .mat-select-value-text  {
-  color: white;
-  padding: 5px;
-}
 
-.activeContract {
-  background-color: #01C165;
-  color: white;
+::ng-deep .mat-form-field-label {
+  color: navy !important;
+  font-size: 18px !important;
   font-weight: 900;
 }
 
-.warningContract {
-  background-color: #AE0C00;
-  color: white;
-  font-weight: 900;
+
+
+::ng-deep .mat-select-value-text  {
+  color: black;
+  font-weight: 800;
 }
 
-.stopContract {
-  background-color: #F76000;
-  font-weight: 900;
-  color: white;
+
+
+input::placeholder {
+  color: black;
+  font-size: 18px;
 }
 
-.activeContract:hover , .activeContract.mat-active{
-  background-color: #02f37f !important;
-  color: white;
-  font-weight: 900;
-}
 
-.warningContract:hover, .warningContract.mat-active {
-  background-color: #e20f00 !important;
-  color: white;
-  font-weight: 900;
+mat-datepicker {
+  font-size: 18px;;
 }
-
-.stopContract:hover, .stopContract.mat-active {
-  background-color: #fa914f !important;
-  font-weight: 900;
-  color: white;
-}
-/*  */
-
-/* Styling for Status */
 
 .state{
   width: 132px;
@@ -184,30 +150,59 @@ mat-option {
   background-color: #F76000;
 }
 
-/*  */
-
-
-/* Remove the inc/dec button */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+.print-btn {
+  background-color: red;
+  margin-top: 20px;
+  float: right;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  border: 0px ;
+  border-radius: 15px;
+  padding: 7px 15px;
+  font-weight: 900;
+  font-size: 20px;
+  color: white;
+  transition: 0.3s ease-in;
 }
 
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
-}
-/*  */
-
-
-input::placeholder {
-  color: black;
-  font-size: 18px;
+.print-btn:hover {
+  background-color: #AE0C00;
 }
 
+#contractInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 40px;
+  grid-gap: 30px;
+  direction: rtl;
+}
 
-mat-datepicker {
-  font-size: 18px;;
+#statusLabel {
+  display: inline-block;
+  float: right;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+#contractInfo mat-form-field {
+  width: 50%;
+}
+
+#branchInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 40px;
+  grid-gap: 30px;
+  direction: rtl;
+}
+
+#containerDiv {
+  display: grid;
+  direction: rtl;
+  grid-template-columns: 1fr 1fr;
+  padding: 40px;
+  padding-bottom: 5px;
+  grid-gap: 30px;
+  margin-bottom: 30px;
+  grid-row-gap: 30px;
 }

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { DateAdapter } from '@angular/material/core';
+import { ContractsApiService } from '../contracts-api.service';
+import {ActivatedRoute} from "@angular/router";
+import { Contract } from '../contract';
+import { ContractConstants } from '../contract-constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-contract',
@@ -31,56 +36,12 @@ import { DateAdapter } from '@angular/material/core';
   ]
 })
 export class ShowContractComponent implements OnInit {
-  departments = [
-    {name: "التسويق", value: "MARKETING"},
-    {name: "IT", value: "IT"}
-  ]
-  states = [
-    {name:"ساري", value:"ساري", className:"activeContract"},
-    {name:"مطلوب تجديده", value:"مطلوب تجديده", className:"warningContract"},
-    {name:"فسخ", value:"فسخ", className:"stopContract"}
-  ]
 
-  types = [
-    {name: "إيجار", value: "Lease"},
-    {name: "تمليك", value: "Ownership"}
-  ]
+  currentContract :Contract;
 
-  governorates = [
-    "القاهرة",
-    "الجيزة",
-    "الأسكندرية",
-    "الدقهلية",
-    "البحر الأحمر",
-    "البحيرة",
-    "الفيوم",
-    "الغربية",
-    "الإسماعلية",
-    "المنوفية",
-    "المنيا",
-    "القليوبية",
-    "الوادي الجديد",
-    "السويس",
-    "اسوان",
-    "اسيوط",
-    "بني سويف",
-    "بورسعيد",
-    "دمياط",
-    "الشرقية",
-    "جنوب سيناء",
-    "كفر الشيخ",
-    "مطروح",
-    "الأقصر",
-    "قنا",
-    "شمال سيناء",
-      "سوهاج",
-    ]
+  constants = ContractConstants;
 
-    areas = [
-      "الإسكندرية",
-      "القاهرة",
-      "الأقصر"
-    ]
+
   isCollapsed = {
     contractInfo: false,
     branchInfo: false,
@@ -93,9 +54,13 @@ export class ShowContractComponent implements OnInit {
   className = "";
 
   setClass(className: string): void {
-    this.states.forEach(state => {
-        if (className == state.value) {
-          this.className = state.className;
+    ContractConstants.states.forEach(state => {
+        if (className == "ساري") {
+          this.className = "activeContract";
+        } else if (className == "فسخ") {
+          this.className = "stopContract";
+        } else {
+          this.className="warningContract";
         }
     });
   }
@@ -116,10 +81,37 @@ export class ShowContractComponent implements OnInit {
 
   }
 
-  constructor(private dateAdapter: DateAdapter<any>) { }
+  printPage() {
+    window.print();
+  }
+
+  constructor(private dateAdapter: DateAdapter<any>, private _contractService: ContractsApiService, private routerParams: ActivatedRoute, private _routerLink: Router) {
+    this.currentContract = {}
+    const id = this.routerParams.snapshot.params?.['id'];
+    this._contractService.getContractById(id).subscribe((data)=> {
+      this.currentContract = data
+      if (data.status == "ساري") {
+        this.className = "activeContract";
+      } else if (data.status == "فسخ") {
+        this.className = "stopContract";
+      } else {
+        this.className="warningContract";
+      }
+    },
+      (error) => {
+        if (error.status == 404)
+        this._routerLink.navigate(['**'])
+      }
+    )
+   }
 
   ngOnInit(): void {
+
+
     this.dateAdapter.setLocale('ar');
+
   }
+
+
 
 }

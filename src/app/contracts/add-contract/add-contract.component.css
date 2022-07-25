@@ -1,0 +1,72 @@
+.grid-container {
+  display: grid;
+  grid-gap: 20px;;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  padding: 40px;
+  margin: auto;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  grid-row-gap: 30px;;
+}
+
+mat-stepper {
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+mat-step-header:hover {
+  background-color: white;
+}
+
+.state{
+  width: 132px;
+  height: 33px;
+  color: white;
+  margin: auto;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  filter: drop-shadow(0px 4px 4px rgba(203, 203, 203, 0.45));
+}
+
+.greenClass{
+  background-color: #01C165;
+}
+.redClass{
+  background-color: #AE0C00;
+}
+.orangeClass{
+  background-color: #F76000;
+}
+
+.next-button {
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 15px;
+  border: 1px solid#0E86D4;
+  transition: 0.3s ease-in-out;
+  float: left;
+}
+
+.back-button {
+  background-color: white;
+  border-radius: 15px;
+  padding: 5px 15px;
+  border: 1px solid rgb(50, 173, 50);
+  transition: 0.3s ease-in-out;
+  float: right;
+}
+
+.back-button:hover {
+  background-color: rgb(50, 173, 50);
+  color:white;
+}
+
+.next-button:hover {
+  background-color: #0E86D4;
+  color: white;
+}

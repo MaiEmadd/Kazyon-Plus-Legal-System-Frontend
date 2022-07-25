@@ -1,150 +1,80 @@
-<div id="mainContractContainer" class="pb-4">
-  <fieldset class="mt-4 mx-auto fieldset-border">
+<div id="mainContractContainer" class="pb-4 mt-4">
+  <h1 class="text-center mt-3" id="contractHeading" style="font-size: 20px; display: none;">عقد#: {{ currentContract.store_code }}</h1>
+  <button (click)="printPage()" class="print-btn">طباعة العقد <i class="fa-solid fa-print ms-2"></i></button>
+  <fieldset class="mt-4 mx-auto fieldset-border" id="">
     <legend class="float-none w-auto " tabIndex="0" (click)="colapse('contractInfo')">
       <i [@smoothCollapse]="isCollapsed.contractInfo?'initialArrow':'invertedArrow'" class="fas fa-angle-down"></i>معلومات العقد
     </legend>
-    <div [@smoothCollapse]="isCollapsed.contractInfo?'initial':'final'">
-    <div>
+    <div id="contractInfo" [@smoothCollapse]="isCollapsed.contractInfo?'initial':'final'">
 
-      <div class="row">
-        <div class="col-lg-10"></div>
-        <div dir="rtl" class="col-lg-2">
-          <h4 dir="rtl" class="mb-4 text-center">الكود</h4>
-        </div>
-      </div>
-
-      <div class="d-flex justify-content-around">
+        <h4 style="grid-column: 1/ span 2" dir="rtl">الكود</h4>
 
         <mat-form-field appearance="legacy">
           <mat-label>كود التشغيل</mat-label>
-          <input [disabled]="!editState" value="123" dir="rtl" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" #input  maxlength="6" matInput>
+          <input [disabled]="!editState" [(ngModel)]="currentContract.store_code"  required="true" dir="rtl" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" #input  maxlength="6" matInput>
           <mat-hint  *ngIf="editState"  align="end">{{input.value?.length || 0}}/6</mat-hint>
         </mat-form-field>
 
         <mat-form-field id="SAP" appearance="legacy">
           <mat-label>الساب</mat-label>
-          <input dir="rtl" [disabled]="!editState"   type="text" #SAP  maxlength="8" matInput>
+          <input dir="rtl" [disabled]="!editState" [(ngModel)]="currentContract.sap_code"  type="text" #SAP  maxlength="8" matInput>
           <mat-hint *ngIf="editState" align="end">{{SAP.value?.length || 0}}/8</mat-hint>
         </mat-form-field>
 
+        <div>
+        <h4 id="statusLabel" dir="rtl">حالة العقد</h4>
+
+        <mat-select  id="status" [disabled]="!editState" [(ngModel)]="currentContract.status"   [ngClass]="className" (selectionChange)="setClass($event.value)" dir="rtl" placeholder="الحالة" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
+          <mat-option *ngFor="let state of constants.states" class="activeContract"  [ngClass]="state.className" [value]="state.name">
+              {{ state.name }}
+          </mat-option>
+        </mat-select>
       </div>
-
-
-    </div>
-
-      <div>
-
-
-        <div class="row mb-4 mt-4">
-
-
-
-            <div class="col-lg-10 d-flex justify-content-end">
-                  <mat-select id="status" [disabled]="!editState"   [ngClass]="className" (selectionChange)="setClass($event.value)" dir="rtl" placeholder="الحالة" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                      <mat-option *ngFor="let state of states" class="activeContract"  [ngClass]="state.className" [value]="state.value">
-                          {{ state.name }}
-                      </mat-option>
-
-                  </mat-select>
-
-                </div>
-          <div class="col-lg-2 d-flex justify-content-center">
-               <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">حالة العقد</h4>
-          </div>
         <!-- <div class="state pt-1" [ngClass]="{greenClass: element.state=='ساري', redClass: element.state=='فسخ',orangeClass: element.state=='مطلوب التجديد' }">{{element.state}}</div> -->
       </div>
-
-      <div class="row mb-4 mt-4">
-
-        <div class="col-lg-4 d-flex justify-contstateent-end ">
-                <mat-select [disabled]="!editState" dir="rtl" class="ms-auto" placeholder="القسم" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                    <mat-option *ngFor="let dep of departments"  [value]="dep.value">
-                        {{ dep.name }}
-                    </mat-option>
-                </mat-select>
-
-              </div>
-        <div class="col-lg-2 d-flex justify-content-center">
-            <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">القسم</h4>
-        </div>
-
-
-            <div class="col-lg-4 d-flex justify-content-end">
-                  <mat-select [disabled]="!editState" dir="rtl" placeholder="النوع" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                      <mat-option *ngFor="let type of types" [value]="type.value">
-                          {{ type.name }}
-                      </mat-option>
-
-                  </mat-select>
-
-                </div>
-          <div class="col-lg-2 d-flex justify-content-center">
-              <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">نوع العقد</h4>
-          </div>
-      </div>
-      </div>
-  </div>
-
   </fieldset>
 
   <fieldset class="mt-4 mx-auto fieldset-border">
     <legend class="float-none w-auto " tabIndex="0" (click)="colapse('branchInfo')">
       <i [@smoothCollapse]="isCollapsed.branchInfo? 'initialArrow':'invertedArrow'" class="fas fa-angle-down"></i>معلومات الفرع
     </legend>
-    <div [@smoothCollapse]="isCollapsed.branchInfo?'initial':'final'">
-    <div>
-
-      <div class="row">
-        <h4 dir="rtl" class="mb-4"></h4>
-      </div>
-
-      <div class="d-flex justify-content-around">
+    <div id="branchInfo" [@smoothCollapse]="isCollapsed.branchInfo?'initial':'final'">
 
         <mat-form-field appearance="legacy">
           <mat-label>الاسم</mat-label>
-          <input [disabled]="!editState" dir="rtl" #branch  maxlength="150" matInput>
+          <input [disabled]="!editState" [(ngModel)]="currentContract.branch_name"  dir="rtl" #branch  maxlength="150" matInput>
           <mat-hint *ngIf="editState" align="end">{{branch.value?.length || 0}}/150</mat-hint>
         </mat-form-field>
 
         <mat-form-field id="address" appearance="legacy">
           <mat-label>العنوان</mat-label>
-          <input [disabled]="!editState" dir="rtl" type="text" #address  maxlength="150" matInput>
+          <input [disabled]="!editState" dir="rtl" type="text" [(ngModel)]="currentContract.branch_address"  #address  maxlength="150" matInput required="true">
           <mat-hint *ngIf="editState" align="end">{{address.value?.length || 0}}/150</mat-hint>
+
+
         </mat-form-field>
 
+        <div>
+        <h4 id="statusLabel"  dir="rtl">المحافظة</h4>
+
+        <mat-select [disabled]="!editState" dir="rtl" [(ngModel)]="currentContract.governorate"  class="ms-auto" placeholder="المحافظة" style="width: 150px; height: 35px; padding: 5px;" required="true" disableOptionCentering panelClass="myPanelClass">
+            <mat-option *ngFor="let gov of constants.governorates"  [value]="gov">
+                {{ gov }}
+            </mat-option>
+        </mat-select>
       </div>
 
+      <div>
+        <h4 id="statusLabel" dir="rtl">الإقليم</h4>
 
-    </div>
 
-    <div class="row mb-4 mt-4">
+        <mat-select [disabled]="!editState" dir="rtl" [(ngModel)]="currentContract.province" placeholder="الإقليم" style="width: 150px; height: 35px; padding: 5px;" required="true" disableOptionCentering panelClass="myPanelClass">
+            <mat-option *ngFor="let area of constants.areas" [value]="area">
+                {{ area }}
+            </mat-option>
 
-      <div class="col-lg-4 d-flex justify-contstateent-end ">
-              <mat-select [disabled]="!editState" dir="rtl" class="ms-auto" placeholder="المحافظة" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                  <mat-option *ngFor="let gov of governorates"  [value]="gov">
-                      {{ gov }}
-                  </mat-option>
-              </mat-select>
-
-            </div>
-      <div class="col-lg-2 d-flex justify-content-center">
-          <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">المحافظة</h4>
+        </mat-select>
       </div>
-
-
-          <div class="col-lg-4 d-flex justify-content-end">
-                <mat-select [disabled]="!editState" dir="rtl" placeholder="الإقليم" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                    <mat-option *ngFor="let area of areas" [value]="area">
-                        {{ area }}
-                    </mat-option>
-
-                </mat-select>
-
-              </div>
-        <div class="col-lg-2 d-flex justify-content-center">
-            <h4 id="statusLabel" dir="rtl" class="mb-4 mt-1">الإقليم</h4>
-        </div>
-    </div>
   </div>
 
   </fieldset>
@@ -154,49 +84,47 @@
       <i [@smoothCollapse]="isCollapsed.dates?'initialArrow':'invertedArrow'" class="fas fa-angle-down"></i> تواريخ العقد
     </legend>
 
-    <div [@smoothCollapse]="isCollapsed.dates?'initial':'final'" class="d-flex">
-    <div id="containerDiv">
+    <div id="containerDiv" [@smoothCollapse]="isCollapsed.dates?'initial':'final'" >
 
         <mat-form-field>
-          <input dir="rtl"  [disabled]="!editState"  matInput [matDatepicker]="active" placeholder="السريان">
+          <input dir="rtl" [(ngModel)]="currentContract.valid_through"  [disabled]="!editState"  matInput [matDatepicker]="active" placeholder="السريان" required="true">
           <mat-datepicker-toggle matSuffix [for]="active"></mat-datepicker-toggle>
           <mat-datepicker #active></mat-datepicker>
           <mat-hint align="end">يوم/شهر/سنة</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input dir="rtl" [disabled]="!editState"  matInput [matDatepicker]="end" placeholder="الانتهاء">
+          <input dir="rtl" [(ngModel)]="currentContract.end_date"  [disabled]="!editState"  matInput [matDatepicker]="end" placeholder="الانتهاء">
           <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
           <mat-datepicker #end></mat-datepicker>
           <mat-hint align="end">يوم/شهر/سنة</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input dir="rtl" [disabled]="!editState"  matInput [matDatepicker]="received" placeholder="الاستلام">
+          <input dir="rtl" [(ngModel)]="currentContract.receiving_date"  [disabled]="!editState"  matInput [matDatepicker]="received" placeholder="الاستلام">
           <mat-datepicker-toggle matSuffix [for]="received"></mat-datepicker-toggle>
           <mat-datepicker #received></mat-datepicker>
           <mat-hint align="end">يوم/شهر/سنة</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
-          <input dir="rtl" [disabled]="!editState"  matInput [matDatepicker]="beginning" placeholder="الافتتاح">
+          <input dir="rtl" [(ngModel)]="currentContract.opening_date"  [disabled]="!editState"  matInput [matDatepicker]="beginning" placeholder="الافتتاح">
           <mat-datepicker-toggle matSuffix [for]="beginning"></mat-datepicker-toggle>
           <mat-datepicker #beginning  ></mat-datepicker>
           <mat-hint align="end">يوم/شهر/سنة</mat-hint>
         </mat-form-field>
 
-        <mat-form-field style="grid-column: 2;">
-          <input dir="rtl" [disabled]="!editState" matInput [matDatepicker]="renewal" placeholder="التجديد">
+        <mat-form-field>
+          <input dir="rtl" [(ngModel)]="currentContract.renewal_date"  [disabled]="!editState" matInput [matDatepicker]="renewal" placeholder="التجديد">
           <mat-datepicker-toggle matSuffix [for]="renewal"></mat-datepicker-toggle>
           <mat-datepicker #renewal></mat-datepicker>
           <mat-hint align="end">يوم/شهر/سنة</mat-hint>
         </mat-form-field>
       </div>
-  </div>
 
   </fieldset>
 
-  <fieldset class="mt-4 mx-auto fieldset-border m b-4">
+  <fieldset id="attachments" class="mt-4 mx-auto fieldset-border m b-4">
     <legend class="float-none w-auto " tabIndex="0" (click)="colapse('attachments')">
       <i [@smoothCollapse]="isCollapsed.attachments" class="fas fa-angle-down"></i>الملحقات
     </legend>

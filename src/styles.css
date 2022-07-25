@@ -1,12 +1,11 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 body{
     font-size: 16px !important;
     font-family: 'Almarai' !important;
 }
 
 .myPanelClass{
-    margin-top: 30px !important; 
+    margin-top: 30px !important;
 }
 
 
@@ -14,3 +13,122 @@ body{
     border: none !important;
 }
 
+
+.mat-input-element:disabled {
+  color: black;
+ }
+
+
+mat-hint {
+  color: black !important;
+}
+.mat-form-field-hint-spacer {
+  flex: 0 0 1em !important;
+}
+
+
+
+
+/* Remove the inc/dec button */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+/*  */
+
+/* Styling for dropdown */
+
+::ng-deep #status .mat-select-value-text  {
+  color: white;
+  padding: 5px;
+}
+
+.activeContract {
+  background-color: #01C165;
+  color: white;
+  font-weight: 900;
+}
+
+.warningContract {
+  background-color: #AE0C00;
+  color: white;
+  font-weight: 900;
+}
+
+.stopContract {
+  background-color: #F76000;
+  font-weight: 900;
+  color: white;
+}
+
+.activeContract:hover , .activeContract.mat-active{
+  background-color: #02f37f !important;
+  color: white;
+  font-weight: 900;
+}
+
+.warningContract:hover, .warningContract.mat-active {
+  background-color: #e20f00 !important;
+  color: white;
+  font-weight: 900;
+}
+
+.stopContract:hover, .stopContract.mat-active {
+  background-color: #fa914f !important;
+  font-weight: 900;
+  color: white;
+}
+/*  */
+
+@media print {
+
+  body * {
+    visibility: hidden;
+  }
+  #mainContractContainer, #mainContractContainer * {
+    visibility: visible;
+  }
+  #mainContractContainer {
+    min-height: fit-content;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .print-btn {
+    display: none;
+  }
+
+  #attachments {
+    display: none;
+  }
+
+  svg {
+    display: none;
+  }
+  i {
+    display: none !important;
+  }
+  #branchInfo {
+    padding-bottom: 5px !important;
+  }
+
+  #containerDiv {
+    padding-bottom: 5px !important;
+  }
+
+  #contractInfo {
+    padding-bottom: 5px !important;
+  }
+
+  #contractHeading {
+    display: block !important;
+  }
+}

@@ -2,81 +2,76 @@
     <h3 class="me-4 ">العقود</h3>
     <div class="row justify-content-around align-items-center mt-4 summary">
         <div class="col-md-4 my-3">
-            <div class="s d-flex align-items-center justify-content-center "> ساري : 55</div>
+            <div class="s d-flex align-items-center justify-content-center "> ساري : {{statusSummary.valid}}</div>
         </div>
         <div class="col-md-4 my-3">
-            <div class="f d-flex align-items-center justify-content-center ">فسخ :  55</div>
+            <div class="f d-flex align-items-center justify-content-center ">فسخ :  {{statusSummary.annulled}}</div>
         </div>
         <div class="col-md-4 my-3">
-            <div class="t d-flex align-items-center justify-content-center ">تجديد : 55</div>
+            <div class="t d-flex align-items-center justify-content-center ">تجديد : {{statusSummary.renewal}}</div>
         </div>
     </div>
 </div>
 
 <div class="table col-sm-5 mostly-customized-scrollbar mt-4">
-    <table mat-table [dataSource]="dataSource" class="  text-center"  dir="rtl">          
+    <table mat-table [dataSource]="dataSource" class="  text-center"  dir="rtl">
 
-        <ng-container matColumnDef="#" >
-            <th mat-header-cell *matHeaderCellDef  sortActionDescription="Sort by number" class="text-center"> # </th>
-            <td mat-cell *matCellDef="let element"> {{element.OpCode}} </td>
-        </ng-container>
-    
-    
-    
+
+
         <ng-container matColumnDef="كود التشغيل">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> كود التشغيل 
+            <th mat-header-cell *matHeaderCellDef class="text-center"> كود التشغيل
                 <a href="" class="text-black"><i class="fa fa-sort me-1 fa-xs"></i></a>
             </th>
-            <td mat-cell *matCellDef="let element"> 
-                {{element.SapCode}}
+            <td mat-cell *matCellDef="let element">
+                {{element.store_code}}
              </td>
         </ng-container>
-        
-    
-    
+
+
+
         <ng-container matColumnDef="الفرع" >
-            <th mat-header-cell *matHeaderCellDef class="text-center"> 
+            <th mat-header-cell *matHeaderCellDef class="text-center">
                     <mat-select  (selectionChange)="AddressFilter($event,dataSource)" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                         <mat-option [value]="0">الفرع</mat-option>
                         <mat-option *ngFor="let row of apidata" [value]="row.Address">
                             {{ row.Address }}
                         </mat-option>
-                    </mat-select>         
+                    </mat-select>
             </th>
-            <td mat-cell *matCellDef="let element"> {{element.Address}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.branch_name}} </td>
         </ng-container>
-        
-    
-    
+
+
+
         <ng-container matColumnDef="المحافظة">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> 
+            <th mat-header-cell *matHeaderCellDef class="text-center">
                 <mat-select (selectionChange)="governorateFilter($event,dataSource)" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_governorate" [value]="row">
                         {{ row }}
                     </mat-option>
-                </mat-select>    
+                </mat-select>
             </th>
             <td mat-cell *matCellDef="let element"> {{element.governorate}} </td>
         </ng-container>
-        
-    
-    
+
+
+
         <ng-container matColumnDef="الاقليم">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> 
+            <th mat-header-cell *matHeaderCellDef class="text-center">
                 <mat-select (selectionChange)="nameFilter($event,dataSource)" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_name" [value]="row">
                         {{ row }}
                     </mat-option>
                 </mat-select>
             </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.province}} </td>
         </ng-container>
-    
 
-    
 
-        <ng-container matColumnDef="نوع العقد">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> 
+
+
+        <!-- <ng-container matColumnDef="نوع العقد">
+            <th mat-header-cell *matHeaderCellDef class="text-center">
                 <mat-select (selectionChange)="typeFilter($event,dataSource)" placeholder="نوع العقد" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_contractType" [value]="row">
                         {{ row }}
@@ -84,12 +79,12 @@
                 </mat-select>
             </th>
             <td mat-cell *matCellDef="let element"> {{element.contractType}} </td>
-        </ng-container>
-    
-    
+        </ng-container> -->
 
+
+<!--
         <ng-container matColumnDef="قسم العقد">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> 
+            <th mat-header-cell *matHeaderCellDef class="text-center">
                 <mat-select (selectionChange)="departmentFilter($event,dataSource)" placeholder="قسم العقد" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_Department" [value]="row">
                         {{ row }}
@@ -97,19 +92,19 @@
                 </mat-select>
             </th>
             <td mat-cell *matCellDef="let element"> {{element.Department }} </td>
-        </ng-container>
-        
-    
-        
+        </ng-container> -->
+
+
+
         <ng-container matColumnDef="الحالة">
-            <th mat-header-cell *matHeaderCellDef class="text-center"> 
+            <th mat-header-cell *matHeaderCellDef class="text-center">
                 <mat-select (selectionChange)="statusFilter($event,dataSource)" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option value="ساري">ساري</mat-option>
                     <mat-option value="فسخ">فسخ</mat-option>
                     <mat-option value="مطلوب تجديده">مطلوب تجديده</mat-option>
                 </mat-select>
             </th>
-            <td mat-cell *matCellDef="let element"> 
+            <td mat-cell *matCellDef="let element">
                 <div class="state pt-1" [ngClass]="{greenClass: element.status
                     =='ساري', redClass: element.status
                     =='فسخ',orangeClass: element.status
@@ -118,17 +113,17 @@
         </ng-container>
 
 
-      
 
-    
+
+
         <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;" [ngClass]="{alternate: index % 2 == 0 }"></tr>
+        <tr (click)="display(row.id)" mat-row *matRowDef="let row; columns: displayedColumns; let index = index;" [ngClass]="{alternate: index % 2 == 0 }"></tr>
     </table>
-    
+
 </div>
 
-<button class="btn m-5 mt-4 px-4 addBtn ">اضافة عقد</button>
-          
-          
-        
+<button [routerLink]="['/add-contract']" class="btn m-5 mt-4 px-4 addBtn ">اضافة عقد</button>
+
+
+
 

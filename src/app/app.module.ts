@@ -16,11 +16,13 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AddContractComponent } from './contracts/add-contract/add-contract.component';
 import { ShowContractComponent } from './contracts/show-contract/show-contract.component';
+import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import  * as _ from 'lodash';
 import {MatSortModule} from '@angular/material/sort';
-
-
+import {MatIconModule} from '@angular/material/icon';
+import { DatePipe } from '@angular/common';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import {MatSortModule} from '@angular/material/sort';
     NavbarComponent,
     AddContractComponent,
     ShowContractComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserTransferStateModule,
     BrowserAnimationsModule,
     MatTableModule,
@@ -44,9 +48,10 @@ import {MatSortModule} from '@angular/material/sort';
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatIconModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
