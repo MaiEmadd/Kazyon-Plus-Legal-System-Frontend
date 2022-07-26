@@ -14,7 +14,7 @@ export class Case1Component implements OnInit {
   ];
 
   
-  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم'];
+  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','btn'];
  dataSource = this.data;
 
   constructor() { 

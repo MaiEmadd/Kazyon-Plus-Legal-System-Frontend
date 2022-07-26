@@ -1,9 +1,57 @@
-<div class="container-fluid box mt-4 box" dir="rtl">
-    <br>
-    <h2>اضافة قضية جديد </h2>
-    <hr>
-    <div class="in text-center">
 
+<ul class="breadcrumb">
+  <i class="fa fa-home" ></i>
+  <li><a class="grey" href="#">الرئيسيه</a></li>
+  <li><a class="grey" href="#" >التوكيلات والعقود</a></li>
+  <li><a class="grey" href="#" >القضايا </a></li>
+  <li><a class="black" href="#" >
+
+    اضافة قضية جديد </a></li>
+  
+
+</ul>
+
+<style>
+  .fa {
+  margin-top: 5px;
+  margin-right: -10px;
+  color: gray;
+  }
+
+  a.grey {
+  color: grey;
+  margin-right: 5px;
+  }
+
+  a.black {
+  color: black;
+  }
+
+  ul.breadcrumb {
+    padding: 20px 56px;
+    list-style: none;
+    background-color: white;
+    direction: rtl;
+  }
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+  }
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    content: "/\00a0";
+  }
+
+  ul.breadcrumb li a {
+    text-decoration: none;
+  }
+
+  </style>
+  <div class="container-fluid box mt-4 box" dir="rtl">
+    <br>
+
+    <div class="in text-center">
+<br>
              <input type="text"  placeholder="اسم الموكل" > 
 
               <input type="text" placeholder="اسم الخصم"><br>

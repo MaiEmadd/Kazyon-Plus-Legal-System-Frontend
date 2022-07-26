@@ -13,6 +13,7 @@ import { ProcurationComponent } from './procuration/procuration.component';
 import { Procuration1Component } from './procuration1/procuration1.component';
 import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
+import { Procuration3Component } from './procuration3/procuration3.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { Case3Component } from './case3/case3.component';
     Procuration1Component,
     Case2Component,
     Case3Component,
+    Procuration3Component,
   ],
   imports: [
     BrowserModule,

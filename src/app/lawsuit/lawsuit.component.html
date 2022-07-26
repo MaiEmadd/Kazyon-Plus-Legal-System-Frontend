@@ -1,21 +1,62 @@
-<div class="container-fluid breadcramps mt-4 breadcramps" >
+<ul class="breadcrumb">
+    <i class="fa fa-home" ></i>
+    <li><a class="grey" href="#">الرئيسيه</a></li>
+    <li><a class="black" href="#" >التوكيلات والقضايا</a></li>
+  </ul>
+
+  <style>
+    .fa {
+    margin-top: 5px;
+    margin-right: -10px;
+    color: gray;
+    }
+
+    a.grey {
+    color: grey;
+    margin-right: 5px;
+    }
+
+    a.black {
+    color: black;
+    }
+
+    ul.breadcrumb {
+      padding: 20px 56px;
+      list-style: none;
+      background-color: white;
+      direction: rtl;
+    }
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      content: "/\00a0";
+    }
+ 
+    ul.breadcrumb li a {
+      text-decoration: none;
+    }
+
+    </style>
+
+
+
+<!-- <div class="container-fluid breadcramps mt-4 breadcramps" >
     <br>
     
     <h2> /التوكيلات و القضايا</h2>
 
 </div>
-<div class="container-fluid sign sign"  dir="rtl">
+<div class="container-fluid sign mt-4 sign"  dir="rtl">
 
-    <h2>الرئيسية/ </h2>
-    <i class="fa fa-home"></i>
-</div>
+    <i class="fa fa-home"></i><h2>الرئيسية/ </h2>
+</div> -->
+
 <div class="container-fluid content mt-4 content" dir="rtl">
-    <br>
-    <h2> التوكيلات و القضايا</h2>
-    <hr>
     <div class="controls text-center">
        <a href="http://localhost:4200/case"><button>القضايا</button></a> 
        <a href="http://localhost:4200/procuration"> <button>  التوكيلات</button></a>
     </div>
-
 </div>

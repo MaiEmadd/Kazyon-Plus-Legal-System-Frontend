@@ -5,6 +5,7 @@ import { LawsuitComponent } from './lawsuit/lawsuit.component';
 import { Case1Component } from './case1/case1.component';
 import { ProcurationComponent } from './procuration/procuration.component';
 import { Procuration1Component } from './procuration1/procuration1.component';
+import { Procuration3Component } from './procuration3/procuration3.component';
 import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
 
@@ -17,6 +18,7 @@ const routes: Routes = [
 {path:'procuration1',component:Procuration1Component },
  {path:'case2',component:Case2Component },
  {path:'case3',component:Case3Component },
+ {path:'procuration2',component:Procuration3Component},
 ];
 
 @NgModule({

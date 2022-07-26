@@ -1,5 +1,62 @@
-
-
+<ul class="breadcrumb">
+    <i class="fa fa-home" ></i>
+    <li><a class="grey" href="#">الرئيسيه</a></li>
+    <li><a class="grey" href="#" >التوكيلات والعقود</a></li>
+    <li><a class="grey" href="#" >القضايا </a></li>
+    <li><a class="grey" href="#" >اضافة قضية جديد </a></li>
+    <li><a class="black" href="#" >قضيه 324511#</a></li>
+  
+  </ul>
+  
+  <style>
+    .fa {
+    margin-top: 5px;
+    margin-right: -10px;
+    color: gray;
+    }
+  
+    a.grey {
+    color: grey;
+    margin-right: 5px;
+    }
+  
+    a.black {
+    color: black;
+    }
+  
+    ul.breadcrumb {
+      padding: 20px 56px;
+      list-style: none;
+      background-color: white;
+      direction: rtl;
+    }
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      content: "/\00a0";
+    }
+  
+    ul.breadcrumb li a {
+      text-decoration: none;
+    }
+  
+    </style>
+    <div class="container-fluid box mt-4 box" dir="rtl">
+    <div class="in text-center">
+<br><br>
+        <input type="text"  placeholder="اسم الموكل" > 
+        <input type="text" placeholder="اسم الخصم"><br>
+        <input type="text" placeholder=" نوع القضيه ">
+        <input type="text" placeholder="رقم القضية"> <br>
+         <input type="text" placeholder="السنة">
+       <input type="text" placeholder="رقم الملف"> <br>
+       <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
+        
+     </div>
+    </div>
   <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8 mt-5 text-center" dir="rtl"> 
     <ng-container matColumnDef="تاريخ الجلسة القادمه" >
         <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة القادمه</th>
@@ -18,3 +75,5 @@
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
   </table>
+  <button class="btn m-5 px-4 savebtn">حفظ</button>
+        <button class="btn m-5 px-4 ignorebtn">  تجاهل</button>

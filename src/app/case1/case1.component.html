@@ -92,7 +92,12 @@
           </th>
           <td mat-cell *matCellDef="let element"> {{element.opponentname}} </td>
       </ng-container>
-      
+      <ng-container matColumnDef="btn">
+        <th mat-header-cell *matHeaderCellDef class="text-center">تفاصيل
+            
+        </th>
+        <td mat-cell *matCellDef="let element"><a href="http://localhost:4200/case3"><i class="fas fa-edit"></i></a></td>
+    </ng-container>
       
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
