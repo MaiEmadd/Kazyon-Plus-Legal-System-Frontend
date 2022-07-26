@@ -16,4 +16,10 @@ export class ProcurartonService {
     return this.http.get<Procuration[]>(`${this.baseUrl+"/getall"}`);
   }
   
+  addProcurartion(proc:Procuration): Observable<any>{
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(proc);
+    console.log(body)
+    return this.http.post(this.baseUrl + '/add', body,{'headers':headers})
+  }
 }

@@ -50,15 +50,16 @@
  
     <div class="in text-center">
 <br>
-             <input type="text"  placeholder="اسم الموكل" > 
 
-              <input type="text" placeholder="السنة"><br>
+  <input [(ngModel)]="procuration.client_name" type="text"  placeholder="اسم الموكل" >
 
-            <input type="text" placeholder="رقم التوكيل"> 
+              <input [(ngModel)]="procuration.year" type="text" placeholder="السنة"><br>
 
-            <input type="text" placeholder="مكتب التوثيق "><br>
+            <input  [(ngModel)]="procuration.procuration_number" type="text" placeholder="رقم التوكيل"> 
 
-            <input type="text" placeholder="رقم التوكيل بالمكتب">
+            <input  [(ngModel)]="procuration.office" type="text" placeholder="مكتب التوثيق "><br>
+
+            <input   [(ngModel)]="procuration.office_procuration_number"type="text" placeholder="رقم التوكيل بالمكتب">
             <button class="btn  px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
             
 
@@ -68,6 +69,6 @@
 
 
         <button class="btn m-2 px-4 ignorebtn">  تجاهل</button>
-        <button class="btn m-2 px-4 savebtn">حفظ</button>
+        <button (click)="addProcurartion()" class="btn m-2 px-4 savebtn">حفظ</button>
 
     

@@ -15,6 +15,9 @@ import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
 import { Procuration3Component } from './procuration3/procuration3.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatSelectModule,
     HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
