@@ -1,14 +1,60 @@
-<div class="container-fluid case mt-4 case" dir="rtl">
+
+<ul class="breadcrumb">
+    <i class="fa fa-home" ></i>
+    <li><a class="grey" href="#">الرئيسيه</a></li>
+    <li><a class="grey" href="#" >التوكيلات والعقود</a></li>
+    <li><a class="black" href="#" >القضايا </a></li>
+
+  </ul>
+
+  <style>
+    .fa {
+    margin-top: 5px;
+    margin-right: -10px;
+    color: gray;
+    }
+
+    a.grey {
+    color: grey;
+    margin-right: 5px;
+    }
+
+    a.black {
+    color: black;
+    }
+
+    ul.breadcrumb {
+      padding: 20px 56px;
+      list-style: none;
+      background-color: white;
+      direction: rtl;
+    }
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      content: "/\00a0";
+    }
+ 
+    ul.breadcrumb li a {
+      text-decoration: none;
+    }
+
+    </style>
+    <div class="container-fluid case  case">
+     
     <input type="text" placeholder=" اسم الموكل " >
+    
+  <br>
+  <br>
+  </div> 
+  <div class="container-fluid icon">
     <i class="fa-solid fa-magnifying-glass"></i>
-  <br>
-  <br>
-  </div>    
+  </div>   
   
-  <div class="container-fluid box mt-4 " dir="rtl">
-    <br>
-      <h2>القضايا</h2>
-      <hr>
+  <div class="container-fluid box " dir="rtl">
   <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8 mt-5 text-center" dir="rtl"> 
     <ng-container matColumnDef="#" >
         <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
@@ -51,6 +97,6 @@
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
   </table>
-  
+  <br>
 </div>
 <a href="http://localhost:4200/case2"><button class="btn m-5 px-4 addbtn">اضافة قضية </button></a>
