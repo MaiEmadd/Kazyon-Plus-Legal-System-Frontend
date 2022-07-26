@@ -14,6 +14,7 @@ import { Procuration1Component } from './procuration1/procuration1.component';
 import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
 import { Procuration3Component } from './procuration3/procuration3.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,13 +28,15 @@ import { Procuration3Component } from './procuration3/procuration3.component';
     Case2Component,
     Case3Component,
     Procuration3Component,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatTableModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

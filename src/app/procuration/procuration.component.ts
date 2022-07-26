@@ -1,31 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Procuration } from 'src/app/procuration/procurartion';
+import { ProcurartonService } from './procurarton.service';
 
-@Component({
-  selector: 'app-procuration',
-  templateUrl: './procuration.component.html',
-  styleUrls: ['./procuration.component.css']
-})
+@Component({ selector: 'app', templateUrl: 'procuration.component.html',styleUrls: ['./procuration.component.css'] })
 export class ProcurationComponent implements OnInit {
-
-  data:any[] = [
-    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
-    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
-    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
-    {id:'1', clientname: '#324511', procurationnum: 'جنح', year: 2018, regoffice: 'عماد الدين احمد', procurationoffice:'محسن محمد'}, 
-
-  ];
-
-  
-  displayedColumns: string[] = ['#','اسم الموكل', 'رقم التوكيل', 'السنة', 'مكتب التوثيق', 'رقم التوكيل بالمكتب','btn'];
- dataSource = this.data;
-
-  constructor() { 
-
     
-  }
-
-  ngOnInit(): void {
-    console.log(this.displayedColumns);
-  }
-
+    displayedColumns: string[] = ['#','اسم الموكل', 'رقم التوكيل', 'السنة', 'مكتب التوثيق', 'رقم التوكيل بالمكتب','btn'];
+    procs: Procuration[]=[] ;
+    constructor(private procurartonService: ProcurartonService) { }
+  
+    ngOnInit(): void {
+      this.procurartonService.getProcurartion().subscribe((data: Procuration[]) => {
+        console.log(data);
+        this.procs = data;
+      });
+    }
+    
 }
