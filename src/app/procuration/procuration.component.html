@@ -45,7 +45,8 @@
   </style>
 <div class="container-fluid case mt-4 case" dir="rtl">
     <i class="fa-solid fa-magnifying-glass"></i>
-    <input type="text" placeholder=" اسم الموكل " >
+    <input [(ngModel)]="name" type="text" placeholder=" اسم الموكل " >
+    <button (click)="getProcurartion()" class="btn m-2 px-4 savebtn">حفظ</button>
     <br>
     <br>
 </div> 

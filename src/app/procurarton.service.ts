@@ -15,7 +15,9 @@ export class ProcurartonService {
   getProcurartion(): Observable<Procuration[]>{
     return this.http.get<Procuration[]>(`${this.baseUrl+"/getall"}`);
   }
-  
+  getProcurartionByName(name:String): Observable<Procuration[]>{
+    return this.http.get<Procuration[]>(`${this.baseUrl+"/search?name="+name}`);
+  }
   addProcurartion(proc:Procuration): Observable<any>{
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(proc);
