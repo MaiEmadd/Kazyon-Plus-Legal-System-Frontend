@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Case } from '../case';
+import { ProcurartonService } from '../procurarton.service';
 
 @Component({
   selector: 'app-case1',
@@ -6,23 +8,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./case1.component.css']
 })
 export class Case1Component implements OnInit {
-  data:any[] = [
-    {id:'1', casenum: '#324511', casetype: 'جنح', year: 2018, clientname: 'عماد الدين احمد', opponentname:'محسن محمد'}, 
-    {id:'2', casenum: '#894254', casetype: 'جنح', year: 2020, clientname: 'عمر عاصم', opponentname:'عادل احمد'}, 
-    {id:'3', casenum: '#324846', casetype: 'جنح', year: 2022, clientname: 'عبدالله اشرف', opponentname:'محمد حسام'}, 
-    {id:'4', casenum: '#547204', casetype: 'جنح', year: 2007, clientname: 'عامر عصام', opponentname:'عادل عبدالهادي'}, 
-  ];
+  
 
   
   displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','btn'];
- dataSource = this.data;
+  cases: Case[]=[] ;
+  name:String="";
+  constructor(private procurartonService: ProcurartonService) { }
 
-  constructor() { 
-    
+  ngOnInit(): void {
+    this.procurartonService.getCases().subscribe((data: Case[]) => {
+      console.log(data);
+      this.cases = data;
+    });
   }
+  getProcurartion() {
+    this.procurartonService.getCasesByName(this.name)
+      .subscribe(data => {
+        console.log(data)
+        this.cases=data;
+      })  }
 
-  ngOnInit(): void { 
-    console.log(this.displayedColumns);
-  }
-
+  
 }
