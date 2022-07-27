@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Procuration } from 'src/app/procuration/procurartion';
+import { Procuration } from 'src/app/procurartion';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,9 @@ export class ProcurartonService {
   }
   getProcurartionByName(name:String): Observable<Procuration[]>{
     return this.http.get<Procuration[]>(`${this.baseUrl+"/search?name="+name}`);
+  }
+  getProcurartionByID(ID:number): Observable<Procuration>{
+    return this.http.get<Procuration>(`${this.baseUrl+"/findbyid/"+ID}`);
   }
   addProcurartion(proc:Procuration): Observable<any>{
     const headers = { 'content-type': 'application/json'}  

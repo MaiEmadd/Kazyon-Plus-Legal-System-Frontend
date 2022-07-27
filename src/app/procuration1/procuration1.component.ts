@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Procuration } from '../procuration/procurartion';
+import { Procuration } from '../procurartion';
 import { ProcurartonService } from '../procurarton.service';
 @Component({
   selector: 'app-procuration1',

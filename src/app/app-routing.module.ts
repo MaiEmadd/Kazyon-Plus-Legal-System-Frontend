@@ -18,7 +18,7 @@ const routes: Routes = [
 {path:'procuration1',component:Procuration1Component },
  {path:'case2',component:Case2Component },
  {path:'case3',component:Case3Component },
- {path:'procuration2',component:Procuration3Component},
+ {path:'procuration2/:id',component:Procuration3Component},
 ];
 
 @NgModule({

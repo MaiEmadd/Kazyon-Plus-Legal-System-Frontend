@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Procuration } from 'src/app/procuration/procurartion';
+import { Procuration } from '../procurartion';
 import { ProcurartonService } from '../procurarton.service';
 
 @Component({ selector: 'app', templateUrl: 'procuration.component.html',styleUrls: ['./procuration.component.css'] })
