@@ -27,4 +27,9 @@ export class ProcurartonService {
     console.log(body)
     return this.http.post(this.baseUrl + '/add', body,{'headers':headers})
   }
+  updateProcurartion(proc:Procuration): Observable<any>{
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(proc);
+    return this.http.put(this.baseUrl + '/update/'+proc.id, body,{'headers':headers})
+  }
 }

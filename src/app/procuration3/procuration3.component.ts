@@ -20,6 +20,11 @@ export class Procuration3Component implements OnInit {
     this.id=this._router.snapshot.params?.['id'];
     this.getProcurartionbyID();
     }
+    updateProcurartion() {
+      this.service.updateProcurartion(this.proc)
+        .subscribe(data => {
+        })      
+    }
     getProcurartionbyID() {
       this.service.getProcurartionByID(this.id)
         .subscribe(data => {
