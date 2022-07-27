@@ -45,7 +45,7 @@
     </style>
     <div class="container-fluid case  case">
      
-    <input type="text" placeholder=" اسم الموكل " >
+    <input [(ngModel)]="name" type="text" placeholder=" اسم الموكل " >
     
   <br>
   <br>
@@ -55,16 +55,16 @@
   </div>   
   
   <div class="container-fluid box " dir="rtl">
-  <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8 mt-5 text-center" dir="rtl"> 
+  <table mat-table [dataSource]="cases"  class="mat-elevation-z8 mt-5 text-center" dir="rtl"> 
     <ng-container matColumnDef="#" >
         <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.idCase}} </td>
     </ng-container>
 
       <ng-container matColumnDef="رقم القضيه">
           <th mat-header-cell *matHeaderCellDef class="text-center"> رقم القضيه
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.casenum}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.numbercase}} </td>
           <td>
           </td>
       </ng-container>
@@ -72,32 +72,32 @@
       <ng-container matColumnDef="نوع القضية">
           <th mat-header-cell *matHeaderCellDef class="text-center"> نوع القضية    
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.casetype}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.category}} </td>
       </ng-container>
       <ng-container matColumnDef="السنة">
           <th mat-header-cell *matHeaderCellDef class="text-center">  السنة
              
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.caseyear}} </td>
       </ng-container>
       <ng-container matColumnDef="اسم الموكل">
           <th mat-header-cell *matHeaderCellDef class="text-center">  اسم الموكل
               
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.clientname}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.client}} </td>
       </ng-container>
       <ng-container matColumnDef="اسم الخصم">
           <th mat-header-cell *matHeaderCellDef class="text-center"> اسم الخصم
               
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.opponentname}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.against}} </td>
       </ng-container>
       <ng-container matColumnDef="btn">
         <th mat-header-cell *matHeaderCellDef class="text-center">تفاصيل
             
         </th>
-        <td mat-cell *matCellDef="let element"><a href="http://localhost:4200/case3"><i class="fas fa-edit"></i></a></td>
-    </ng-container>
+        <td mat-cell *matCellDef="let element"><a [routerLink]="['/case3', element.idCase]" ><i class="fas fa-edit"></i></a></td>
+      </ng-container>
       
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
