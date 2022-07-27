@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import { ContractConstants } from '../contract-constants';
@@ -20,7 +20,10 @@ import { Router } from '@angular/router';
     DatePipe
   ],
 })
-export class AddContractComponent implements OnInit {
+export class AddContractComponent implements OnInit{
+
+files: any[] = [];
+
 
 public contract!:Contract;
 
@@ -43,7 +46,6 @@ setClass(className: string): void {
         this.className="warningContract";
       }
   });
-
 }
 
 constructor(private _formBuilder: FormBuilder, private _contractService:ContractsApiService, private dateAdapter: DateAdapter<any>, private datePipe: DatePipe,
@@ -61,28 +63,28 @@ checkCode() {
     this.errorStoreCodeFlag = false;
 }
 
-valid_date:string | null = "";
+valid_through:string | null = "";
 end_date:string | null = "";
-received_date:string | null = "";
-beginning_date:string | null = "";
+receiving_date:string | null = "";
+opening_date:string | null = "";
 renewal_date:string | null = "";
 
   transformDate(dateGiven?:Date, type?:string) {
-    console.log(type)
+    console.log(dateGiven);
     if (type == "السريان") {
-     this.valid_date = this.datePipe.transform(dateGiven, 'yyyy/MM/dd');
-     this.thirdFormGroup.get('valid_through')?.setValue(this.valid_date);
+     this.valid_through = this.datePipe.transform(dateGiven, 'yyyy/MM/dd');
+      console.log(this.valid_through)
     } else if (type == "الانتهاء") {
-      this.end_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd")
-    } else if (type == "الاستلام")
-      this.received_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd")
-    else if (type == "الافتتاح")
-      this.beginning_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd")
-    else
-    this.renewal_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd")
-
-
-
+      this.end_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd");
+    } else if (type == "الاستلام") {
+      this.receiving_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd");
+    }
+    else if (type == "الافتتاح") {
+      this.opening_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd");
+    }
+    else {
+      this.renewal_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd")
+    }
   }
 
   firstFormGroup = this._formBuilder.group({
@@ -104,22 +106,38 @@ renewal_date:string | null = "";
     valid_through: ['', Validators.required],
     opening_date: '',
     receiving_date: ''
-  })
+  });
+
+  fourthFormGroup = this._formBuilder.group({
+    files:''
+  });
+
 
   ngOnInit(): void {
     this.dateAdapter.setLocale('ar');
   }
 
-  finish() {
+  finish(files:any[]  ) {
+
+    this.thirdFormGroup.get('valid_through')?.setValue(this.valid_through);
+    this.thirdFormGroup.get('end_date')?.setValue(this.end_date);
+    this.thirdFormGroup.get('receiving_date')?.setValue(this.receiving_date);
+    this.thirdFormGroup.get('opening_date')?.setValue(this.opening_date);
+    this.thirdFormGroup.get('renewal_date')?.setValue(this.renewal_date);
+
 
     let  apiBody = <Contract> Object.assign({}, this.firstFormGroup.value, this.secondFormGroup.value, this.thirdFormGroup.value);
-    console.log(apiBody);
+
+
 
     this._contractService.addContract(apiBody).subscribe( (data) => {
         this.contract = <Contract> data;
-        this._router.navigate(["contracts",this.contract.id])},
-        () => {
 
+        this._contractService.addContractAttachments(files, <string> <unknown> this.contract.id).subscribe(data => {
+          this._router.navigate(["contracts",this.contract.id])
+        })
+        },
+        () => {
         }
 
     )

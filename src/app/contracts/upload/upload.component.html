@@ -1,0 +1,23 @@
+<div class="file-upload" [ngClass]="disabled==true? 'disabled-class' : ''" >
+
+  <div  class="image-upload-wrap">
+    <input [disabled]="disabled" class="file-upload-input" type='file' (change)="readURL($event);" multiple accept="application/pdf" />
+    <div class="drag-text">
+      <h3>قم بسحب الملفات هنا أو أضغط لإختيارها<br>(10 mb) الحد الأقصى للملف</h3>
+    </div>
+  </div>
+  <div class="file-upload-content"  id="uploaded-pdf-block">
+    <div style="width: 25%;" *ngFor="let file of filesSelected" >
+      <span (click)="removeUpload(file.name)" id="remove">X</span>
+      <img src="../../../assets/Images/icons8-pdf-96.png" alt="">
+      <p>{{ file.name }}</p>
+    </div>
+    <div class="text-add" (click)="add()">
+
+      <h3> <i style="font-size: 48px;" class="fa-solid fa-file-pdf"></i> <br>       إضافة ملف      </h3>
+    </div>
+
+  </div>
+
+
+</div>

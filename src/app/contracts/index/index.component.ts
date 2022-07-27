@@ -7,6 +7,7 @@ import { MatSelect
  } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { Contract } from '../contract';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-index',
@@ -19,9 +20,8 @@ export class IndexComponent implements OnInit {
   apidata:any[] =[];
   dataSource:any[] =[];
   unique_governorate :any[] =[] ;
-  unique_name :any[] =[]
-  unique_contractType :any[] =[]
-  unique_Department :any[] =[]
+  unique_branch_name :any[] =[]
+  unique_province: any[] = []
   unique_status:any[]=[];
 
   filter_object  = {
@@ -39,11 +39,11 @@ export class IndexComponent implements OnInit {
       this.apidata = response;
       this.dataSource = this.apidata;
       this.unique_governorate = [...new Set(this.apidata.map(item => item.governorate))];
-      this.unique_name = [...new Set(this.apidata.map(item => item.branch_name))];
-      this.unique_contractType = [...new Set(this.apidata.map(item => item.contractType))];
-      this.unique_Department = [...new Set(this.apidata.map(item => item.Department))];
+      this.unique_branch_name= [...new Set(this.apidata.map(item => item.branch_name))];
+      this.unique_province = [...new Set(this.apidata.map(item => item.province))];
+      this.unique_status = [...new Set(this.apidata.map(item => item.status))];
 
-  });
+    });
 
 
   }
@@ -65,33 +65,6 @@ export class IndexComponent implements OnInit {
     this.dataSource = filterDate;
    }
 
-   typeFilter($event:any,apidata:any){
-    let filterDate = _.filter(apidata,(item)=>{
-      return item.contractType.toLowerCase() == $event.value.toLowerCase();
-    })
-    this.dataSource = filterDate;
-   }
-
-   nameFilter($event:any,apidata:any){
-    let filterDate = _.filter(apidata,(item)=>{
-      return item.name.toLowerCase() == $event.value.toLowerCase();
-    })
-    this.dataSource = filterDate;
-   }
-
-   governorateFilter($event:any,apidata:any){
-    let filterDate = _.filter(apidata,(item)=>{
-      return item.governorate.toLowerCase() == $event.value.toLowerCase();
-    })
-    this.dataSource = filterDate;
-   }
-
-   AddressFilter($event:any,apidata:any){
-    let filterDate = _.filter(apidata,(item)=>{
-      return item.Address.toLowerCase() == $event.value.toLowerCase();
-    })
-    this.dataSource = filterDate;
-   }
 
 
    changeFilter($event:any, type:String) {
@@ -100,7 +73,6 @@ export class IndexComponent implements OnInit {
     if (this.filter_object[type as keyof typeof this.filter_object] == value) {
       this.filter_object[type as keyof typeof this.filter_object] = "";
       const matSelect: MatSelect = $event.source;
-      console.log("Hey")
       matSelect.writeValue(null);
     }
 
@@ -116,10 +88,12 @@ export class IndexComponent implements OnInit {
     else
       this.filter_object.province = value;
 
-      this.getAllContracts(`governorate=${this.filter_object.governorate}&status=${this.filter_object.status}&province=${this.filter_object.province}&branch_name=${this.filter_object.branch}`);
-
+      this.sendApiRequest();
    }
 
+   sendApiRequest() {
+    this.getAllContracts(`governorate=${this.filter_object.governorate}&status=${this.filter_object.status}&province=${this.filter_object.province}&branch_name=${this.filter_object.branch}`);
+   }
 
    display(id ?: number) {
     this._router.navigate(["contracts",id])

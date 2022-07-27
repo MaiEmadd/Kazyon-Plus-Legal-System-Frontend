@@ -31,11 +31,20 @@
 
         <ng-container matColumnDef="الفرع" >
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                    <mat-select (selectionChange)="changeFilter($event, 'branch')" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
-                        <mat-option *ngFor="let row of apidata" [value]="row.branch_name">
-                            {{ row.branch_name }}
+                  <button *ngIf="filter_object.branch != ''" (click)="filter_object.branch = ''; sendApiRequest(); branch.value = undefined" style="background-color: white; border:0px; outline:none;">
+                    <i class="fa-solid fa-xmark ms-2"></i>
+                    </button>
+                    <mat-select #branch (selectionChange)="changeFilter($event, 'branch')" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                      <ng-container *ngFor="let row of unique_branch_name">
+                      <mat-option *ngIf='row != "" && row != null'  [value]="row">
+
+                            {{ row }}
+
                         </mat-option>
+                      </ng-container>
+
                     </mat-select>
+
             </th>
             <td mat-cell *matCellDef="let element"> {{element.branch_name}} </td>
         </ng-container>
@@ -44,8 +53,11 @@
 
         <ng-container matColumnDef="المحافظة">
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                <mat-select (selectionChange)="changeFilter($event, 'governorate')" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
-                    <mat-option *ngFor="let row of unique_governorate" [value]="row">
+              <button *ngIf="filter_object.governorate ''" (click)="filter_object.governorate = ''; sendApiRequest(); governorate.value = undefined" style="background-color: white; border:0px; outline:none;">
+                  <i class="fa-solid fa-xmark ms-2"></i>
+                </button>
+                <mat-select #governorate (selectionChange)="changeFilter($event, 'governorate')" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option *ngFor="let row of unique_governorate"  [value]="row">
                         {{ row }}
                     </mat-option>
                 </mat-select>
@@ -57,8 +69,11 @@
 
         <ng-container matColumnDef="الاقليم">
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                <mat-select (selectionChange)="changeFilter($event, 'province')" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
-                    <mat-option *ngFor="let row of unique_name" [value]="row">
+              <button *ngIf="filter_object.province!= ''" (click)="filter_object.province = ''; sendApiRequest(); province.value = undefined" style="background-color: white; border:0px; outline:none;">
+                <i class="fa-solid fa-xmark ms-2"></i>
+              </button>
+                <mat-select #province (selectionChange)="changeFilter($event, 'province')" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option  *ngFor="let row of unique_province" [value]="row">
                         {{ row }}
                     </mat-option>
                 </mat-select>
@@ -97,10 +112,13 @@
 
         <ng-container matColumnDef="الحالة">
             <th mat-header-cell *matHeaderCellDef class="text-center">
-                <mat-select (selectionChange)="changeFilter($event, 'status')" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
-                    <mat-option value="ساري">ساري</mat-option>
-                    <mat-option value="فسخ">فسخ</mat-option>
-                    <mat-option value="مطلوب تجديده">مطلوب تجديده</mat-option>
+              <button *ngIf="filter_object.status != ''" (click)="filter_object.status = ''; sendApiRequest(); status.value = undefined" style="background-color: white; border:0px; outline:none;">
+                <i class="fa-solid fa-xmark ms-2"></i>
+              </button>
+                <mat-select #status (selectionChange)="changeFilter($event, 'status')" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                  <mat-option  *ngFor="let row of unique_status" [value]="row">
+                      {{ row }}
+                 </mat-option>
                 </mat-select>
             </th>
             <td mat-cell *matCellDef="let element">

@@ -165,6 +165,26 @@ mat-datepicker {
   transition: 0.3s ease-in;
 }
 
+
+.back-btn {
+  border: 1px solid #f2d010;
+  margin-top: 20px;
+  float: left;
+  background-color: white;
+  color: black;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  padding: 5px 15px;
+  font-weight: 900;
+  font-size: 20px;
+  transition: 0.3s ease-in;
+}
+
+.back-btn:hover {
+  background-color: #f2d010;
+}
+
 .print-btn:hover {
   background-color: #AE0C00;
 }
@@ -172,7 +192,7 @@ mat-datepicker {
 #contractInfo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 40px;
+  padding: 5px 40px;
   grid-gap: 30px;
   direction: rtl;
 }
@@ -191,7 +211,7 @@ mat-datepicker {
 #branchInfo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 40px;
+  padding: 5px 40px;
   grid-gap: 30px;
   direction: rtl;
 }
@@ -200,9 +220,30 @@ mat-datepicker {
   display: grid;
   direction: rtl;
   grid-template-columns: 1fr 1fr;
-  padding: 40px;
-  padding-bottom: 5px;
+  padding: 5px 40px;
   grid-gap: 30px;
   margin-bottom: 30px;
   grid-row-gap: 30px;
+}
+
+.download-btn {
+  padding: 5px 15px;;
+  margin: 15px 25px;
+  float: right;
+  background: #173156;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+border: 0px;
+color: white;
+width: 10%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#paragraph {
+  padding: 20px;
+  color: red;
 }

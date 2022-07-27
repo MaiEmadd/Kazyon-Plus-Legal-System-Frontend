@@ -4,12 +4,13 @@ export class Contract {
   sap_code?: String;
   governorate?: String;
   province?: String;
-  end_date?: Date;
-  valid_through?: Date;
-  renewal_date?: Date;
-  opening_date?: Date;
-  receiving_date?: Date;
+  end_date?: String | null;
+  valid_through?: String | null;
+  renewal_date?: String | null;
+  opening_date?: String | null;
+  receiving_date?: String | null;
   branch_name?: String;
   branch_address?: String;
   status?: String;
+  has_attachment?: Boolean;
 }
