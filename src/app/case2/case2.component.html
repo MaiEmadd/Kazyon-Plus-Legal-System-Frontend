@@ -2,12 +2,12 @@
 <ul class="breadcrumb">
   <i class="fa fa-home" ></i>
   <li><a class="grey" href="#">الرئيسيه</a></li>
-  <li><a class="grey" href="#" >التوكيلات والعقود</a></li>
+  <li><a class="grey" href="#" >التوكيلات والقضايا</a></li>
   <li><a class="grey" href="#" >القضايا </a></li>
   <li><a class="black" href="#" >
 
     اضافة قضية جديد </a></li>
-  
+
 
 </ul>
 
@@ -52,22 +52,22 @@
 
     <div class="in text-center">
 <br>
-             <input type="text"  placeholder="اسم الموكل" [(ngModel)]="case.client" > 
+             <input type="text"  placeholder="اسم الموكل" [(ngModel)]="case.client" >
 
               <input type="text" placeholder="اسم الخصم" [(ngModel)]="case.against"><br>
 
-            <input type="text" placeholder="نوع القضية" [(ngModel)]="case.category"> 
+            <input type="text" placeholder="نوع القضية" [(ngModel)]="case.category">
 
             <input type="text" placeholder="رقم القضية " [(ngModel)]="case.numbercase"><br>
 
             <input type="text" placeholder="  السنة" [(ngModel)]="case.caseyear">
             <input type="text" placeholder="رقم  الملف" [(ngModel)]="case.filenumber"><br>
             <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
-            
 
-    
+
+
     </div>
-</div>    
+</div>
 
 <button (click)="addCase()" class="btn m-5 px-4 savebtn">حفظ</button>
-<button class="btn m-5 px-4 ignorebtn">  تجاهل</button>
+<button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case']">تجاهل</button>

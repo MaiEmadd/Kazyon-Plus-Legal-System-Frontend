@@ -8,9 +8,9 @@ import { ProcurartonService } from '../procurarton.service';
   styleUrls: ['./case1.component.css']
 })
 export class Case1Component implements OnInit {
-  
 
-  
+
+
   displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','btn'];
   cases: Case[]=[] ;
   name:String="";
@@ -22,12 +22,12 @@ export class Case1Component implements OnInit {
       this.cases = data;
     });
   }
-  getProcurartion() {
+  getCase() {
     this.procurartonService.getCasesByName(this.name)
       .subscribe(data => {
         console.log(data)
         this.cases=data;
       })  }
 
-  
+
 }

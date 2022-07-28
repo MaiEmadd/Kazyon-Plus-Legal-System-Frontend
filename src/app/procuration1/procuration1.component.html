@@ -1,7 +1,7 @@
 <ul class="breadcrumb">
   <i class="fa fa-home "  ></i>
   <li><a class="grey" href="#">الرئيسيه</a></li>
-  <li><a class="grey" href="#" >التوكيلات والعقود </a></li>
+  <li><a class="grey" href="#" >التوكيلات والقضايا </a></li>
   <li><a class="grey" href="#" >التوكيلات  </a></li>
   <li><a class="black" href="#" >   اضافة توكيل جديد   </a></li>
 
@@ -28,7 +28,7 @@
     list-style: none;
     background-color: white;
     direction: rtl;
-    
+
   }
   ul.breadcrumb li {
     display: inline;
@@ -46,8 +46,8 @@
   </style>
   <div class="container-fluid box mt-4 box" dir="rtl">
     <br>
-  
- 
+
+
     <div class="in text-center">
 <br>
 
@@ -55,20 +55,19 @@
 
               <input [(ngModel)]="procuration.year" type="text" placeholder="السنة"><br>
 
-            <input  [(ngModel)]="procuration.procuration_number" type="text" placeholder="رقم التوكيل"> 
+            <input  [(ngModel)]="procuration.procuration_number" type="text" placeholder="رقم التوكيل">
 
             <input  [(ngModel)]="procuration.office" type="text" placeholder="مكتب التوثيق "><br>
 
             <input   [(ngModel)]="procuration.office_procuration_number"type="text" placeholder="رقم التوكيل بالمكتب">
             <button class="btn  px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
-            
 
-    
+
+
     </div>
-</div>    
+</div>
 
 
-        <button class="btn m-2 px-4 ignorebtn">  تجاهل</button>
-        <button (click)="addProcurartion()" class="btn m-2 px-4 savebtn">حفظ</button>
+<button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
+<button (click)="addProcurartion()" class="btn m-2 px-4 savebtn">حفظ</button>
 
-    
