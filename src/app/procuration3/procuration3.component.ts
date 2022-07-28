@@ -23,6 +23,7 @@ export class Procuration3Component implements OnInit {
     updateProcurartion() {
       this.service.updateProcurartion(this.proc)
         .subscribe(data => {
+          
         })      
     }
     getProcurartionbyID() {
