@@ -22,6 +22,7 @@ export class Case1Component implements OnInit {
       this.cases = data;
     });
   }
+  
   getCase() {
     this.procurartonService.getCasesByName(this.name)
       .subscribe(data => {

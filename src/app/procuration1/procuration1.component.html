@@ -83,4 +83,4 @@
 
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
 
-<button class="btn m-2 px-4 savebtn" (click)="addProcurartion()" [routerLink]="['/procuration']" [disabled]="exform.invalid" type="button" >حفظ</button>
+<button class="btn m-2 px-4 savebtn" (click)="onSave()"  [disabled]="exform.invalid" type="button" >حفظ</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
 
@@ -28,6 +29,10 @@ export class Case2Component implements OnInit {
       'filenumber':new FormControl(null, [Validators.required]),
       'area':new FormControl(null, [Validators.required])
     });
+  }
+  onSave(){
+    this.addCase();
+    Swal.fire({title:"تم الحفظ"});
   }
   addCase() {
     this.case.sessionRequests=[];

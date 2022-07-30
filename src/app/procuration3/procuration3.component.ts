@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router'
 import { ProcurartonService } from '../procurarton.service';
 import { Procuration } from '../procurartion';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-procuration3',
   templateUrl: './procuration3.component.html',
@@ -33,6 +34,10 @@ export class Procuration3Component implements OnInit {
         .subscribe(data => {
 
         })      
+    }
+    onSave(){
+      this.updateProcurartion();
+      Swal.fire({title:"تم الحفظ"});
     }
     getProcurartionbyID() {
       this.service.getProcurartionByID(this.id)

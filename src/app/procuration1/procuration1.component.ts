@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { switchAll } from 'rxjs';
 import { Procuration } from '../procurartion';
 import { ProcurartonService } from '../procurarton.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-procuration1',
   templateUrl: './procuration1.component.html',
@@ -30,7 +32,7 @@ export class Procuration1Component implements OnInit {
   }
   onSave(){
     this.addProcurartion();
-    alert("تم حفظ التغيرات");
+    Swal.fire({title:"تم الحفظ"});
   }
 
 }
