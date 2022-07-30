@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
@@ -21,6 +22,7 @@ export class Case3Component implements OnInit {
   session: Session[] =[];
   case: Case = new Case;
   id:number=0;
+  exform!: FormGroup;
   displayedColumns: string[] = ['تاريخ الجلسة القادمه','تاريخ الجلسة الحاليه ', 'قرار الجلسة الحاليه '];
  dataSource = this.data;
 
@@ -39,6 +41,18 @@ export class Case3Component implements OnInit {
     });
     console.log(this.id);
     this.getCaseByID();
+    this.exform = new FormGroup({
+      'client' : new FormControl(null, Validators.required),
+      'clientstat' : new FormControl(null, Validators.required),
+      'against' : new FormControl(null, Validators.required),
+      'againststat' : new FormControl(null, Validators.required),
+      'category' : new FormControl(null, Validators.required),
+      'caseyear': new FormControl(null, [Validators.required]),
+      'office' : new FormControl(null, [Validators.required]),
+      'numbercase':new FormControl(null, [Validators.required]),
+      'filenumber':new FormControl(null, [Validators.required]),
+      'area':new FormControl(null, [Validators.required])
+    });
   }
   updateCase() {
     this.service.updateCase(this.case)
