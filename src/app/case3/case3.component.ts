@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
 import { Session } from '../session';
@@ -58,6 +59,10 @@ export class Case3Component implements OnInit {
     this.service.updateCase(this.case)
       .subscribe(data => {
       })      
+  }
+  onSave(){
+    this.updateCase();
+    Swal.fire({title:"تم الحفظ"});
   }
   getCaseByID() {
     this.service.getCaseByID(this.id)
