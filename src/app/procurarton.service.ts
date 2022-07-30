@@ -22,7 +22,7 @@ export class ProcurartonService {
     return this.http.get<Procuration[]>(`${this.baseUrl+"/search?name="+name}`);
   }
   getProcurartionByID(ID:number): Observable<Procuration>{
-    return this.http.get<Procuration>(`${this.baseUrl+"/findbyid/"+ID}`);
+    return this.http.get<Procuration>(`${this.baseUrl+"/view/"+ID}`);
   }
   addProcurartion(proc:Procuration): Observable<any>{
     const headers = { 'content-type': 'application/json'}  
@@ -58,6 +58,6 @@ export class ProcurartonService {
     return this.http.get<Session[]>(`${this.sessionUrl+"/"+ID}`);
   }
   getCasesByName(name:String): Observable<Case[]>{
-    return this.http.get<Case[]>(`${this.caseUrl+"get-name?name="+name}`);
+    return this.http.get<Case[]>(`${this.caseUrl+"/get-name?name="+name}`);
   }
 }

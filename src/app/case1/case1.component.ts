@@ -11,7 +11,7 @@ export class Case1Component implements OnInit {
 
 
 
-  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','btn'];
+  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','رقم الملف','btn'];
   cases: Case[]=[] ;
   name:String="";
   constructor(private procurartonService: ProcurartonService) { }

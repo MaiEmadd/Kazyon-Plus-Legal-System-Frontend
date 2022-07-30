@@ -2,7 +2,7 @@
   <i class="fa fa-home "  ></i>
   <li><a class="grey" href="#">الرئيسيه</a></li>
   <li><a class="grey" href="#" >التوكيلات والقضايا </a></li>
-  <li><a class="grey" href="#" >التوكيلات  </a></li>
+  <li><a class="grey" [routerLink]="['/procuration']"  >التوكيلات  </a></li>
   <li><a class="black" href="#" >   تعديل التوكيل   </a></li>
 
 </ul>
@@ -55,11 +55,14 @@
              <input type="text"[(ngModel)]="proc.office_procuration_number"> <br>
               <input type="text" [(ngModel)]="proc.year">
              <br>
-            <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
+             <div class="container-fluid box mt-4 inner_box">
+              <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
+             </div>
 
+<br>
     </div>
 </div>
 
 
-        <button (click)="updateProcurartion()" class="btn m-5 px-4 savebtn">حفظ</button>
-        <button class="btn m-5 px-4 ignorebtn">  تجاهل</button>
+        <button (click)="updateProcurartion()" class="btn m-5 px-4 savebtn" >حفظ</button>
+        <button class="btn m-5 px-4 ignorebtn" [routerLink]="['/procuration']">  تجاهل</button>

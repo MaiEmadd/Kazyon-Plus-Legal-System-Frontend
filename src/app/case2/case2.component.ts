@@ -16,6 +16,7 @@ export class Case2Component implements OnInit {
   ngOnInit(): void {
   }
   addCase() {
+    this.case.sessionRequests=[];
     this.service.addCase(this.case)
       .subscribe(data => {
         console.log(data)

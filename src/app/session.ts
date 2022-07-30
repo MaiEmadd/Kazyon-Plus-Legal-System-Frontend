@@ -1,6 +1,6 @@
     export class Session{
-        start?:string;
-        end?:string;
+        start?:Date;
+        end?:Date;
         decision?:string;
         id?:number;
     }

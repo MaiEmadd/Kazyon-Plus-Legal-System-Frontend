@@ -3,7 +3,7 @@
   <i class="fa fa-home" ></i>
   <li><a class="grey" href="#">الرئيسيه</a></li>
   <li><a class="grey" href="#" >التوكيلات والقضايا</a></li>
-  <li><a class="grey" href="#" >القضايا </a></li>
+  <li><a class="grey" [routerLink]="['/case']" >القضايا </a></li>
   <li><a class="black" href="#" >
 
     اضافة قضية جديد </a></li>
@@ -62,7 +62,13 @@
 
             <input type="text" placeholder="  السنة" [(ngModel)]="case.caseyear">
             <input type="text" placeholder="رقم  الملف" [(ngModel)]="case.filenumber"><br>
-            <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
+            <input type="text" placeholder="الدائرة" [(ngModel)]="case.area">
+            <input type="text" placeholder="صفة الموكل" [(ngModel)]="case.clientstat"><br>
+            <input type="text" placeholder="صفة  الخصم" [(ngModel)]="case.againststat">
+            <div class="container-fluid box mt-4 inner_box">
+              <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
+             </div>
+             <br>
 
 
 

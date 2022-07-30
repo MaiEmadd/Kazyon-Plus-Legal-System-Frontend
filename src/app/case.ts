@@ -9,6 +9,5 @@ export class Case{
     clientstat?:string;
     againststat?:string;
     area?:string;
-    URl?:string;
-    name?:string;
+    sessionRequests?:string[];
 }

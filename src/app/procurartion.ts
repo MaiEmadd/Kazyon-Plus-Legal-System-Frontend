@@ -4,5 +4,5 @@ client_name?:string
 office_procuration_number?:number;
 office?:string
 procuration_number?:number
-year?:Date;
+year?:number;
 }

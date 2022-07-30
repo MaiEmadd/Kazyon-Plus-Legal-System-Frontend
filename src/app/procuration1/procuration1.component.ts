@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Procuration } from '../procurartion';
 import { ProcurartonService } from '../procurarton.service';
 @Component({
@@ -8,16 +9,28 @@ import { ProcurartonService } from '../procurarton.service';
 })
 export class Procuration1Component implements OnInit {
   procuration = new Procuration();
+  exform!: FormGroup;
   constructor(private service: ProcurartonService) { }
 
   ngOnInit(): void {
-    
-  }
+    this.exform = new FormGroup({
+      'client_name' : new FormControl(null, Validators.required),
+      'year': new FormControl(null, [Validators.required]),
+      'office' : new FormControl(null, [Validators.required]),
+      'procuration_number':new FormControl(null, [Validators.required]),
+      'office_procuration_number':new FormControl(null, [Validators.required])
+    });
+    }
+   
   addProcurartion() {
     this.service.addProcurartion(this.procuration)
       .subscribe(data => {
         console.log(data)
       })      
+  }
+  onSave(){
+    this.addProcurartion();
+    alert("تم حفظ التغيرات");
   }
 
 }

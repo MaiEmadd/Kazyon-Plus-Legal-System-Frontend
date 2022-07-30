@@ -4,6 +4,12 @@
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
 border-radius: 20px;
 }
+.inner_box{
+    width: 70%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  }
 input{
     text-align: center;
     width: 30%;
@@ -12,17 +18,11 @@ input{
     margin-right: 20px;
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 6px;
-    color: #e7e6e6;       
+    color: black;       
 }
 .pdfbtn{
     text-align: center;
-    box-sizing: border-box;
-
-
-    width: 589px;
-height: 186px;
-
-
+    width: 30%;
     margin-bottom: 20px;
     padding: 12px 20px;
     margin-right: 20px;
@@ -30,7 +30,6 @@ height: 186px;
     border-radius: 6px;
     color: #a56868;
     background: rgba(217, 217, 217, 0.2);
-
    }
 .savebtn{
     background-color: #01C165;
