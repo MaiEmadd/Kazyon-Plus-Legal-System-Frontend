@@ -48,13 +48,26 @@
     <br>
 <br>
     <div class="in text-center">
-
-             <input type="text" [(ngModel)]="proc.client_name" >
-             <input type="text" [(ngModel)]="proc.procuration_number"><br>
-             <input type="text" [(ngModel)]="proc.office">
-             <input type="text"[(ngModel)]="proc.office_procuration_number"> <br>
-              <input type="text" [(ngModel)]="proc.year">
-             <br>
+      <form [formGroup]="exform" class="form">
+        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل">
+        <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small> 
+      
+      
+        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
+        <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> 
+<br>
+      
+        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1">
+        <small *ngIf= "exform.get('procuration_number')?.invalid && exform.get('procuration_number')?.touched" class="text-danger">يجب ادخال رقم التوكيل </small> 
+    
+        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق">
+        <small *ngIf= "exform.get('office')?.invalid && exform.get('office')?.touched" class="text-danger"> يجب ادخال مكتب التوثيق </small> 
+<br>
+        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب " >
+        <small *ngIf= "exform.get('office_procuration_number')?.invalid && exform.get('office_procuration_number')?.touched" class="text-danger"> يجب ادخال رقم التوكيل بالمكتب </small> 
+  </form>
+  <br>
+            
              <div class="container-fluid box mt-4 inner_box">
               <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
              </div>
@@ -64,5 +77,5 @@
 </div>
 
 
-        <button (click)="updateProcurartion()" class="btn m-5 px-4 savebtn" >حفظ</button>
+        <button (click)="updateProcurartion()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
         <button class="btn m-5 px-4 ignorebtn" [routerLink]="['/procuration']">  تجاهل</button>
