@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
@@ -27,7 +27,7 @@ export class Case3Component implements OnInit {
   displayedColumns: string[] = ['تاريخ الجلسة القادمه','تاريخ الجلسة الحاليه ', 'قرار الجلسة الحاليه '];
  dataSource = this.data;
 
-  constructor( private service: ProcurartonService,private _router: ActivatedRoute) { 
+  constructor( private service: ProcurartonService,private _router: ActivatedRoute, private _navigate: Router) { 
 
     
   }
@@ -35,24 +35,19 @@ export class Case3Component implements OnInit {
   ngOnInit(): void {
     
     this.id=this._router.snapshot.params?.['id'];
-    this.service.getSessionByCaseID(this.id).subscribe((data: Session[]) => {
-      console.log("this");
-      console.log(data);
-      this.session = data;
-    });
+    this.getSessionByID();
     console.log(this.id);
     this.getCaseByID();
     this.exform = new FormGroup({
-      'client' : new FormControl(null, Validators.required),
-      'clientstat' : new FormControl(null, Validators.required),
-      'against' : new FormControl(null, Validators.required),
-      'againststat' : new FormControl(null, Validators.required),
-      'category' : new FormControl(null, Validators.required),
-      'caseyear': new FormControl(null, [Validators.required]),
-      'office' : new FormControl(null, [Validators.required]),
+      'client' :  new FormControl("", Validators.required),
+      'against' : new FormControl("", Validators.required),
+      'category' : new FormControl("", Validators.required),
+      'caseyear': new FormControl("", [Validators.required]),
       'numbercase':new FormControl(null, [Validators.required]),
-      'filenumber':new FormControl(null, [Validators.required]),
-      'area':new FormControl(null, [Validators.required])
+      'area':new FormControl(null),
+      'filenumber':new FormControl(null),
+      'clientstat':new FormControl(null),
+      'againststat':new FormControl(null),
     });
   }
   updateCase() {
@@ -62,7 +57,17 @@ export class Case3Component implements OnInit {
   }
   onSave(){
     this.updateCase();
-    Swal.fire({title:"تم الحفظ"});
+    Swal.fire({title:"تم الحفظ"}).then(() => {
+      console.log('sad');
+      this._navigate.navigate(['case']);
+    });
+  }
+  getSessionByID(){
+    this.service.getSessionByCaseID(this.id).subscribe((data: Session[]) => {
+      console.log("this");
+      console.log(data);
+      this.session = data;
+    });
   }
   getCaseByID() {
     this.service.getCaseByID(this.id)

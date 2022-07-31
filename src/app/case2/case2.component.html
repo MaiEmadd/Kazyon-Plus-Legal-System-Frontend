@@ -53,7 +53,7 @@
     <div class="in text-center">
 <br>
 <form [formGroup]="exform" class="form">
-  <input [(ngModel)]="case.client" formControlName="client" type="text" class="form-control" placeholder=" اسم الموكل">
+  <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control" placeholder=" اسم الموكل">
   <small *ngIf= "exform.get('client')?.invalid && exform.get('client')?.touched" class="text-danger">يجب ادخال اسم الموكل </small> 
 
   <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" placeholder=" اسم الخصم">
@@ -72,28 +72,27 @@
   <small *ngIf= "exform.get('caseyear')?.invalid && exform.get('caseyear')?.touched" class="text-danger">يجب ادخال السنة</small> 
 
 
-  <input [(ngModel)]="case.filenumber" formControlName="filenumber" type="number" class="form-control" placeholder="رقم الملف"  min="1">
-  <small *ngIf= "exform.get('filenumber')?.invalid && exform.get('filenumber')?.touched" class="text-danger">يجب ادخال رقم الملف </small> 
+  <input [(ngModel)]="case.filenumber" formControlName="filenumber"  type="number" placeholder="رقم الملف"  min="1">
+   
   <br>
 
-  <input [(ngModel)]="case.area" formControlName="area" type="text" class="form-control" placeholder=" الدائرة">
-  <small *ngIf= "exform.get('area')?.invalid && exform.get('area')?.touched" class="text-danger"> يجب ادخال الدائرة </small> 
+  <input [(ngModel)]="case.area" formControlName="area"  type="text" placeholder=" الدائرة">
+  
 
-  <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text" class="form-control" placeholder=" صفة الموكل">
-  <small *ngIf= "exform.get('clientstat')?.invalid && exform.get('clientstat')?.touched" class="text-danger">يجب ادخال صفة الموكل </small> 
+  <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text"  placeholder=" صفة الموكل">
+   
   <br>
-  <input [(ngModel)]="case.againststat" formControlName="againststat" type="text" class="form-control" placeholder=" صفة الخصم">
-  <small *ngIf= "exform.get('againststat')?.invalid && exform.get('againststat')?.touched" class="text-danger">يجب ادخال صفة الخصم </small>
+  <input [(ngModel)]="case.againststat" formControlName="againststat" type="text"  placeholder=" صفة الخصم">
+
 <br>
 
             <div class="container-fluid box mt-4 inner_box">
               <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
              </div>
-             <br>
+            </form>
+            <br>
+          </div>
+              </div>  
 
-
-
-  
-
-<button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid" type="button">حفظ</button>
+<button class="btn m-5 px-4 savebtn"  (click)="onSave()" [disabled]="exform.invalid" type="button">حفظ</button>
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case']">تجاهل</button>

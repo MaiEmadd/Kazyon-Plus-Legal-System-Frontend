@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
@@ -14,30 +15,33 @@ export class Case2Component implements OnInit {
 
   case=new Case ;
   exform!: FormGroup;
-  constructor(private service: ProcurartonService) { }
+  constructor(private service: ProcurartonService, private _build:FormBuilder, private _navigate: Router) { }
 
   ngOnInit(): void {
-    this.exform = new FormGroup({
-      'client' : new FormControl(null, Validators.required),
-      'clientstat' : new FormControl(null, Validators.required),
-      'against' : new FormControl(null, Validators.required),
-      'againststat' : new FormControl(null, Validators.required),
-      'category' : new FormControl(null, Validators.required),
-      'caseyear': new FormControl(null, [Validators.required]),
-      'office' : new FormControl(null, [Validators.required]),
+    this.exform = this._build.group({
+      'client' :  new FormControl("", Validators.required),
+      'against' : new FormControl("", Validators.required),
+      'category' : new FormControl("", Validators.required),
+      'caseyear': new FormControl("", [Validators.required]),
       'numbercase':new FormControl(null, [Validators.required]),
-      'filenumber':new FormControl(null, [Validators.required]),
-      'area':new FormControl(null, [Validators.required])
+      'area':new FormControl(null),
+      'filenumber':new FormControl(null),
+      'clientstat':new FormControl(null),
+      'againststat':new FormControl(null),
     });
   }
   onSave(){
     this.addCase();
-    Swal.fire({title:"تم الحفظ"});
+    Swal.fire({title:"تم الحفظ"}).then(() => {
+      console.log('sad');
+      this._navigate.navigate(['case']);
+    });
   }
   addCase() {
+    //let obj= <Case> Object.assign ({},this.exform);
     this.case.sessionRequests=[];
     this.service.addCase(this.case)
-      .subscribe(data => {
+      .subscribe(data  => {
         console.log(data)
       })      
   }

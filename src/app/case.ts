@@ -1,7 +1,7 @@
 export class Case{
     idCase?:number;
     numbercase?:number
-    client?:string;
+    client?:string | undefined;
     against?:string;
     filenumber?:number;
     caseyear?:number;

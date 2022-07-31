@@ -41,14 +41,12 @@
     ul.breadcrumb li a {
       text-decoration: none;
     }
-    .placeholder{
-  color:#F44336;
-}
 
     </style>
     <div class="container-fluid box mt-4 box" dir="rtl">
     <div class="in text-center">
-<br><br><form [formGroup]="exform" class="form">
+<br><br>
+<form [formGroup]="exform" class="form">
   <input [(ngModel)]="case.client" formControlName="client" type="text" class="form-control" placeholder=" اسم الموكل">
   <small *ngIf= "exform.get('client')?.invalid && exform.get('client')?.touched" class="text-danger">يجب ادخال اسم الموكل </small> 
 
@@ -81,30 +79,11 @@
   <input [(ngModel)]="case.againststat" formControlName="againststat" type="text" class="form-control" placeholder=" صفة الخصم">
   <small *ngIf= "exform.get('againststat')?.invalid && exform.get('againststat')?.touched" class="text-danger">يجب ادخال صفة الخصم </small>
 <br>
+</form>
 
-       <div class="container-fluid box mt-4 inner_box">
-        <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
-       </div>
-     <br>
+</div>
+</div> 
+ 
 
-    
-  <table mat-table [dataSource]="session"  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
-    <ng-container matColumnDef="تاريخ الجلسة القادمه" >
-        <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة القادمه</th>
-        <td mat-cell *matCellDef="let element"> {{element.start}} </td>
-    </ng-container>
-
-      <ng-container matColumnDef="تاريخ الجلسة الحاليه ">
-          <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة الحاليه </th>
-          <td mat-cell *matCellDef="let element"> {{element.end}} </td>
-      </ng-container>
-      <ng-container matColumnDef="قرار الجلسة الحاليه ">
-          <th mat-header-cell *matHeaderCellDef class="text-center">قرار الجلسة الحاليه </th>
-          <td mat-cell *matCellDef="let element"> {{element.decision}} </td>
-      </ng-container>
-     
-      <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
-  </table>
-  <button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid" type="button" >حفظ</button>
-        <button class="btn m-5 px-4 ignorebtn"  [routerLink]="['/case']">  تجاهل</button>
+  <button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
+   <button class="btn m-5 px-4 ignorebtn"  [routerLink]="['/case']">  تجاهل</button>

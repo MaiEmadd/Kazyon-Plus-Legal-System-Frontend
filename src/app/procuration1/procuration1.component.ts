@@ -4,6 +4,7 @@ import { switchAll } from 'rxjs';
 import { Procuration } from '../procurartion';
 import { ProcurartonService } from '../procurarton.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-procuration1',
   templateUrl: './procuration1.component.html',
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 export class Procuration1Component implements OnInit {
   procuration = new Procuration();
   exform!: FormGroup;
-  constructor(private service: ProcurartonService) { }
+  constructor(private service: ProcurartonService, private _navigate: Router) { }
 
   ngOnInit(): void {
     this.exform = new FormGroup({
@@ -32,7 +33,10 @@ export class Procuration1Component implements OnInit {
   }
   onSave(){
     this.addProcurartion();
-    Swal.fire({title:"تم الحفظ"});
+    Swal.fire({title:"تم الحفظ"}).then(() => {
+      console.log('sad');
+      this._navigate.navigate(['procuration']);
+    });
   }
 
 }

@@ -20,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { CommonModule } from '@angular/common';
     Case2Component,
     Case3Component,
     Procuration3Component,
+  
     
   ],
   imports: [
