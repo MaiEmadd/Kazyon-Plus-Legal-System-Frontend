@@ -15,10 +15,10 @@ import { DatePipe } from '@angular/common';
   animations: [
     trigger('smoothCollapse', [
       state('initialArrow', style({
-
       })),
       state('invertedArrow', style({
         transform: "rotate(180deg)"
+
       })),
       state('initial', style({
         height:'0',

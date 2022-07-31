@@ -76,6 +76,7 @@ legend:hover   {
 
 fieldset {
   width: 95%;
+  position: relative;
 }
 
 
@@ -91,7 +92,6 @@ h4 {
 
 mat-select {
   text-align: center;
-  float: right !important;
   border-radius: 20px;
 }
 
@@ -103,7 +103,7 @@ mat-option {
 
 
 ::ng-deep .mat-form-field-label {
-  color: navy !important;
+  color: black  !important;
   font-size: 18px !important;
   font-weight: 900;
 }
@@ -197,12 +197,7 @@ mat-datepicker {
   direction: rtl;
 }
 
-#statusLabel {
-  display: inline-block;
-  float: right;
-  margin-top: 5px;
-  margin-left: 20px;
-}
+
 
 #contractInfo mat-form-field {
   width: 50%;
@@ -215,6 +210,7 @@ mat-datepicker {
   grid-gap: 30px;
   direction: rtl;
 }
+
 
 #containerDiv {
   display: grid;
@@ -248,6 +244,22 @@ a {
   color: red;
 }
 
-.select-fields {
-  width: 30%;
+.legend2 {
+  float: left;
+  position: absolute;
+  left: 18px;
+  background-color: white;
+  top: -38px;
+  padding-right: 3px;
+  padding-left: 0px;
+  border: 1px solid black;
+}
+
+.legend2 i {
+  padding: 3px;
+
+}
+
+.legend2 i:hover {
+  cursor: pointer;
 }

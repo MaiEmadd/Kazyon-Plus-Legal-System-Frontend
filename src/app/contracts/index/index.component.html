@@ -34,7 +34,7 @@
                   <button *ngIf="filter_object.branch != ''" (click)="filter_object.branch = ''; sendApiRequest(); branch.value = undefined" style="background-color: white; border:0px; outline:none;">
                     <i class="fa-solid fa-xmark ms-2"></i>
                     </button>
-                    <mat-select #branch (selectionChange)="changeFilter($event, 'branch')" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-select (clickOutside)="branch.close()" #branch (selectionChange)="changeFilter($event, 'branch')" placeholder="الفرع" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                       <ng-container *ngFor="let row of unique_branch_name">
                       <mat-option *ngIf='row != "" && row != null'  [value]="row">
 
@@ -56,7 +56,7 @@
               <button *ngIf="filter_object.governorate ''" (click)="filter_object.governorate = ''; sendApiRequest(); governorate.value = undefined" style="background-color: white; border:0px; outline:none;">
                   <i class="fa-solid fa-xmark ms-2"></i>
                 </button>
-                <mat-select #governorate (selectionChange)="changeFilter($event, 'governorate')" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                <mat-select (clickOutside)="governorate.close()" #governorate (selectionChange)="changeFilter($event, 'governorate')" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option *ngFor="let row of unique_governorate"  [value]="row">
                         {{ row }}
                     </mat-option>
@@ -72,7 +72,7 @@
               <button *ngIf="filter_object.province!= ''" (click)="filter_object.province = ''; sendApiRequest(); province.value = undefined" style="background-color: white; border:0px; outline:none;">
                 <i class="fa-solid fa-xmark ms-2"></i>
               </button>
-                <mat-select #province (selectionChange)="changeFilter($event, 'province')" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                <mat-select (clickOutside)="province.close()" #province (selectionChange)="changeFilter($event, 'province')" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                     <mat-option  *ngFor="let row of unique_province" [value]="row">
                         {{ row }}
                     </mat-option>

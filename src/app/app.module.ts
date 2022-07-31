@@ -24,6 +24,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { DatePipe } from '@angular/common';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { UploadComponent } from './contracts/upload/upload.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { UploadComponent } from './contracts/upload/upload.component';
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    ClickOutsideModule,
     HttpClientModule,
     MatIconModule,
     MatSortModule

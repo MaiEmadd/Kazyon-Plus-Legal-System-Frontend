@@ -70,3 +70,19 @@ mat-step-header:hover {
   background-color: #0E86D4;
   color: white;
 }
+
+.back-btn {
+  border: 1px solid #f2d010;
+  margin-top: 20px;
+  float: left;
+  background-color: white;
+  color: black;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  padding: 5px 15px;
+  font-weight: 900;
+  font-size: 20px;
+  transition: 0.3s ease-in;
+  margin-bottom: 30px;
+}
