@@ -20,7 +20,10 @@
 
         <ng-container matColumnDef="كود التشغيل">
             <th (click)="sortEvent(table)" mat-header-cell *matHeaderCellDef class="text-center"> كود التشغيل
-                <i style="cursor: pointer;" class="fa fa-sort me-1 fa-xs"></i>
+                <i *ngIf="ascending_sort == null" style="cursor: pointer;" class="fa fa-sort me-1 fa-xs"></i>
+                <i *ngIf="ascending_sort == true" style="cursor: pointer;" class="fa-solid fa-caret-down ms-1"></i>
+                <i *ngIf="ascending_sort == false" style="cursor: pointer;" class="fa-solid fa-caret-up ms-1"></i>
+
             </th>
             <td mat-cell *matCellDef="let element">
                 {{element.store_code}}
