@@ -60,7 +60,7 @@
 
         <div>
         <mat-form-field class="select-fields" appearance="outline">
-          <mat-label>المحافظة:</mat-label>
+          <mat-label>المحافظة</mat-label>
           <mat-select [disabled]="!editState" dir="rtl" [(ngModel)]="currentContract.governorate"  class="ms-auto" placeholder="المحافظة" style="width: 150px; height: 35px; padding: 5px;" required="true" disableOptionCentering panelClass="myPanelClass">
               <mat-option *ngFor="let gov of constants.governorates"  [value]="gov">
                   {{ gov }}
@@ -72,7 +72,7 @@
       <div>
       <mat-form-field class="select-fields" appearance="outline">
 
-        <mat-label>الإقليم:</mat-label>
+        <mat-label>الإقليم</mat-label>
 
         <mat-select [disabled]="!editState" dir="rtl" [(ngModel)]="currentContract.province" placeholder="الإقليم" style="width: 150px; height: 35px; padding: 5px;" required="true" disableOptionCentering panelClass="myPanelClass">
             <mat-option *ngFor="let area of constants.areas" [value]="area">

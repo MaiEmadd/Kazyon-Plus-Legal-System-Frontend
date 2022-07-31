@@ -59,6 +59,7 @@ margin-right: 10px;
 legend {
   text-align: right;
   margin-right: 24px;
+  padding-bottom: 6px;
 }
 
 legend:hover   {
@@ -262,4 +263,12 @@ a {
 
 .legend2 i:hover {
   cursor: pointer;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+  color: rgba(0,0,0,0.3) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0,0,0,0.3) !important;
 }

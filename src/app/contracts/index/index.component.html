@@ -115,7 +115,7 @@
               <button *ngIf="filter_object.status != ''" (click)="filter_object.status = ''; sendApiRequest(); status.value = undefined" style="background-color: white; border:0px; outline:none;">
                 <i class="fa-solid fa-xmark ms-2"></i>
               </button>
-                <mat-select #status (selectionChange)="changeFilter($event, 'status')" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                <mat-select (clickOutside)="status.close()" #status (selectionChange)="changeFilter($event, 'status')" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
                   <mat-option  *ngFor="let row of unique_status" [value]="row">
                       {{ row }}
                  </mat-option>
