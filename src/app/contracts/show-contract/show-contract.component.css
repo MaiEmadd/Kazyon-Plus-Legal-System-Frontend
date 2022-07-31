@@ -19,11 +19,12 @@
 }
 
 #edit {
-  background: #f2d010;
+  background:  #F76000;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 10px;
 border: 0px;
-color: black;
+color: white;
+font-weight: bolder;
 width: 10%;
 }
 
@@ -46,20 +47,18 @@ width: 8%;
 margin-right: 10px;
 }
 
-#cancelContract {
-  background: #F44336;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  border: 0px;
-  color: white;
-  width: 8%;
-}
+
 /*  */
 
 legend {
   text-align: right;
   margin-right: 24px;
   padding-bottom: 6px;
+  margin-right: 20px;
+  background-color: white;
+  padding-right: 5px;
+  font-weight: 700;
+  padding-left: 5px;
 }
 
 legend:hover   {
@@ -100,6 +99,9 @@ mat-option {
   text-align: right;
 }
 
+#branchInfo mat-select {
+  width: fit-content;
+}
 
 
 
@@ -152,7 +154,7 @@ mat-datepicker {
 }
 
 .print-btn {
-  background-color: red;
+  background-color: #F76000;
   margin-top: 20px;
   float: right;
   margin-right: 50px;
@@ -168,7 +170,7 @@ mat-datepicker {
 
 
 .back-btn {
-  border: 1px solid #f2d010;
+  border: 1px solid #173156;
   margin-top: 20px;
   float: left;
   background-color: white;
@@ -177,17 +179,20 @@ mat-datepicker {
   margin-bottom: 20px;
   border-radius: 15px;
   padding: 5px 15px;
+  padding-bottom: 9px;
   font-weight: 900;
   font-size: 20px;
   transition: 0.3s ease-in;
 }
 
 .back-btn:hover {
-  background-color: #f2d010;
+  background-color: #173156;
+  color: white;
+
 }
 
 .print-btn:hover {
-  background-color: #AE0C00;
+  background-color: #F76000;
 }
 
 #contractInfo {
@@ -199,10 +204,6 @@ mat-datepicker {
 }
 
 
-
-#contractInfo mat-form-field {
-  width: 50%;
-}
 
 #branchInfo {
   display: grid;
@@ -219,7 +220,6 @@ mat-datepicker {
   grid-template-columns: 1fr 1fr;
   padding: 5px 40px;
   grid-gap: 30px;
-  margin-bottom: 30px;
   grid-row-gap: 30px;
 }
 
@@ -271,4 +271,33 @@ a {
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
   color: rgba(0,0,0,0.3) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+  font-weight: bolder;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  top: 1.6em !important;
+  padding-left: 2px;
+  background-color: white;
+  width: fit-content;
+  font-size: 22px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  overflow:unset !important;
+
+}
+::ng-deep #status .mat-select-value-text{
+  color: white !important;
+}
+
+::ng-deep .mat-select-disabled .mat-select-arrow-wrapper {
+  display: none !important;
+}
+
+::ng-deep  .mat-select-arrow-wrapper {
+  margin-right: 5px;
+  margin-top: 7px;
 }

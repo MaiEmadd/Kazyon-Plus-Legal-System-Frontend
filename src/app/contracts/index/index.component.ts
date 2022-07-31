@@ -35,7 +35,7 @@ export class IndexComponent implements OnInit {
   // End of class vairables
 
   // Column display
-  displayedColumns: string[] = ['كود التشغيل', 'الفرع', 'المحافظة', 'الاقليم','الحالة'];
+  displayedColumns: string[] = ['كود التشغيل', 'الاسم', 'المحافظة', 'الاقليم','الحالة'];
 
   getAllContracts(filter_string:String) {
     this._ContractsApiService.getAllContracts(filter_string).subscribe((response)=>{

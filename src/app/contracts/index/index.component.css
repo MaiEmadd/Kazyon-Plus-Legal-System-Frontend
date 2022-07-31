@@ -17,14 +17,14 @@ font-weight: 700;
 }
 
 .s{
-    background-color:#01C165;
+  background-color: rgba(1, 193, 101, 0.8) ;
 }
 .f{
-    background-color:#F76000;
-}
+  background-color: rgba(247, 0, 0, 0.8);
+  }
 .t{
-    background-color: #AE0C00;
-}
+  background-color: rgba(188, 173, 172, 0.8) !important;
+  }
 
 table {
     width: 100%;
@@ -79,15 +79,7 @@ td{
     background-color: rgba(217, 217, 217,0.4);
 }
 
-.greenClass{
-    background-color: #01C165;
-}
-.redClass{
-    background-color: #AE0C00;
-}
-.orangeClass{
-    background-color: #F76000;
-}
+
 i{
     color: #808080;
 }

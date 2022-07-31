@@ -1,17 +1,15 @@
 <button [routerLink]="['/contracts']" class="back-btn d-flex align-items-center justify-content-center mb-5"><i class="fa-solid fa-arrow-left me-3 mt-1"></i>رجوع</button>
 <mat-stepper class="mt-5" linear #stepper dir="rtl">
   <mat-step [stepControl]="firstFormGroup" [editable]=true>
-    <form [formGroup]="firstFormGroup">
+    <form class="mt-5" [formGroup]="firstFormGroup">
       <ng-template matStepLabel>الكود وحالة العقد</ng-template>
 
         <div class="grid-container">
 
-            <h4 dir="rtl" style="grid-column:  1/ span 2;"> <strong> الكود</strong></h4>
-
           <div>
-            <mat-form-field appearance="outline">
+            <mat-form-field style="width: 90%;" appearance="outline">
               <mat-label>كود التشغيل</mat-label>
-              <input formControlName="store_code"  (change)="checkCode()" required="true" dir="rtl" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" #input  maxlength="6" matInput>
+              <input  formControlName="store_code"  (change)="checkCode()" required="true" dir="rtl" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" #input  maxlength="6" matInput>
             </mat-form-field>
 
             <div *ngIf="errorStoreCodeFlag">
@@ -23,26 +21,27 @@
               <input formControlName="sap_code" dir="rtl"  type="text" #SAP  maxlength="8" matInput>
             </mat-form-field>
 
-            <h4 style="grid-column: 1/span 2;" dir="rtl"> <strong> حالة العقد</strong></h4>
-
-            <mat-select id="status" formControlName="status"  [ngClass]="className" (selectionChange)="setClass($event.value)" required dir="rtl" placeholder="الحالة" style="width: 150px; height: 35px; padding: 5px;" disableOptionCentering panelClass="myPanelClass">
-                <mat-option *ngFor="let state of constants.states" class="activeContract"  [ngClass]="state.className" [value]="state.name">
+            <mat-form-field style="width: fit-content;" appearance="outline">
+            <mat-label>الحالة</mat-label>
+            <mat-select id="status" formControlName="status" (selectionChange)="setClass($event.value)" required dir="rtl" placeholder="الحالة" disableOptionCentering panelClass="myPanelClass">
+                <mat-option *ngFor="let state of constants.states" [value]="state.name">
                     {{ state.name }}
                 </mat-option>
 
             </mat-select>
+          </mat-form-field>
 
         </div>
 
 
     </form>
-    <div style="width: 90%; margin: auto; margin-top: 20px;">
-      <button mat-raised-button color="primary" [disabled]="errorStoreCodeFlag"  class="next-button" mat-button matStepperNext>التالي</button>
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+      <button mat-raised-button class="m-auto" color="primary" [disabled]="errorStoreCodeFlag"  class="next-button" mat-button matStepperNext>التالي</button>
     </div>
 
   </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [editable]=true>
-      <form [formGroup]="secondFormGroup">
+  <mat-step  [stepControl]="secondFormGroup" [editable]=true>
+      <form class="mt-5"[formGroup]="secondFormGroup">
       <ng-template matStepLabel>معلومات الفرع</ng-template>
       <div class="grid-container">
       <mat-form-field style="grid-column: 1/2;" appearance="outline">
@@ -75,14 +74,14 @@
 
     </div>
       </form>
-    <div style="width: 90%; margin: auto; margin-top: 20px;">
-      <button mat-raised-button class="back-button" mat-button matStepperPrevious>السابق</button>
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+        <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
       <button mat-raised-button class="next-button" mat-button matStepperNext>التالي</button>
     </div>
   </mat-step>
   <mat-step [stepControl]="thirdFormGroup" [editable]=true>
     <ng-template matStepLabel>التواريخ</ng-template>
-    <form [formGroup]="thirdFormGroup">
+    <form class="mt-5" [formGroup]="thirdFormGroup">
       <div class="grid-container">
 
           <mat-form-field appearance="outline">
@@ -125,19 +124,19 @@
             <mat-hint align="end">يوم/شهر/سنة</mat-hint>
           </mat-form-field>
       </div>
-      <div style="width: 90%; margin: auto; margin-top: 20px;">
-        <button mat-raised-button class="back-button" mat-button matStepperPrevious>السابق</button>
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+        <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
         <button mat-raised-button class="next-button" mat-button matStepperNext>التالي</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="fourthFormGroup" [editable]=true>
-    <form [formGroup]="fourthFormGroup">
+    <form class="mt-5" [formGroup]="fourthFormGroup">
       <ng-template matStepLabel>رفع الملفات</ng-template>
       <app-upload #upload></app-upload>
     </form>
-    <div style="width: 90%; margin: auto; margin-top: 35px;">
-      <button mat-raised-button class="back-button" mat-button matStepperPrevious>السابق</button>
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+      <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
       <button (click)="finish(upload.filesSelected)" mat-raised-button class="next-button" mat-button>إنهاء</button>
     </div>
 
