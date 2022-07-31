@@ -247,3 +247,7 @@ a {
   padding: 20px;
   color: red;
 }
+
+.select-fields {
+  width: 30%;
+}

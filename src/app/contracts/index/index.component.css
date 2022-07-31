@@ -29,7 +29,7 @@ font-weight: 700;
 table {
     width: 100%;
     font-family: 'Almarai' !important;
-
+    table-layout: fixed;
   }
 
 th{

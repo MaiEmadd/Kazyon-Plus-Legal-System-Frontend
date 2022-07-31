@@ -131,4 +131,7 @@ input[type=number] {
   #contractHeading {
     display: block !important;
   }
+  .back-btn {
+    display: none !important;
+  }
 }
