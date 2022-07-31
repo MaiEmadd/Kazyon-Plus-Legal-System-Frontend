@@ -50,11 +50,12 @@
   <div class="container-fluid box mt-4 box" dir="rtl">
     <br>
 
+
     <div class="in text-center">
 <br>
 <form [formGroup]="exform" class="form">
   <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control" placeholder=" اسم الموكل">
-  <small *ngIf= "exform.get('client')?.invalid && exform.get('client')?.touched" class="text-danger">يجب ادخال اسم الموكل </small> 
+  <small *ngIf= "exform.get('client')?.invalid && exform.get('client')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>
 
   <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" placeholder=" اسم الخصم">
   <small *ngIf= "exform.get('against')?.invalid && exform.get('against')?.touched" class="text-danger">يجب ادخال اسم الخصم </small>
@@ -65,22 +66,22 @@
   <small *ngIf= "exform.get('category')?.invalid && exform.get('category')?.touched" class="text-danger">يجب ادخال نوع القضية </small>
 
   <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control" placeholder="رقم القضية"  min="1">
-  <small *ngIf= "exform.get('numbercase')?.invalid && exform.get('numbercase')?.touched" class="text-danger">يجب ادخال رقم القضية </small> 
+  <small *ngIf= "exform.get('numbercase')?.invalid && exform.get('numbercase')?.touched" class="text-danger">يجب ادخال رقم القضية </small>
   <br>
 
   <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
-  <small *ngIf= "exform.get('caseyear')?.invalid && exform.get('caseyear')?.touched" class="text-danger">يجب ادخال السنة</small> 
+  <small *ngIf= "exform.get('caseyear')?.invalid && exform.get('caseyear')?.touched" class="text-danger">يجب ادخال السنة</small>
 
 
   <input [(ngModel)]="case.filenumber" formControlName="filenumber"  type="number" placeholder="رقم الملف"  min="1">
-   
+
   <br>
 
   <input [(ngModel)]="case.area" formControlName="area"  type="text" placeholder=" الدائرة">
-  
+
 
   <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text"  placeholder=" صفة الموكل">
-   
+
   <br>
   <input [(ngModel)]="case.againststat" formControlName="againststat" type="text"  placeholder=" صفة الخصم">
 
@@ -92,7 +93,7 @@
             </form>
             <br>
           </div>
-              </div>  
+              </div>
 
 <button class="btn m-5 px-4 savebtn"  (click)="onSave()" [disabled]="exform.invalid" type="button">حفظ</button>
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case']">تجاهل</button>

@@ -9,18 +9,18 @@
 
 <style>
   .fa {
-  margin-top: 5px;
-  margin-right: -10px;
-  color: gray;
+    margin-top: 5px;
+    margin-right: -10px;
+    color: gray;
   }
 
   a.grey {
-  color: grey;
-  margin-right: 5px;
+    color: grey;
+    margin-right: 5px;
   }
 
   a.black {
-  color: black;
+    color: black;
   }
 
   ul.breadcrumb {
@@ -44,41 +44,41 @@
   }
   .form-group{
     display:inline-block;
-  
-  }
- .form-group-odd
- {
-  display: block;
-  width: 10%;
- }
 
-  </style>
-   <div class="container-fluid box mt-4 box" dir="rtl">
-    <br>
-<br>
-    <div class="in text-center">  
+  }
+  .form-group-odd
+  {
+    display: block;
+    width: 10%;
+  }
+
+</style>
+<div class="container-fluid box mt-4 box" dir="rtl">
+  <br>
+  <br>
+  <div class="in text-center">
 
     <form [formGroup]="exform" class="form">
-        <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل">
-        <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small> 
-      
-      
-        <input [(ngModel)]="procuration.year" formControlName="year" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
-        <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> 
-<br>
-      
-        <input [(ngModel)]="procuration.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1">
-        <small *ngIf= "exform.get('procuration_number')?.invalid && exform.get('procuration_number')?.touched" class="text-danger">يجب ادخال رقم التوكيل </small> 
-    
-        <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق">
-        <small *ngIf= "exform.get('office')?.invalid && exform.get('office')?.touched" class="text-danger"> يجب ادخال مكتب التوثيق </small> 
-<br>
-        <input [(ngModel)]="procuration.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب " >
-        <small *ngIf= "exform.get('office_procuration_number')?.invalid && exform.get('office_procuration_number')?.touched" class="text-danger"> يجب ادخال رقم التوكيل بالمكتب </small> 
-  </form>
-  <br>
+      <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل">
+      <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>
+
+
+      <input [(ngModel)]="procuration.year" formControlName="year" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
+      <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small>
+      <br>
+
+      <input [(ngModel)]="procuration.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1">
+      <small *ngIf= "exform.get('procuration_number')?.invalid && exform.get('procuration_number')?.touched" class="text-danger">يجب ادخال رقم التوكيل </small>
+
+      <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق">
+      <small *ngIf= "exform.get('office')?.invalid && exform.get('office')?.touched" class="text-danger"> يجب ادخال مكتب التوثيق </small>
+      <br>
+      <input [(ngModel)]="procuration.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب " >
+      <small *ngIf= "exform.get('office_procuration_number')?.invalid && exform.get('office_procuration_number')?.touched" class="text-danger"> يجب ادخال رقم التوكيل بالمكتب </small>
+    </form>
+    <br>
+  </div>
 </div>
-    </div>
 
 
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
