@@ -24,7 +24,7 @@ export class Case3Component implements OnInit {
   case: Case = new Case;
   id:number=0;
   exform!: FormGroup;
-  displayedColumns: string[] = ['تاريخ الجلسة القادمه','تاريخ الجلسة الحاليه ', 'قرار الجلسة الحاليه '];
+  displayedColumns: string[] = ['تاريخ الجلسة الحاليه ', 'قرار الجلسة الحاليه ','تاريخ الجلسة القادمه'];
  dataSource = this.data;
 
   constructor( private service: ProcurartonService,private _router: ActivatedRoute, private _navigate: Router) { 
