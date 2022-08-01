@@ -7,6 +7,7 @@ import { ContractsApiService } from '../contracts-api.service';
 import { DateAdapter } from '@angular/material/core';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-contract',
@@ -48,7 +49,7 @@ setClass(className: string): void {
   });
 }
 
-constructor(private _formBuilder: FormBuilder, private _contractService:ContractsApiService, private dateAdapter: DateAdapter<any>, private datePipe: DatePipe,
+constructor(private _formBuilder: FormBuilder, private toastr:ToastrService ,private _contractService:ContractsApiService, private dateAdapter: DateAdapter<any>, private datePipe: DatePipe,
   private _router:Router) {
 
     this._contractService.listStoreCodes().subscribe((data) => {
@@ -86,6 +87,8 @@ renewal_date:string | null = "";
       this.renewal_date = this.datePipe.transform(dateGiven, "yyyy/MM/dd")
     }
   }
+
+
 
   firstFormGroup = this._formBuilder.group({
     store_code: ['', Validators.required],
@@ -133,11 +136,46 @@ renewal_date:string | null = "";
     this._contractService.addContract(apiBody).subscribe( (data) => {
         this.contract = <Contract> data;
 
-        this._contractService.addContractAttachments(files, <string> <unknown> this.contract.id).subscribe(data => {
-          this._router.navigate(["contracts",this.contract.id])
-        })
+        if (files.length != 0)
+          this._contractService.addContractAttachments(files, <string> <unknown> this.contract.id).subscribe(data => {
+
+            this.toastr.success('تم الحفظ بنجاح', '', {
+              timeOut: 2000,
+              tapToDismiss: true,
+              extendedTimeOut: 2000,
+              progressBar: true
+            }).onHidden.subscribe( () => this._router.navigate(["contracts/view",this.contract.id])
+            )
+
+          }, () => {
+            this.toastr.error('خطأ! يرجى التأكد من اتصالك بالإنترنت', '', {
+              timeOut: 2000,
+              tapToDismiss: true,
+              extendedTimeOut: 2000,
+              progressBar: true
+            }) ;
+          });
+           else {
+            this.toastr.success('تم الحفظ بنجاح', '', {
+              timeOut: 2000,
+              tapToDismiss: true,
+              extendedTimeOut: 2000,
+              progressBar: true
+
+            }).onHidden.subscribe(
+              () => this._router.navigate(["contracts/view",this.contract.id]
+            ))
+          }
+
+
         },
         () => {
+          this.toastr.error('خطأ! يرجى التأكد من اتصالك بالإنترنت', '', {
+            timeOut: 2000,
+            tapToDismiss: true,
+            extendedTimeOut: 2000,
+            progressBar: true
+          }) ;
         }
 
     )

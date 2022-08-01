@@ -301,3 +301,12 @@ a {
   margin-right: 5px;
   margin-top: 7px;
 }
+
+@media print {
+
+::ng-deep #status .mat-select-value-text{
+  color: black !important;
+  font-weight: bolder;
+}
+
+}

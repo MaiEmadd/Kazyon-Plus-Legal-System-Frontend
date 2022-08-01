@@ -7,6 +7,7 @@ import { Contract } from '../contract';
 import { ContractConstants } from '../contract-constants';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-show-contract',
@@ -106,17 +107,42 @@ export class ShowContractComponent implements OnInit {
     this._contractService.updateContract(this.currentContract, this.routerParams.snapshot.params?.['id']).subscribe( data => {
       this.currentContract = data;
       this.currentContract.has_attachment = this.has_previous_attachments;
-    }, error => {console.log(error.status)})
+      this.toastr.success('تم الحفظ بنجاح', '', {
+        timeOut: 2000,
+        tapToDismiss: true,
+        extendedTimeOut: 2000,
+        progressBar: true
+      }) ;
+    }, error => {console.log(error.status)
+      this.toastr.error('خطأ! يرجى التأكد من اتصالك بالإنترنت', '', {
+        timeOut: 2000,
+        tapToDismiss: true,
+        extendedTimeOut: 2000,
+        progressBar: true
+      }) ;
+    })
     this.editState = false;
 
     if(files.length != 0)
     if (!this.currentContract.has_attachment)
       this._contractService.addContractAttachments(files, <string> this.routerParams.snapshot.params?.['id'] ).subscribe(data => {
         this.currentContract.has_attachment = true;
+        this.toastr.success('تم الحفظ بنجاح', '', {
+          timeOut: 2000,
+          tapToDismiss: true,
+          extendedTimeOut: 2000,
+          progressBar: true
+        }) ;
       })
     else
     this._contractService.appendContractAttachments(files, <string> this.routerParams.snapshot.params?.['id']).subscribe(data => {
       this.currentContract.has_attachment = true;
+      this.toastr.success('تم الحفظ بنجاح', '', {
+        timeOut: 2000,
+        tapToDismiss: true,
+        extendedTimeOut: 2000,
+        progressBar: true
+      }) ;
     })
   }
 
@@ -124,14 +150,14 @@ export class ShowContractComponent implements OnInit {
     window.print();
   }
 
-  constructor(private dateAdapter: DateAdapter<any>, private _contractService: ContractsApiService, private routerParams: ActivatedRoute, private _routerLink: Router,
+  constructor(private dateAdapter: DateAdapter<any>, private toastr: ToastrService, private _contractService: ContractsApiService, private routerParams: ActivatedRoute, private _routerLink: Router,
     private datePipe: DatePipe) {
     this.currentContract = {}
     const id = this.routerParams.snapshot.params?.['id'];
     this._contractService.getContractById(id).subscribe((data)=> {
       this.currentContract = data
       this.has_previous_attachments = this.currentContract.has_attachment;
-        this.download_url = `http://localhost:8080/contract/attachment/download/${this.routerParams.snapshot.params?.['id']}`
+        this.download_url = `http://adminkazyonplus.uksouth.cloudapp.azure.com/api/contract/attachment/download/${this.routerParams.snapshot.params?.['id']}`
 
       if (data.status == "ساري") {
         this.className = "activeContract";

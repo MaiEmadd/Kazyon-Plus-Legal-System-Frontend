@@ -123,7 +123,7 @@ export class IndexComponent implements OnInit {
 
    display(id ?: number) {
 
-    this._router.navigate(["contracts",id])
+    this._router.navigate(["contracts/view",id])
    }
 
 

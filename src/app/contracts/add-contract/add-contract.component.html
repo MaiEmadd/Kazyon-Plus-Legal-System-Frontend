@@ -23,7 +23,7 @@
 
             <mat-form-field style="width: fit-content;" appearance="outline">
             <mat-label>الحالة</mat-label>
-            <mat-select id="status" formControlName="status" (selectionChange)="setClass($event.value)" required dir="rtl" placeholder="الحالة" disableOptionCentering panelClass="myPanelClass">
+            <mat-select formControlName="status" (selectionChange)="setClass($event.value)" required dir="rtl" placeholder="الحالة" disableOptionCentering panelClass="myPanelClass">
                 <mat-option *ngFor="let state of constants.states" [value]="state.name">
                     {{ state.name }}
                 </mat-option>
@@ -35,7 +35,7 @@
 
 
     </form>
-    <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
       <button mat-raised-button class="m-auto" color="primary" [disabled]="errorStoreCodeFlag"  class="next-button" mat-button matStepperNext>التالي</button>
     </div>
 
@@ -74,7 +74,7 @@
 
     </div>
       </form>
-      <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
         <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
       <button mat-raised-button class="next-button" mat-button matStepperNext>التالي</button>
     </div>
@@ -124,7 +124,7 @@
             <mat-hint align="end">يوم/شهر/سنة</mat-hint>
           </mat-form-field>
       </div>
-      <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
         <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
         <button mat-raised-button class="next-button" mat-button matStepperNext>التالي</button>
       </div>
@@ -135,7 +135,7 @@
       <ng-template matStepLabel>رفع الملفات</ng-template>
       <app-upload #upload></app-upload>
     </form>
-    <div style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
       <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
       <button (click)="finish(upload.filesSelected)" mat-raised-button class="next-button" mat-button>إنهاء</button>
     </div>
