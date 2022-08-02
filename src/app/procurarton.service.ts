@@ -25,13 +25,13 @@ export class ProcurartonService {
     return this.http.get<Procuration>(`${this.baseUrl+"/view/"+ID}`);
   }
   addProcurartion(proc:Procuration): Observable<any>{
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(proc);
     console.log(body)
     return this.http.post(this.baseUrl + '/add', body,{'headers':headers})
   }
   updateProcurartion(proc:Procuration): Observable<any>{
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(proc);
     return this.http.put(this.baseUrl + '/update/'+proc.id, body,{'headers':headers})
   }
@@ -42,18 +42,26 @@ export class ProcurartonService {
     return this.http.get<Case>(`${this.caseUrl+"/"+ID}`);
   }
   addCase(cases:Case): Observable<any>{
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(cases);
     console.log(body)
     return this.http.post(this.caseUrl , body,{'headers':headers})
   }
   updateCase(cases:Case): Observable<any>{
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 'content-type': 'application/json'}
     const body=JSON.stringify(cases);
     console.log("this");
     console.log(cases.idCase);
     return this.http.put(this.caseUrl + '/'+cases.idCase, body,{'headers':headers})
   }
+
+  addSession(id:number,session:Session): Observable<any> {
+    const headers = { 'content-type': 'application/json'}
+    const body=JSON.stringify(session);
+    console.log(body)
+    return this.http.post(this.sessionUrl+"/add/"+id , body,{'headers':headers})
+  }
+
   getSessionByCaseID(ID:number): Observable<Session[]>{
     return this.http.get<Session[]>(`${this.sessionUrl+"/"+ID}`);
   }

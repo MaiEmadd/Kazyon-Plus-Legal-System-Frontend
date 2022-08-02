@@ -15,11 +15,10 @@ import { Case2Component } from './case2/case2.component';
 import { Case3Component } from './case3/case3.component';
 import { Procuration3Component } from './procuration3/procuration3.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
@@ -33,8 +32,8 @@ import { CommonModule } from '@angular/common';
     Case2Component,
     Case3Component,
     Procuration3Component,
-  
-    
+
+
   ],
   imports: [
     BrowserModule,
@@ -46,6 +45,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

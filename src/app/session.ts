@@ -1,6 +1,6 @@
     export class Session{
-        start?:Date;
-        end?:Date;
-        decision?:string;
+      startingDate?:Date;
+      endingDate?:Date;
+      decisionStatus?:string;
         id?:number;
     }
