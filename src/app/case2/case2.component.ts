@@ -43,7 +43,7 @@ export class Case2Component implements OnInit {
     this.service.addCase(this.case)
       .subscribe(data  => {
         console.log(data)
-      })      
+      })
   }
 
 

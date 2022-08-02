@@ -1,7 +1,7 @@
 export class Case{
     idCase?:number;
-    numbercase?:number
-    client?:string | undefined;
+    numbercase?:number;
+    client?:string;
     against?:string;
     filenumber?:number;
     caseyear?:number;
@@ -9,5 +9,5 @@ export class Case{
     clientstat?:string;
     againststat?:string;
     area?:string;
-    sessionRequests?:string[];
+    sessionRequests?:[];
 }
