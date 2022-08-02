@@ -43,82 +43,93 @@
   }
 
 </style>
-<button class="btn m-5 px-4 tablebtn " (click)="toggle()" *ngIf='!caseFlag'>القضية</button>
-<button class="btn m-5 px-4 tablebtn " (click)="toggle()" *ngIf='caseFlag'>الجلسات</button>
-
+<div class="in text-center">
+  <button class="btn m-5 px-4 tablebtn " (click)="toggle()" *ngIf='!caseFlag'>القضية</button>
+  <button class="btn m-5 px-4 tablebtn " (click)="toggle()" *ngIf='caseFlag'>الجلسات</button>
+  </div>
 <div *ngIf="caseFlag" class="container-fluid box mt-4 box" dir="rtl">
   <div class="in text-center">
-    <br><br>
+      <br>
     <form [formGroup]="exform" class="form">
-      <fieldset>
-        <legend>اسم الموكل</legend>
-        <input [(ngModel)]="case.client" formControlName="client" type="text" class="form-control" placeholder=" اسم الموكل">
-      </fieldset>
-      <small *ngIf= "exform.get('client')?.invalid && exform.get('client')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>
+      <div class="grid2">
+        <div class="grid_item">
+        <label class="label">اسم الموكل </label> 
+        <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control">
 
+    </div>
+    <div  class="grid_item">
+      <label class="label"> اسم الخصم  </label> 
+      <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" >
+</div>
+    <div class="grid_item">
+      <label class="label"> نوع القضية   </label>
+      <input [(ngModel)]="case.category" formControlName="category" type="text" class="form-control" >
+</div>
+    <div class="grid_item">
+      <label class="label"> رقم القضية </label>
+      <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1">
+    </div>
+    <div class="grid_item">
+      <label class="label">السنة </label>
+      <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000" max="2022" >
+    </div>
+    <div class="grid_item">
+      <label class="label"> رقم الملف</label>
+      <input [(ngModel)]="case.filenumber" formControlName="filenumber" class="form-control"  type="number"  min="1">
+    </div>
+    <div class="grid_item">
+      <label class="label">الدائرة </label>
+      <input [(ngModel)]="case.area" formControlName="area"  type="text" >
+    </div>
+    <div class="grid_item">
+      <label class="label">صفة الموكل</label>
+      <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text"  >
+    </div>
+    <div class="grid_item">
+      <label class="label">صفة الخصم </label>
+      <input [(ngModel)]="case.againststat" formControlName="againststat" type="text"  >
 
-      <fieldset>
-        <legend>اسم الخصم</legend>
-        <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" placeholder=" اسم الخصم">
-      </fieldset>
-      <small *ngIf= "exform.get('against')?.invalid && exform.get('against')?.touched" class="text-danger">يجب ادخال اسم الخصم </small>
-
-      <br>
-
-      <fieldset>
-        <legend>نوع القضية</legend>
-        <input [(ngModel)]="case.category" formControlName="category" type="text" class="form-control" placeholder=" نوع القضية">
-      </fieldset>
-      <small *ngIf= "exform.get('category')?.invalid && exform.get('category')?.touched" class="text-danger">يجب ادخال نوع القضية </small>
-
-
-      <fieldset>
-        <legend>رقم القضية</legend>
-        <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control" placeholder="رقم القضية"  min="1">
-      </fieldset>
-      <small *ngIf= "exform.get('numbercase')?.invalid && exform.get('numbercase')?.touched" class="text-danger">يجب ادخال رقم القضية </small>
-      <br>
-
-      <fieldset>
-        <legend>السنة</legend>
-        <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
-      </fieldset>
-      <small *ngIf= "exform.get('caseyear')?.invalid && exform.get('caseyear')?.touched" class="text-danger">يجب ادخال السنة</small>
-
-
-      <fieldset>
-        <legend>رقم الملف</legend>
-        <input [(ngModel)]="case.filenumber" formControlName="filenumber" type="number" class="form-control" placeholder="رقم الملف"  min="1">
-      </fieldset>
-      <small *ngIf= "exform.get('filenumber')?.invalid && exform.get('filenumber')?.touched" class="text-danger">يجب ادخال رقم الملف </small>
-      <br>
-
-      <fieldset>
-        <legend>الدائرة</legend>
-        <input [(ngModel)]="case.area" formControlName="area" type="text" class="form-control" placeholder=" الدائرة">
-      </fieldset>
-      <small *ngIf= "exform.get('area')?.invalid && exform.get('area')?.touched" class="text-danger"> يجب ادخال الدائرة </small>
-
-      <fieldset>
-        <legend>صفة الموكل</legend>
-        <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text" class="form-control" placeholder=" صفة الموكل">
-      </fieldset>
-      <small *ngIf= "exform.get('clientstat')?.invalid && exform.get('clientstat')?.touched" class="text-danger">يجب ادخال صفة الموكل </small>
-      <br>
-
-      <fieldset>
-        <legend> صفة الخصم</legend>
-        <input [(ngModel)]="case.againststat" formControlName="againststat" type="text" class="form-control" placeholder=" صفة الخصم">
-      </fieldset>
-      <small *ngIf= "exform.get('againststat')?.invalid && exform.get('againststat')?.touched" class="text-danger">يجب ادخال صفة الخصم </small>
-      <br>
-    </form></div></div>
+    </div>
+    </div>
+    </form>
+    <br>
+    <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+    <br>
+          <br>
+        </div>
+        <div class="in text-center">
+        <div class="container-fluid box mt-4 box" dir="rtl">
+            
+          <label for="file-upload" class="custom-file-upload">
+            <i class="fas fa-file-pdf"></i>
+        
+        </label>
+         <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>  
+        
+         <button (click)="download()" class="btn m-5 px-4 savebtn">تحميل الملفات</button>
+         <div class="grid">
+         <div *ngFor="let document of documentList; let i = index">
+        
+        <div class="pdf-file-div">
+          <i class="fa-solid fa-file-pdf " id="pdf">
+            <i class="fa-solid fa-x" id="pdf-x" (click)="remove(i)">
+             
+            </i>
+          </i>
+          <p>{{document.name}}</p>
+        </div>
+        </div>
+      </div>
+        </div>
+        <br>
+        </div>
+        
+            </div>
 
 <div *ngIf="!caseFlag" class="container-fluid box mt-4 box" dir="rtl">
   <div class="in text-center">
 
-    <table mat-table [dataSource]="dataSource" #table  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
-
+    <table mat-table [dataSource]="sessions" #table  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
 
       <ng-container matColumnDef="تاريخ الجلسة الحاليه ">
         <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة الحاليه </th>
@@ -139,11 +150,11 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
 
     </table>
-    <button (click)="addRow(table)" class="btn m-5 px-4 sessionbtn " [routerLink]="['/session']">اضافة جلسة</button>
+    <button (click)="addRow(table)" class="btn m-5 px-4 sessionbtn " [routerLink]="['/session', case.idCase]">اضافة جلسة</button>
 
   </div>
 </div>
+<br>
 
-
-<button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
-<button class="btn m-5 px-4 ignorebtn"  [routerLink]="['/case']">  تجاهل</button>
+<button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid" [hidden]="!caseFlag">حفظ</button>
+<button class="btn m-5 px-4 ignorebtn"  [routerLink]="['/case']" [hidden]="!caseFlag">  تجاهل</button>

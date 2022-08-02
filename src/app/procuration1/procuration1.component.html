@@ -57,26 +57,35 @@
   <br>
   <br>
   <div class="in text-center">
-
-    <form [formGroup]="exform" class="form">
-      <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل">
-      <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>
-
-
-      <input [(ngModel)]="procuration.year" formControlName="year" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
-      <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small>
+      
+      <form [formGroup]="exform" class="form">
+        <div class="grid2">
+          <div class="grid_item">
+          <label class="label">اسم الموكل </label> 
+        <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" >
+      
+      </div>
+      <div  class="grid_item">
+        <label class="label"> السنة   </label> 
+        <input [(ngModel)]="procuration.year" formControlName="year" type="number" class="form-controll"  min="2000" max="2022" >
+       </div>
+      <div class="grid_item">
+        <label class="label"> رقم التوكيل   </label>
+        <input [(ngModel)]="procuration.procuration_number" formControlName="procuration_number" type="number" class="form-control"  min="1">
+       </div>
+      <div class="grid_item">
+        <label class="label"> مكتب التوثيق </label>
+        <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" >
+        </div>
+      <div class="grid_item">
+        <label class="label"> رقم التوكيل بالمكتب </label>
+        <input [(ngModel)]="procuration.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"  >
+        </div>
+      </div>
+      </form>
       <br>
-
-      <input [(ngModel)]="procuration.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1">
-      <small *ngIf= "exform.get('procuration_number')?.invalid && exform.get('procuration_number')?.touched" class="text-danger">يجب ادخال رقم التوكيل </small>
-
-      <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق">
-      <small *ngIf= "exform.get('office')?.invalid && exform.get('office')?.touched" class="text-danger"> يجب ادخال مكتب التوثيق </small>
+      <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
       <br>
-      <input [(ngModel)]="procuration.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب " >
-      <small *ngIf= "exform.get('office_procuration_number')?.invalid && exform.get('office_procuration_number')?.touched" class="text-danger"> يجب ادخال رقم التوكيل بالمكتب </small>
-    </form>
-    <br>
   </div>
 </div>
 

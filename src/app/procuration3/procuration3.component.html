@@ -48,46 +48,62 @@
     <br>
 <br>
     <div class="in text-center">
+      
       <form [formGroup]="exform" class="form">
-        <fieldset>
-          <legend>اسم الموكل</legend>
+        <div class="grid2">
+          <div class="grid_item">
+          <label class="label">اسم الموكل </label> 
         <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل">
-        </fieldset>
-        <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>
-
-        <fieldset>
-          <legend> السنة</legend>
-        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
-        </fieldset>
-        <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small>
-<br>
-
-        <fieldset>
-          <legend>رقم التوكيل</legend>
+        <!-- <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>  -->
+      
+      </div>
+      <div  class="grid_item">
+        <label class="label"> السنة   </label> 
+        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-controll" placeholder="السنة " min="2000" max="2022" >
+       <!-- <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> -->
+      </div>
+      <div class="grid_item">
+        <label class="label"> رقم التوكيل   </label>
         <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1">
-        </fieldset>
-        <small *ngIf= "exform.get('procuration_number')?.invalid && exform.get('procuration_number')?.touched" class="text-danger">يجب ادخال رقم التوكيل </small>
-
-
-        <fieldset>
-          <legend>مكتب التوثيق</legend>
+       </div>
+      <div class="grid_item">
+        <label class="label"> مكتب التوثيق </label>
         <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق">
-        </fieldset>
-        <small *ngIf= "exform.get('office')?.invalid && exform.get('office')?.touched" class="text-danger"> يجب ادخال مكتب التوثيق </small>
-<br>
-
-
-        <fieldset>
-          <legend>رقم التوكيل بالمكتب</legend>
+        </div>
+      <div class="grid_item">
+        <label class="label"> رقم التوكيل بالمكتب </label>
         <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب " >
-        </fieldset>
-        <small *ngIf= "exform.get('office_procuration_number')?.invalid && exform.get('office_procuration_number')?.touched" class="text-danger"> يجب ادخال رقم التوكيل بالمكتب </small>
-  </form>
+        </div>
+      </div>
+      </form>
   <br>
+  <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+  <br>
+  <div class="container-fluid box mt-4 box" dir="rtl">
+            
+  <label for="file-upload" class="custom-file-upload">
+    <i class="fas fa-file-pdf"></i>
 
-             <div class="container-fluid box mt-4 inner_box">
-              <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
-             </div>
+</label>
+ <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>  
+
+ <button (click)="download()" class="btn m-5 px-4 savebtn">تحميل الملفات</button>
+ <div class="grid">
+ <div *ngFor="let document of documentList; let i = index">
+
+<div class="pdf-file-div">
+  <i class="fa-solid fa-file-pdf " id="pdf">
+    <i class="fa-solid fa-x" id="pdf-x" (click)="remove(i)">
+     
+    </i>
+  </i>
+  <p>{{document.name}}</p>
+</div>
+</div>
+
+</div>
+<br>
+</div>
 
 <br>
     </div>
@@ -95,4 +111,5 @@
 
 
         <button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
+        
         <button class="btn m-5 px-4 ignorebtn" [routerLink]="['/procuration']">  تجاهل</button>

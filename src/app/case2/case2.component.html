@@ -50,47 +50,53 @@
   <div class="container-fluid box mt-4 box" dir="rtl">
     <br>
 
-
     <div class="in text-center">
-<br>
-<form [formGroup]="exform" class="form">
-  <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control" placeholder=" اسم الموكل">
-  <small *ngIf= "exform.get('client')?.invalid && exform.get('client')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>
+      
+      <form [formGroup]="exform" class="form">
+        <div class="grid2">
+          <div class="grid_item">
+          <label class="label">اسم الموكل </label> 
+          <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control">
+  
+      </div>
+      <div  class="grid_item">
+        <label class="label"> اسم الخصم  </label> 
+        <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" >
+  </div>
+      <div class="grid_item">
+        <label class="label"> نوع القضية   </label>
+        <input [(ngModel)]="case.category" formControlName="category" type="text" class="form-control" >
+  </div>
+      <div class="grid_item">
+        <label class="label"> رقم القضية </label>
+        <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1">
+      </div>
+      <div class="grid_item">
+        <label class="label">السنة </label>
+        <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000" max="2022" >
+      </div>
+      <div class="grid_item">
+        <label class="label"> رقم الملف</label>
+        <input [(ngModel)]="case.filenumber" formControlName="filenumber" class="form-control"  type="number"  min="1">
+      </div>
+      <div class="grid_item">
+        <label class="label">الدائرة </label>
+        <input [(ngModel)]="case.area" formControlName="area"  type="text" >
+      </div>
+      <div class="grid_item">
+        <label class="label">صفة الموكل</label>
+        <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text"  >
+      </div>
+      <div class="grid_item">
+        <label class="label">صفة الخصم </label>
+        <input [(ngModel)]="case.againststat" formControlName="againststat" type="text"  >
 
-  <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" placeholder=" اسم الخصم">
-  <small *ngIf= "exform.get('against')?.invalid && exform.get('against')?.touched" class="text-danger">يجب ادخال اسم الخصم </small>
-
-  <br>
-
-  <input [(ngModel)]="case.category" formControlName="category" type="text" class="form-control" placeholder=" نوع القضية">
-  <small *ngIf= "exform.get('category')?.invalid && exform.get('category')?.touched" class="text-danger">يجب ادخال نوع القضية </small>
-
-  <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control" placeholder="رقم القضية"  min="1">
-  <small *ngIf= "exform.get('numbercase')?.invalid && exform.get('numbercase')?.touched" class="text-danger">يجب ادخال رقم القضية </small>
-  <br>
-
-  <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-control" placeholder="السنة " min="2000" max="2022" >
-  <small *ngIf= "exform.get('caseyear')?.invalid && exform.get('caseyear')?.touched" class="text-danger">يجب ادخال السنة</small>
-
-
-  <input [(ngModel)]="case.filenumber" formControlName="filenumber"  type="number" placeholder="رقم الملف"  min="1">
-
-  <br>
-
-  <input [(ngModel)]="case.area" formControlName="area"  type="text" placeholder=" الدائرة">
-
-
-  <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text"  placeholder=" صفة الموكل">
-
-  <br>
-  <input [(ngModel)]="case.againststat" formControlName="againststat" type="text"  placeholder=" صفة الخصم">
-
-<br>
-
-            <div class="container-fluid box mt-4 inner_box">
-              <button class="btn m-5 px-4 pdfbtn" ><i class="fas fa-file-pdf"></i></button>
-             </div>
-            </form>
+      </div>
+      </div>
+      </form>
+      <br>
+      <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+      <br>
             <br>
           </div>
               </div>

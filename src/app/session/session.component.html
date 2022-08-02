@@ -61,34 +61,33 @@
   <br>
   <br>
   <div class="in text-center">
-
+      
     <form id="containerFileds" [formGroup]="exform" class="form">
-      <fieldset>
-        <legend>تاريخ الجلسة الحاليه</legend>
-      <input [(ngModel)]="session.startingDate" formControlName="startingDate" type="date" class="form-control" placeholder=" تاريخ الجلسة الحاليه">
-        <small *ngIf= "exform.get('startingDate')?.invalid && exform.get('startingDate')?.touched" class="text-danger">يجب ادخال تاريخ الجلسة الحاليه </small>
-      </fieldset>
-
-
-      <fieldset>
-        <legend>قرار الجلسة الحاليه</legend>
+      <div class="grid2">
+        <div class="grid_item">
+        <label class="label"> تاريخ الجلسة الحاليه </label> 
+        <input [(ngModel)]="session.startingDate" formControlName="startingDate" type="date" class="form-control" >
+    </div>
+    <div  class="grid_item">
+      <label class="label"> قرار الجلسة الحاليه</label> 
       <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  "  >
-      <small *ngIf= "exform.get('decisionStatus')?.invalid && exform.get('decisionStatus')?.touched" class="text-danger">يجب ادخال قرار الجلسة الحاليه </small>
-      </fieldset>
-      <br>
-
-      <fieldset id="next">
-        <legend>تاريخ الجلسة القادمه</legend>
+      </div>
+    <div class="grid_item">
+      <label class="label"> تاريخ الجلسة القادمه  </label>
       <input [(ngModel)]="session.endingDate" formControlName="endingDate" type="date" class="form-control" placeholder="تاريخ الجلسة القادمه"  >
-      <small *ngIf= "exform.get('endingDate')?.invalid && exform.get('endingDate')?.touched" class="text-danger">يجب ادخال تاريخ الجلسة القادمه </small>
-      </fieldset>
-
+    </div>
+    </div>
     </form>
-    <br>
-  </div>
-</div>
+<br>
+<label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+<br>
+  
+
+      
+
+      
 
 
-<button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case3/:session.id']">تجاهل</button>
+<button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case3',case.idCase]">تجاهل</button>
 
-<button class="btn m-2 px-4 savebtn"  [disabled]="exform.invalid" type="button" >حفظ</button>
+<button class="btn m-2 px-4 savebtn" (click)="onSave()"  [disabled]="exform.invalid" type="button" >حفظ</button>

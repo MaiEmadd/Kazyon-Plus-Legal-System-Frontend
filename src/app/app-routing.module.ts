@@ -20,7 +20,7 @@ const routes: Routes = [
  {path:'case2',component:Case2Component },
  {path:'case3/:id',component:Case3Component },
  {path:'procuration2/:id',component:Procuration3Component},
-  {path:'session',component:SessionComponent },
+  {path:'session/:id',component:SessionComponent },
 
 ];
 

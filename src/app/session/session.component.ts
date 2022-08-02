@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
@@ -17,8 +17,9 @@ export class SessionComponent implements OnInit {
   case = new Case();
   session = new Session();
   exform!: FormGroup;
+  id:number=0;
 
-  constructor(private service: ProcurartonService, private _build: FormBuilder, private _navigate: Router) {
+  constructor(private service: ProcurartonService,private _router:ActivatedRoute ,private _build: FormBuilder, private _navigate: Router) {
   }
 
   ngOnInit(): void {
@@ -27,14 +28,18 @@ export class SessionComponent implements OnInit {
       'decisionStatus': new FormControl("", Validators.required),
       'endingDate': new FormControl("", Validators.required),
     });
-
+    this.id=this._router.snapshot.params?.['id'];
+    this.case.idCase=this.id;
   }
 
   onSave(){
-    this.addSession();
-    Swal.fire({title:"تم الحفظ"}).then(() => {
-      this._navigate.navigate(['case']);
-    });
+    this.service.addSession(this.id,this.session)
+        .subscribe(data => {
+          console.log(data);
+        })  ;
+        Swal.fire({title:"تم الحفظ"}).then(() => {
+          this._navigate.navigate(['/case3',this.id]);
+        });
   }
 
 

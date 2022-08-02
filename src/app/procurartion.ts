@@ -5,4 +5,5 @@ office_procuration_number?:number;
 office?:string
 procuration_number?:number
 year?:number;
+hasAttachment?:boolean=false;
 }

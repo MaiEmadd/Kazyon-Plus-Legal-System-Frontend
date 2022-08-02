@@ -26,14 +26,20 @@ export class Case3Component implements OnInit {
   // dataSource = this.data;
 
   dataSource?: any;
+  fileToUpload!: File | null;
+  file: any;
+  files: any[]=[];
+  files2: any[]=[];
+  documentList: any[] = [];
   constructor( private service: ProcurartonService,private _router: ActivatedRoute, private _navigate: Router,private fb: FormBuilder) {
 
   }
 
   caseFlag = true
   ngOnInit(): void {
-
+    console.log(this._router.snapshot.params?.['id']);
     this.id=this._router.snapshot.params?.['id'];
+    this.case.idCase=this.id;
     this.getSessionByID();
     this.getCaseByID();
     this.exform = new FormGroup({
@@ -54,19 +60,35 @@ export class Case3Component implements OnInit {
   }
   onSave(){
     this.updateCase();
+    if (this.files.length>0)
+      {
+        console.log(this.case.hasAttachment);
+
+        if (this.case.hasAttachment==false)
+        {
+          this.service.uploadPdfProc("cases",this.files,this.case.idCase).subscribe(data => {
+            console.log(data);
+          }) ;
+        }
+        else{
+          this.service.appendPdfProc("cases",this.files,this.case.idCase).subscribe(data => {
+            console.log(data);
+          }) ;
+        }
+      }
     Swal.fire({title:"تم الحفظ"}).then(() => {
       this._navigate.navigate(['case']);
     });
   }
   getSessionByID(){
     this.service.getSessionByCaseID(this.id).subscribe((data: Session[]) => {
-      console.log("this");
       this.sessions = data;
       this.dataSource = this.sessions;
     });
 
 
   }
+
   getCaseByID() {
     this.service.getCaseByID(this.id)
       .subscribe(data2 => {
@@ -96,5 +118,35 @@ export class Case3Component implements OnInit {
   //     next: this.session.end
   //   });
   // }
+  onChange(event: any) {
+    this.files = event.target.files;
+    this.documentList = event.target.files;
+   }
+  remove(index:number){
+   this.files2=[];
+   for (let i = 0; i < this.files.length; i++) {
+     this.file = this.files[i];
+     if (index != i)
+     {
+       this.files2.push(this.file)
+      } // here you exclude the file. thus removing it.
+   }
+   this.documentList = this.files2;
+   this.files=this.files2;
+  }
+  download(){
+    console.log(this.case.hasAttachment);
+    if (this.case.hasAttachment==false)
+    {
+      Swal.fire({title:"لا يوجد ملفات "}).then(() => {});
+    }
+    else
+    {
+      this.service.downloadPdfProc(this.case.idCase,"cases")
+      .subscribe(data => {
+        console.log(data);
+      })  
+    }
+  }
 
 }

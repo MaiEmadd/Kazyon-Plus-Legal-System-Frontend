@@ -65,26 +65,24 @@ small
 
 }
 
-.form fieldset {
-  background-color: #FFFFFF;
-}
 
-.form legend {
-  background-color: #FFFFFF;
-  color: black;
-  font-size: 16px;
-  padding: 5px 10px;
-}
 
-#containerFileds {
-  width: 80%;
-  margin: auto;
+.grid2{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 20px;
-  direction: rtl;
+grid-template-columns: repeat(2, 1fr);
+}
+.error{
+  color: red;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-#next{
-  grid-column: 1;
+.grid_item input{
+  width: 60%;
+}
+.grid_item label{
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  display: block;
 }

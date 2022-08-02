@@ -1,6 +1,7 @@
-    export class Session{
-      startingDate?:Date;
-      endingDate?:Date;
-      decisionStatus?:string;
-        id?:number;
-    }
+export class Session{
+    startingDate?:String;
+    endingDate?:String;
+    decisionStatus?:string;
+    id?:number;
+    hasAttachment?:boolean;
+}
