@@ -16,6 +16,8 @@ export class Procuration3Component implements OnInit {
   id:number=0;
   exform!: FormGroup;
   displayedColumns: string[] = ['#','اسم الموكل', 'رقم التوكيل', 'السنة', 'مكتب التوثيق', 'رقم التوكيل بالمكتب','btn'];
+  fileToUpload!: File | null;
+  file: any;
   constructor(private service: ProcurartonService, private _router: ActivatedRoute, private _navigate: Router) { }
 
   ngOnInit() {
@@ -29,6 +31,12 @@ export class Procuration3Component implements OnInit {
       'office_procuration_number':new FormControl(null, [Validators.required])
     });
     }
+    onChange(event: any) {
+      console.log("yesss");
+     this.file = event.target.files;
+     console.log(this.file);
+     
+    }
     updateProcurartion() {
       this.service.updateProcurartion(this.proc)
         .subscribe(data => {
@@ -37,6 +45,7 @@ export class Procuration3Component implements OnInit {
     }
     onSave(){
       this.updateProcurartion();
+      this.service.uploadPdfProc(this.file,this.proc.id)
       Swal.fire({title:"تم الحفظ"}).then(() => {
         this._navigate.navigate(['procuration']);
       });
