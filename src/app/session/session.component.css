@@ -1,0 +1,90 @@
+.box{
+  width: 90%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.inner_box{
+  width: 70%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+input{
+  text-align: center;
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin-right: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  color: black;
+  display: inline;
+}
+small
+{
+  text-align: center;
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin-right: 20px;
+
+
+}
+.form-control.ng-touched.ng-invalid{
+  border: 1px solid red;
+
+}
+.pdfbtn{
+  text-align: center;
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin-right: 20px;
+  border: 2px dashed #e7e6e6;
+  border-radius: 6px;
+  color: #a56868;
+  background: rgba(217, 217, 217, 0.2);
+}
+.savebtn{
+  background-color: #01C165;
+  padding: 12px 0px ;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+}
+.ignorebtn{
+  background-color: #F44336;
+  padding: 12px 0px ;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+
+}
+
+.form fieldset {
+  background-color: #FFFFFF;
+}
+
+.form legend {
+  background-color: #FFFFFF;
+  color: black;
+  font-size: 16px;
+  padding: 5px 10px;
+}
+
+#containerFileds {
+  width: 80%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 20px;
+  direction: rtl;
+}
+
+#next{
+  grid-column: 1;
+}

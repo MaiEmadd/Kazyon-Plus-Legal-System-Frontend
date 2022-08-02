@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { SessionComponent } from './session/session.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     Case2Component,
     Case3Component,
     Procuration3Component,
+    SessionComponent,
 
 
   ],

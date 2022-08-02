@@ -139,7 +139,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
 
     </table>
-    <button (click)="addRow(table)" class="btn m-5 px-4 sessionbtn ">اضافة جلسة</button>
+    <button (click)="addRow(table)" class="btn m-5 px-4 sessionbtn " [routerLink]="['/session']">اضافة جلسة</button>
 
   </div>
 </div>
