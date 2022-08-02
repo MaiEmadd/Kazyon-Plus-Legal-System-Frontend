@@ -21,6 +21,7 @@ export class Case1Component implements OnInit {
       console.log(data);
       this.cases = data;
     });
+    
   }
   
   getCase() {
