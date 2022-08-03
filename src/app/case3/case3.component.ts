@@ -8,7 +8,7 @@ import { Session } from '../session';
 import {MatTable} from "@angular/material/table";
 import {MatDatepicker} from "@angular/material/datepicker";
 import {MatInput} from "@angular/material/input";
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-case3',
   templateUrl: './case3.component.html',
@@ -20,7 +20,7 @@ export class Case3Component implements OnInit {
   sessions: Session[] =[];
   case: Case = new Case;
   session: Session=new Session;
-  id:number=0;
+  id:number=this._router.snapshot.params?.['id'];
   exform!: FormGroup;
   displayedColumns: string[] = ['تاريخ الجلسة الحاليه ', 'قرار الجلسة الحاليه ','تاريخ الجلسة القادمه'];
   // dataSource = this.data;
@@ -31,6 +31,7 @@ export class Case3Component implements OnInit {
   files: any[]=[];
   files2: any[]=[];
   documentList: any[] = [];
+  downloadUrl = `http://localhost:8080/attachment/download/${this.id}?type=cases`
   constructor( private service: ProcurartonService,private _router: ActivatedRoute, private _navigate: Router,private fb: FormBuilder) {
 
   }
@@ -38,7 +39,6 @@ export class Case3Component implements OnInit {
   caseFlag = true
   ngOnInit(): void {
     console.log(this._router.snapshot.params?.['id']);
-    this.id=this._router.snapshot.params?.['id'];
     this.case.idCase=this.id;
     this.getSessionByID();
     this.getCaseByID();
@@ -134,19 +134,6 @@ export class Case3Component implements OnInit {
    this.documentList = this.files2;
    this.files=this.files2;
   }
-  download(){
-    console.log(this.case.hasAttachment);
-    if (this.case.hasAttachment==false)
-    {
-      Swal.fire({title:"لا يوجد ملفات "}).then(() => {});
-    }
-    else
-    {
-      this.service.downloadPdfProc(this.case.idCase,"cases")
-      .subscribe(data => {
-        console.log(data);
-      })  
-    }
-  }
+  
 
 }
