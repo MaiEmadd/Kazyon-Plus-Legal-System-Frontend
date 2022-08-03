@@ -22,14 +22,14 @@ export class Procuration3Component implements OnInit {
   files2: any[]=[];
   documentList: any[] = [];
   hasAttachament?:boolean;
-  
+
   downloadUrl = `http://localhost:8080/attachment/download/${this.id}?type=procurations`
 
   constructor(private service: ProcurartonService, private _router: ActivatedRoute, private _navigate: Router) { }
 
   ngOnInit() {
     this.getProcurartionbyID();
-    
+
     this.exform = new FormGroup({
       'client_name' : new FormControl(null, Validators.required),
       'year': new FormControl(null, [Validators.required]),
@@ -57,7 +57,7 @@ export class Procuration3Component implements OnInit {
     updateProcurartion() {
       this.service.updateProcurartion(this.proc)
         .subscribe(data => {
-        })      
+        })
     }
     onSave(){
       this.updateProcurartion();
@@ -77,13 +77,13 @@ export class Procuration3Component implements OnInit {
           }) ;
         }
       }
-      
+
       Swal.fire({title:"تم الحفظ"}).then(() => {
         this._navigate.navigate(['procuration']);
       });
     }
-    
-    
+
+
     getProcurartionbyID() {
       this.service.getProcurartionByID(this.id)
         .subscribe(data => {
