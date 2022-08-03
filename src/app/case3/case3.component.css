@@ -130,35 +130,35 @@ table {
   border-radius: 10px;
 }
 input.form-control::-webkit-outer-spin-button,
-  input.form-control::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  
-  
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
-  .error{
-    color: red;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
-  
-  .grid_item input{
-    width: 60%;
-  }
-  .grid_item label{
-    font-weight: bold;
-    margin-bottom: 10px;
-    margin-right: 15px;
-    display: block;
-  }
-  .grid2{
-    display: grid;
+input.form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+.error{
+  color: red;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.grid_item input{
+  width: 60%;
+}
+.grid_item label{
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  display: block;
+}
+.grid2{
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
-  }
-  table {
+}
+table {
   width: 100%;
   border: 2px solid #000;
 }
@@ -182,9 +182,9 @@ th {
 #pdf {
   color: red;
   text-shadow: 1px 1px 1px #ccc;
- font-size:60px;
+  font-size:60px;
   position: relative;
-  
+
 }
 #pdf-x{
   color: black;
@@ -195,7 +195,7 @@ th {
 }
 .grid{
   display: grid;
-grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, 1fr);
 }
 input[type="file"] {
   display: none;
@@ -211,9 +211,4 @@ input[type="file"] {
   border-radius: 6px;
   color: #a56868;
   background: rgba(217, 217, 217, 0.2);
- }
- .type {
-    color: #bb233d;
-    font-size: 13px;
 }
- 
