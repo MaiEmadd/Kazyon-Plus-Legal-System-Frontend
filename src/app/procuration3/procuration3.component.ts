@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class Procuration3Component implements OnInit {
 
   proc: Procuration = new Procuration;
-  id:number=0;
+  id:number=this._router.snapshot.params?.['id'];
   exform!: FormGroup;
   displayedColumns: string[] = ['#','اسم الموكل', 'رقم التوكيل', 'السنة', 'مكتب التوثيق', 'رقم التوكيل بالمكتب','btn'];
   fileToUpload!: File | null;
@@ -21,13 +21,15 @@ export class Procuration3Component implements OnInit {
   files: any[]=[];
   files2: any[]=[];
   documentList: any[] = [];
-
+  hasAttachament?:boolean;
+  
+  downloadUrl = `http://localhost:8080/attachment/download/${this.id}?type=procurations`
 
   constructor(private service: ProcurartonService, private _router: ActivatedRoute, private _navigate: Router) { }
 
   ngOnInit() {
-    this.id=this._router.snapshot.params?.['id'];
     this.getProcurartionbyID();
+    
     this.exform = new FormGroup({
       'client_name' : new FormControl(null, Validators.required),
       'year': new FormControl(null, [Validators.required]),
@@ -80,20 +82,8 @@ export class Procuration3Component implements OnInit {
         this._navigate.navigate(['procuration']);
       });
     }
-    download(){
-      console.log(this.proc.hasAttachment);
-      if (this.proc.hasAttachment==false)
-      {
-        Swal.fire({title:"لا يوجد ملفات "}).then(() => {});
-      }
-      else
-      {
-        this.service.downloadPdfProc(this.proc.id,"procurations")
-        .subscribe(data => {
-          console.log(data);
-        })  
-      }
-    }
+    
+    
     getProcurartionbyID() {
       this.service.getProcurartionByID(this.id)
         .subscribe(data => {

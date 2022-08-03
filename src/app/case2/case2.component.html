@@ -4,7 +4,7 @@
   <li><a class="grey" href="#">الرئيسيه</a></li>
   <li><a class="grey" href="#" >التوكيلات والقضايا</a></li>
   <li><a class="grey" [routerLink]="['/case']" >القضايا </a></li>
-  <li><a class="black" href="#" >
+  <li><a class="black">
 
     اضافة قضية جديد </a></li>
 
@@ -73,7 +73,7 @@
       </div>
       <div class="grid_item">
         <label class="label">السنة </label>
-        <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000" max="2022" >
+        <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000"  >
       </div>
       <div class="grid_item">
         <label class="label"> رقم الملف</label>

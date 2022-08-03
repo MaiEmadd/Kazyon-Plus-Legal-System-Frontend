@@ -3,7 +3,7 @@
   <li><a class="grey" href="#">الرئيسيه</a></li>
   <li><a class="grey" href="#" >التوكيلات والقضايا</a></li>
   <li><a class="grey"  [routerLink]="['/case']" >القضايا </a></li>
-  <li><a class="black" href="#" >#{{case.idCase}}  </a></li>
+  <li><a class="black"  >#{{case.idCase}}  </a></li>
 
 </ul>
 
@@ -71,7 +71,7 @@
     </div>
     <div class="grid_item">
       <label class="label">السنة </label>
-      <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000" max="2022" >
+      <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000" >
     </div>
     <div class="grid_item">
       <label class="label"> رقم الملف</label>
@@ -106,7 +106,7 @@
         </label>
          <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>  
         
-         <button (click)="download()" class="btn m-5 px-4 savebtn">تحميل الملفات</button>
+         <button [hidden]="!this.case.hasAttachment" class="btn m-5 px-4 savebtn"> <a [href]="downloadUrl"> تحميل الملفات</a></button>
          <div class="grid">
          <div *ngFor="let document of documentList; let i = index">
         
@@ -133,7 +133,7 @@
 
       <ng-container matColumnDef="تاريخ الجلسة الحاليه ">
         <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة الحاليه </th>
-        <td mat-cell *matCellDef="let element">{{element.startingDate}}</td>
+        <td mat-cell *matCellDef="let element">{{element.startingDate | date:"yyyy//MM/dd"}}</td>
       </ng-container>
 
       <ng-container matColumnDef="قرار الجلسة الحاليه ">
@@ -143,7 +143,7 @@
 
       <ng-container matColumnDef="تاريخ الجلسة القادمه" >
         <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة القادمه</th>
-        <td mat-cell *matCellDef="let element"> {{element.endingDate}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.endingDate | date:"yyyy//MM/dd"}} </td>
       </ng-container>
 
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>

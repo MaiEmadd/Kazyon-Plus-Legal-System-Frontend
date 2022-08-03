@@ -3,7 +3,7 @@
   <li><a class="grey" href="#">الرئيسيه</a></li>
   <li><a class="grey" href="#" >التوكيلات والقضايا </a></li>
   <li><a class="grey" [routerLink]="['/procuration']"  >التوكيلات  </a></li>
-  <li><a class="black" href="#" >  #{{proc.id}}   </a></li>
+  <li><a class="black"  >  #{{proc.id}}   </a></li>
 
 </ul>
 
@@ -59,7 +59,7 @@
       </div>
       <div  class="grid_item">
         <label class="label"> السنة   </label> 
-        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-controll" placeholder="السنة " min="2000" max="2022" >
+        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-controll" placeholder="السنة " min="2000"  >
        <!-- <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> -->
       </div>
       <div class="grid_item">
@@ -87,7 +87,7 @@
 </label>
  <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>  
 
- <button (click)="download()" class="btn m-5 px-4 savebtn">تحميل الملفات</button>
+ <button [hidden]="!this.proc.hasAttachment" class="btn m-5 px-4 savebtn"> <a [href]="downloadUrl"> تحميل الملفات</a></button>
  <div class="grid">
  <div *ngFor="let document of documentList; let i = index">
 

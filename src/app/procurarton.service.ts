@@ -96,7 +96,5 @@ private base1Url="http://localhost:8080/";
     return this.http.post(this.sessionUrl+"/add/"+id , body,{'headers':headers})
   }
 
-  downloadPdfProc(id?: number | null,type?:string|null){
-    return this.http.get(this.base1Url + "attachment/download/"+id+"?type="+type);}
   
 }
