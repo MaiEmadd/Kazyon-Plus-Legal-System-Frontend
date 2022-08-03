@@ -212,3 +212,8 @@ input[type="file"] {
   color: #a56868;
   background: rgba(217, 217, 217, 0.2);
  }
+ .type {
+    color: #bb233d;
+    font-size: 13px;
+}
+ 

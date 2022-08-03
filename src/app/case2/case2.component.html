@@ -65,7 +65,20 @@
   </div>
       <div class="grid_item">
         <label class="label"> نوع القضية   </label>
-        <input [(ngModel)]="case.category" formControlName="category" type="text" class="form-control" >
+        
+          <select [(ngModel)]="case.category" name="type" ng-model="userSelect"> نوع القضية  
+          <option value="1">  مدني جزئي </option>
+          <option value="1">مدني كلي</option>
+          <option value="1">جنح</option>
+          <option value="1">جنح مستئنفة</option>
+          <option value="1">استئناف عالى</option>
+          <option value="1"> جنايات</option>
+          <option value="1"> عمالى</option>
+          <option value="1"> قضاء اداري</option>
+
+        </select>
+    
+       
   </div>
       <div class="grid_item">
         <label class="label"> رقم القضية </label>
