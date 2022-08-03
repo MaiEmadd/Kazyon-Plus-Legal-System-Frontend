@@ -1,0 +1,312 @@
+/* Shadowing the main container  */
+
+#mainContractContainer {
+  background: #FFFFFF;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  width: 95%;
+  margin: auto;
+  min-height: 80vh;
+}
+
+/*  */
+
+
+/* Container Div For Dates  */
+
+.editBtnsContainer {
+  width: 95%;
+}
+
+#edit {
+  background:  #F76000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+border: 0px;
+color: white;
+font-weight: bolder;
+width: 10%;
+}
+
+#cancel {
+  background: #F44336;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+border: 0px;
+color: white;
+width: 8%;
+}
+
+#save {
+  background: #01C165;
+box-shadow: 0px 4px 4px Fmrgba(0, 0, 0, 0.25);
+border-radius: 10px;
+border: 0px;
+color: white;
+width: 8%;
+margin-right: 10px;
+}
+
+
+/*  */
+
+legend {
+  text-align: right;
+  margin-right: 24px;
+  padding-bottom: 6px;
+  margin-right: 20px;
+  background-color: white;
+  padding-right: 5px;
+  font-weight: 700;
+  padding-left: 5px;
+}
+
+legend:hover   {
+  cursor: pointer;
+}
+
+.fieldset-border {
+  border: 1px solid black !important  ;
+  border-radius: 20px;
+}
+
+.legend-hide {
+  display: none;
+}
+
+fieldset {
+  width: 95%;
+  position: relative;
+}
+
+
+
+mat-form-field {
+  text-align: right
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 900;
+}
+
+mat-select {
+  text-align: center;
+  border-radius: 20px;
+}
+
+mat-option {
+  text-align: right;
+}
+
+#branchInfo mat-select {
+  width: fit-content;
+}
+
+
+
+::ng-deep .mat-form-field-label {
+  color: black  !important;
+  font-size: 18px !important;
+  font-weight: 900;
+}
+
+
+
+::ng-deep .mat-select-value-text  {
+  color: black;
+  font-weight: 800;
+}
+
+
+
+input::placeholder {
+  color: black;
+  font-size: 18px;
+}
+
+
+mat-datepicker {
+  font-size: 18px;;
+}
+
+.state{
+  width: 132px;
+  height: 33px;
+  color: white;
+  margin: auto;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  filter: drop-shadow(0px 4px 4px rgba(203, 203, 203, 0.45));
+}
+
+.greenClass{
+  background-color: #01C165;
+}
+.redClass{
+  background-color: #AE0C00;
+}
+.orangeClass{
+  background-color: #F76000;
+}
+
+.print-btn {
+  background-color: #F76000;
+  margin-top: 20px;
+  float: right;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  border: 0px ;
+  border-radius: 15px;
+  padding: 7px 15px;
+  font-weight: 900;
+  font-size: 20px;
+  color: white;
+  transition: 0.3s ease-in;
+}
+
+
+.back-btn {
+  border: 1px solid #173156;
+  margin-top: 20px;
+  float: left;
+  background-color: white;
+  color: black;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  padding: 5px 15px;
+  padding-bottom: 9px;
+  font-weight: 900;
+  font-size: 20px;
+  transition: 0.3s ease-in;
+}
+
+.back-btn:hover {
+  background-color: #173156;
+  color: white;
+
+}
+
+.print-btn:hover {
+  background-color: #F76000;
+}
+
+#contractInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px 40px;
+  grid-gap: 30px;
+  direction: rtl;
+}
+
+
+
+#branchInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px 40px;
+  grid-gap: 30px;
+  direction: rtl;
+}
+
+
+#containerDiv {
+  display: grid;
+  direction: rtl;
+  grid-template-columns: 1fr 1fr;
+  padding: 5px 40px;
+  grid-gap: 30px;
+  grid-row-gap: 30px;
+}
+
+.download-btn {
+  padding: 5px 15px;;
+  margin: 15px 25px;
+  float: right;
+  background: #173156;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+border: 0px;
+color: white;
+width: 10%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#paragraph {
+  padding: 20px;
+  color: red;
+}
+
+.legend2 {
+  float: left;
+  position: absolute;
+  left: 18px;
+  background-color: white;
+  top: -38px;
+  padding-right: 3px;
+  padding-left: 0px;
+  border: 1px solid black;
+}
+
+.legend2 i {
+  padding: 3px;
+
+}
+
+.legend2 i:hover {
+  cursor: pointer;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+  color: rgba(0,0,0,0.3) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0,0,0,0.3) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+  font-weight: bolder;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  top: 1.6em !important;
+  padding-left: 2px;
+  background-color: white;
+  width: fit-content;
+  font-size: 22px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  overflow:unset !important;
+
+}
+::ng-deep #status .mat-select-value-text{
+  color: white !important;
+}
+
+::ng-deep .mat-select-disabled .mat-select-arrow-wrapper {
+  display: none !important;
+}
+
+::ng-deep  .mat-select-arrow-wrapper {
+  margin-right: 5px;
+  margin-top: 7px;
+}
+
+@media print {
+
+::ng-deep #status .mat-select-value-text{
+  color: black !important;
+  font-weight: bolder;
+}
+
+}

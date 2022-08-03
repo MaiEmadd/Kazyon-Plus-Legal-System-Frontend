@@ -1,0 +1,150 @@
+<button [routerLink]="['/contracts']" class="back-btn d-flex align-items-center justify-content-center mb-5"><i class="fa-solid fa-arrow-left me-3 mt-1"></i>رجوع</button>
+<mat-stepper class="mt-5" linear #stepper dir="rtl">
+  <mat-step [stepControl]="firstFormGroup" [editable]=true>
+    <form class="mt-5" [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>الكود وحالة العقد</ng-template>
+
+        <div class="grid-container">
+
+          <div>
+            <mat-form-field style="width: 90%;" appearance="outline">
+              <mat-label>كود التشغيل</mat-label>
+              <input  formControlName="store_code"  (change)="checkCode()" required="true" dir="rtl" type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" #input  maxlength="6" matInput>
+            </mat-form-field>
+
+            <div *ngIf="errorStoreCodeFlag">
+              <p class="text-danger">* هذا الكود يوجد بالفعل، يرجى المراجعة</p>
+            </div>
+          </div>
+            <mat-form-field id="SAP" appearance="outline">
+              <mat-label>الساب</mat-label>
+              <input formControlName="sap_code" dir="rtl"  type="text" #SAP  maxlength="8" matInput>
+            </mat-form-field>
+
+            <mat-form-field style="width: fit-content;" appearance="outline">
+            <mat-label>الحالة</mat-label>
+            <mat-select formControlName="status" (selectionChange)="setClass($event.value)" required dir="rtl" placeholder="الحالة" disableOptionCentering panelClass="myPanelClass">
+                <mat-option *ngFor="let state of constants.states" [value]="state.name">
+                    {{ state.name }}
+                </mat-option>
+
+            </mat-select>
+          </mat-form-field>
+
+        </div>
+
+
+    </form>
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+      <button mat-raised-button class="m-auto" color="primary" [disabled]="errorStoreCodeFlag"  class="next-button" mat-button matStepperNext>التالي</button>
+    </div>
+
+  </mat-step>
+  <mat-step  [stepControl]="secondFormGroup" [editable]=true>
+      <form class="mt-5"[formGroup]="secondFormGroup">
+      <ng-template matStepLabel>معلومات الفرع</ng-template>
+      <div class="grid-container">
+      <mat-form-field style="grid-column: 1/2;" appearance="outline">
+        <mat-label>الاسم</mat-label>
+        <input formControlName="branch_name" dir="rtl" #branch  maxlength="150" matInput>
+      </mat-form-field>
+
+      <mat-form-field style="grid-column: 2/2;" id="address" appearance="outline">
+        <mat-label>العنوان</mat-label>
+        <input formControlName="branch_address" required="true" dir="rtl" type="text"  #address  maxlength="150" matInput required="true">
+      </mat-form-field>
+
+      <mat-form-field style="width: fit-content;" appearance="outline">
+        <mat-label >المحافظة</mat-label>
+        <mat-select required="true" formControlName="governorate" dir="rtl" class="ms-auto"  required="true" disableOptionCentering panelClass="myPanelClass">
+            <mat-option *ngFor="let gov of constants.governorates"  [value]="gov">
+                {{ gov }}
+            </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+      <mat-form-field style="width: fit-content;" appearance="outline">
+        <mat-label >الإقليم</mat-label>
+      <mat-select formControlName="province" required="true" dir="rtl" required="true" disableOptionCentering panelClass="myPanelClass">
+          <mat-option *ngFor="let area of constants.areas" [value]="area">
+              {{ area }}
+          </mat-option>
+      </mat-select>
+      </mat-form-field>
+
+    </div>
+      </form>
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+        <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
+      <button mat-raised-button class="next-button" mat-button matStepperNext>التالي</button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" [editable]=true>
+    <ng-template matStepLabel>التواريخ</ng-template>
+    <form class="mt-5" [formGroup]="thirdFormGroup">
+      <div class="grid-container">
+
+          <mat-form-field appearance="outline">
+            <mat-label>السريان</mat-label>
+            <input dir="rtl" formControlName="valid_through"  (dateInput)="transformDate($event.value, 'السريان')" matInput [matDatepicker]="active"  required readonly (focus)="active.open()"placeholder="السريان" required="true">
+            <mat-datepicker-toggle matSuffix [for]="active"></mat-datepicker-toggle>
+            <mat-datepicker #active></mat-datepicker>
+            <mat-hint align="end">يوم/شهر/سنة</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>الانتهاء</mat-label>
+            <input dir="rtl" formControlName="end_date" (dateInput)="transformDate($event.value, 'الانتهاء')"  matInput [matDatepicker]="end" readonly (focus)="end.open()" placeholder="الانتهاء">
+            <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+            <mat-datepicker #end></mat-datepicker>
+            <mat-hint align="end">يوم/شهر/سنة</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>الاستلام</mat-label>
+            <input dir="rtl" formControlName="receiving_date"  matInput [matDatepicker]="received" (dateInput)="transformDate($event.value, 'الاستلام')"  readonly (focus)="received.open()" placeholder="الاستلام">
+            <mat-datepicker-toggle matSuffix [for]="received"></mat-datepicker-toggle>
+            <mat-datepicker #received></mat-datepicker>
+            <mat-hint align="end">يوم/شهر/سنة</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>الافتتاح</mat-label>
+            <input dir="rtl" formControlName="opening_date"   matInput [matDatepicker]="beginning" (dateInput)="transformDate($event.value, 'الافتتاح')"  readonly (focus)="beginning.open()" placeholder="الافتتاح">
+            <mat-datepicker-toggle matSuffix [for]="beginning"></mat-datepicker-toggle>
+            <mat-datepicker #beginning  ></mat-datepicker>
+            <mat-hint align="end">يوم/شهر/سنة</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" style="grid-column: 1;">
+            <mat-label>التجديد</mat-label>
+            <input dir="rtl" formControlName="renewal_date"   matInput readonly [matDatepicker]="renewal" (dateInput)="transformDate($event.value, 'التجديد')"  (focus)="renewal.open()" placeholder="التجديد">
+            <mat-datepicker-toggle matSuffix [for]="renewal"></mat-datepicker-toggle>
+            <mat-datepicker #renewal></mat-datepicker>
+            <mat-hint align="end">يوم/شهر/سنة</mat-hint>
+          </mat-form-field>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+        <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
+        <button mat-raised-button class="next-button" mat-button matStepperNext>التالي</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="fourthFormGroup" [editable]=true>
+    <form class="mt-5" [formGroup]="fourthFormGroup">
+      <ng-template matStepLabel>رفع الملفات</ng-template>
+      <app-upload #upload></app-upload>
+    </form>
+    <div style="display: flex; align-items: center; justify-content: center; margin-top: 30px;">
+      <button mat-raised-button class="back-button" style="margin-left: 20px;" mat-button matStepperPrevious>السابق</button>
+      <button (click)="finish(upload.filesSelected)" mat-raised-button class="next-button" mat-button>إنهاء</button>
+    </div>
+
+  </mat-step>
+
+</mat-stepper>
+
+
+
+
+

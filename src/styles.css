@@ -1,4 +1,152 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body{
-    font-size: 16px;
-    font-family: 'Almarai';
+    font-size: 16px !important;
+    font-family: 'Almarai' !important;
 }
+
+.myPanelClass{
+    margin-top: 30px !important;
+}
+
+
+.mat-row{
+    border: none !important;
+}
+
+
+.mat-input-element:disabled {
+  color: black;
+ }
+
+
+mat-hint {
+  color: black !important;
+}
+.mat-form-field-hint-spacer {
+  flex: 0 0 1em !important;
+}
+
+
+
+
+/* Remove the inc/dec button */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+/*  */
+
+/* Styling for dropdown */
+
+::ng-deep #status .mat-select-value-text  {
+  color: white;
+  padding: 5px;
+}
+
+.activeContract {
+  background-color: rgba(1, 193, 101, 0.8) ;
+  color: white;
+  font-weight: 900;
+}
+
+.warningContract {
+  background-color: rgba(188, 173, 172);
+  color: white;
+  font-weight: 900;
+}
+
+.stopContract {
+  background-color: rgba(247, 0, 0, 0.8);
+  font-weight: 900;
+  color: white;
+}
+
+.activeContract:hover , .activeContract.mat-active{
+  background-color: rgba(1, 193, 101, 0.8)  !important;
+  color: white;
+  font-weight: 900;
+}
+
+.warningContract:hover, .warningContract.mat-active {
+  background-color: rgba(188, 173, 172, 0.8) !important;
+  color: white;
+  font-weight: 900;
+}
+
+.stopContract:hover, .stopContract.mat-active {
+  background-color: rgba(247, 0, 0, 1) !important;
+  font-weight: 900;
+  color: white;
+}
+/*  */
+
+.ngx-toastr {
+  text-align: right;
+}
+
+@media print {
+
+  body * {
+    visibility: hidden;
+  }
+  #mainContractContainer, #mainContractContainer * {
+    visibility: visible;
+  }
+  #mainContractContainer {
+    min-height: fit-content;
+    box-shadow: unset !important;
+    position: absolute;
+    padding-left: 30px;
+    left: 0;
+    top: 0;
+  }
+
+  .print-btn {
+    display: none;
+  }
+
+  #attachments {
+    display: none;
+  }
+
+  svg {
+    display: none;
+  }
+  i {
+    display: none !important;
+  }
+  #branchInfo {
+    padding-bottom: 5px !important;
+  }
+
+  #containerDiv {
+    padding-bottom: 5px !important;
+  }
+
+  #contractInfo {
+    padding-bottom: 5px !important;
+  }
+
+  #contractHeading {
+    display: block !important;
+  }
+  .back-btn {
+    display: none !important;
+  }
+
+  .legend2 {
+    display: none !important;
+  }
+
+
+  @page { size: auto;  margin: 0mm;}
+
+}
+

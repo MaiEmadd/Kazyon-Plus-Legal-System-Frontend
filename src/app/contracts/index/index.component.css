@@ -17,23 +17,37 @@ font-weight: 700;
 }
 
 .s{
-    background-color:#01C165;
+  background-color: rgba(1, 193, 101, 0.8) ;
 }
 .f{
-    background-color:#F76000;
-}
+  background-color: rgba(247, 0, 0, 0.8);
+  }
 .t{
-    background-color: #AE0C00;
-}
+  background-color: rgba(188, 173, 172, 0.8) !important;
+  }
 
 table {
     width: 100%;
+    font-family: 'Almarai' !important;
+    table-layout: fixed;
   }
- 
+
 th{
     font-size: 18px;
-}  
+    font-weight:700 ;
+    color: black;
+}
 
+td{
+    font-size: 17px;
+
+}
+
+::ng-deep .mat-select-placeholder {
+    color: black !important;
+    font-family: 'Almarai' !important;
+
+}
 
 .addBtn{
     background-color: #01C165;
@@ -41,7 +55,7 @@ th{
     color: white;
     font-weight: 700;
     box-shadow: none;
-}  
+}
 
 .state{
     width: 132px;
@@ -58,19 +72,64 @@ th{
 
 .mat-cell{
     border: none;
-    height: 60px;
-}   
+    height: 65px;
+}
 
 .alternate{
     background-color: rgba(217, 217, 217,0.4);
 }
 
-.greenClass{
-    background-color: #01C165;
+
+i{
+    color: #808080;
 }
-.redClass{
-    background-color: #AE0C00;
+
+.table{
+height: 55vh;
+overflow-y: scroll;
 }
-.orangeClass{
-    background-color: #F76000;
+/*
+@media only screen and (max-width: 800px) {
+
+.table{
+    height: 200px;
+    width: 98%;
+    overflow-y: scroll;
+    font-size:14px !important;
+    }
+
+} */
+
+.mostly-customized-scrollbar::-webkit-scrollbar
+{
+    width: 6px;
+    background-color: rgb(252, 252, 252);
+}
+
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb
+{
+    height: 20px;
+    border-radius:20px;
+    background: rgb(116, 116, 116);
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -ms-border-radius:20px;
+    -o-border-radius:20px;
+}
+
+
+
+
+
+th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 999999999;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+tr:hover {
+  cursor: pointer;
 }

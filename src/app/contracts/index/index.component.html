@@ -1,67 +1,149 @@
-<div class="container-fluid content mt-4" dir="rtl">
+<div class="container-fluid content mt-3" dir="rtl">
     <h3 class="me-4 ">العقود</h3>
     <div class="row justify-content-around align-items-center mt-4 summary">
         <div class="col-md-4 my-3">
-            <div class="s d-flex align-items-center justify-content-center "> ساري : 55</div>
+            <div class="s d-flex align-items-center justify-content-center "> ساري : {{statusSummary.valid}}</div>
         </div>
         <div class="col-md-4 my-3">
-            <div class="f d-flex align-items-center justify-content-center ">فسخ :  55</div>
+            <div class="f d-flex align-items-center justify-content-center ">فسخ :  {{statusSummary.annulled}}</div>
         </div>
         <div class="col-md-4 my-3">
-            <div class="t d-flex align-items-center justify-content-center ">تجديد : 55</div>
+            <div class="t d-flex align-items-center justify-content-center ">تجديد : {{statusSummary.renewal}}</div>
         </div>
     </div>
 </div>
 
+<div class="table col-sm-5 mostly-customized-scrollbar mt-4">
+    <table mat-table #table [dataSource]="dataSource" class="  text-center"  dir="rtl">
 
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-5 text-center" dir="rtl">          
-    <ng-container matColumnDef="#" >
-        <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
+        <ng-container matColumnDef="كود التشغيل">
+            <th (click)="sortEvent(table)" mat-header-cell *matHeaderCellDef class="text-center"> كود التشغيل
+                <i *ngIf="ascending_sort == null" style="cursor: pointer;" class="fa fa-sort me-1 fa-xs"></i>
+                <i *ngIf="ascending_sort == true" style="cursor: pointer;" class="fa-solid fa-caret-down ms-1"></i>
+                <i *ngIf="ascending_sort == false" style="cursor: pointer;" class="fa-solid fa-caret-up ms-1"></i>
 
-    <ng-container matColumnDef="كود التشغيل">
-        <th mat-header-cell *matHeaderCellDef class="text-center"> كود التشغيل 
-            <a href="" class="text-black"><i class="fa fa-sort me-1 fa-xs"></i></a>
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.sapCode}} </td>
-    </ng-container>
-    
-    <ng-container matColumnDef="الفرع">
-        <th mat-header-cell *matHeaderCellDef class="text-center"> 
-            الفرع
-            
-        </th>
-        <td mat-cell *matCellDef="let element"> {{element.storeName}} </td>
-    </ng-container>
-    
-    <ng-container matColumnDef="المحافظة">
-        <th mat-header-cell *matHeaderCellDef class="text-center"> المحافظة </th>
-        <td mat-cell *matCellDef="let element"> {{element.governorate}} </td>
-    </ng-container>
-    
-    <ng-container matColumnDef="الاقليم">
-        <th mat-header-cell *matHeaderCellDef class="text-center"> الاقليم </th>
-        <td mat-cell *matCellDef="let element"> {{element.region}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="الحالة">
-        <th mat-header-cell *matHeaderCellDef class="text-center"> الحالة </th>
-        <td mat-cell *matCellDef="let element"> 
-            <div class="state pt-1" [ngClass]="{greenClass: element.state=='ساري', redClass: element.state=='فسخ',orangeClass: element.state=='مطلوب التجديد' }">{{element.state}}</div>
-         </td>
-    </ng-container>
-    
-    <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;" [ngClass]="{alternate: index % 2 == 0 }"></tr>
-</table>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                {{element.store_code}}
+             </td>
+        </ng-container>
 
 
 
-<button class="btn m-5 px-4 addBtn ">اضافة عقد</button>
-          
-          
-        
+        <ng-container matColumnDef="الاسم" >
+            <th mat-header-cell *matHeaderCellDef class="text-center">
+                  <button *ngIf="filter_object.branch != ''" (click)="filter_object.branch = ''; sendApiRequest(); branch.value = undefined" style="background-color: white; border:0px; outline:none;">
+                    <i class="fa-solid fa-xmark ms-2"></i>
+                    </button>
+                    <mat-select (clickOutside)="branch.close()" #branch (selectionChange)="changeFilter($event, 'branch')" placeholder="الاسم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                      <ng-container *ngFor="let row of unique_branch_name">
+                      <mat-option *ngIf='row != "" && row != null'  [value]="row">
+
+                            {{ row }}
+
+                        </mat-option>
+                      </ng-container>
+
+                    </mat-select>
+
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.branch_name}} </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="المحافظة">
+            <th mat-header-cell *matHeaderCellDef class="text-center">
+              <button *ngIf="filter_object.governorate ''" (click)="filter_object.governorate = ''; sendApiRequest(); governorate.value = undefined" style="background-color: white; border:0px; outline:none;">
+                  <i class="fa-solid fa-xmark ms-2"></i>
+                </button>
+                <mat-select (clickOutside)="governorate.close()" #governorate (selectionChange)="changeFilter($event, 'governorate')" placeholder="المحافظة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option *ngFor="let row of unique_governorate"  [value]="row">
+                        {{ row }}
+                    </mat-option>
+                </mat-select>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.governorate}} </td>
+        </ng-container>
+
+
+
+        <ng-container matColumnDef="الاقليم">
+            <th mat-header-cell *matHeaderCellDef class="text-center">
+              <button *ngIf="filter_object.province!= ''" (click)="filter_object.province = ''; sendApiRequest(); province.value = undefined" style="background-color: white; border:0px; outline:none;">
+                <i class="fa-solid fa-xmark ms-2"></i>
+              </button>
+                <mat-select (clickOutside)="province.close()" #province (selectionChange)="changeFilter($event, 'province')" placeholder="الاقليم" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option  *ngFor="let row of unique_province" [value]="row">
+                        {{ row }}
+                    </mat-option>
+                </mat-select>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.province}} </td>
+        </ng-container>
+
+
+
+
+        <!-- <ng-container matColumnDef="نوع العقد">
+            <th mat-header-cell *matHeaderCellDef class="text-center">
+                <mat-select (selectionChange)="typeFilter($event,dataSource)" placeholder="نوع العقد" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option *ngFor="let row of unique_contractType" [value]="row">
+                        {{ row }}
+                    </mat-option>
+                </mat-select>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.contractType}} </td>
+        </ng-container> -->
+
+
+<!--
+        <ng-container matColumnDef="قسم العقد">
+            <th mat-header-cell *matHeaderCellDef class="text-center">
+                <mat-select (selectionChange)="departmentFilter($event,dataSource)" placeholder="قسم العقد" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                    <mat-option *ngFor="let row of unique_Department" [value]="row">
+                        {{ row }}
+                    </mat-option>
+                </mat-select>
+            </th>
+            <td mat-cell *matCellDef="let element"> {{element.Department }} </td>
+        </ng-container> -->
+
+
+
+        <ng-container matColumnDef="الحالة">
+            <th mat-header-cell *matHeaderCellDef class="text-center">
+              <button *ngIf="filter_object.status != ''" (click)="filter_object.status = ''; sendApiRequest(); status.value = undefined" style="background-color: white; border:0px; outline:none;">
+                <i class="fa-solid fa-xmark ms-2"></i>
+              </button>
+                <mat-select (clickOutside)="status.close()" #status (selectionChange)="changeFilter($event, 'status')" placeholder="الحالة" style="width: auto;" disableOptionCentering panelClass="myPanelClass">
+                  <mat-option  *ngFor="let row of unique_status" [value]="row">
+                      {{ row }}
+                 </mat-option>
+                </mat-select>
+            </th>
+            <td mat-cell *matCellDef="let element">
+                <div class="state pt-1" [ngClass]="{s: element.status
+                    =='ساري', f: element.status
+                    =='فسخ',t: element.status
+                    =='مطلوب تجديده' }">{{element.status}}</div>
+             </td>
+        </ng-container>
+
+
+
+
+
+        <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
+        <tr (click)="display(row.id)" mat-row *matRowDef="let row; columns: displayedColumns; let index = index;" [ngClass]="{alternate: index % 2 == 0 }"></tr>
+    </table>
+
+</div>
+
+<button [routerLink]="['add']" class="btn m-5 mt-4 px-4 addBtn ">اضافة عقد</button>
+
+
+
 

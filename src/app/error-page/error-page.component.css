@@ -1,0 +1,79 @@
+.main-container {
+  background-color: #141F39;
+  height: 100%;
+  min-height: 91vh;
+  z-index: 1;
+}
+
+.rounded-rectangle {
+  background-image: url('/assets/Images/Path\ 20.png');
+  position: absolute;
+  width: 602.31px;
+  height: 712.1px;
+  left: 0px;
+  top: 88px;
+  z-index: 2;
+}
+
+#main-text {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.green {
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 27%;
+  transform: translate(-50%, -50%);
+}
+
+.orange {
+  z-index: 11;
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+}
+
+h1 {
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  top: 72%;
+  left: 50%;
+}
+
+.sub-text {
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  top: 80%;
+  left: 50%;
+}
+
+button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 88%;
+  left: 50%;
+  z-index: 12;
+  background: #E26C56;
+  width: 322px;
+height: 82px;
+border-radius: 41px;
+color: white;
+transition: 0.3s ease-in;
+border: 0px;
+}
+
+button:hover {
+  background-color: #c56150;
+}
