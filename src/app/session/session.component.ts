@@ -19,7 +19,7 @@ export class SessionComponent implements OnInit {
   exform!: FormGroup;
   id:number=0;
 
-  constructor(private service: ProcurartonService,private _router:ActivatedRoute ,private _build: FormBuilder, private _navigate: Router) {
+  constructor(private service: ProcurartonService,private _router:ActivatedRoute ,private _build: FormBuilder, private _navigate: Router){
   }
 
   ngOnInit(): void {
@@ -34,12 +34,12 @@ export class SessionComponent implements OnInit {
 
   onSave(){
     this.service.addSession(this.id,this.session)
-        .subscribe(data => {
-          console.log(data);
-        })  ;
-        Swal.fire({title:"تم الحفظ"}).then(() => {
-          this._navigate.navigate(['/case3',this.id]);
-        });
+      .subscribe(data => {
+        console.log(data);
+      })  ;
+    Swal.fire({title:"تم الحفظ"}).then(() => {
+      this._navigate.navigate(['/case3',this.id]);
+    });
   }
 
 

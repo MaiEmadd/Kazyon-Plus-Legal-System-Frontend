@@ -47,7 +47,8 @@ import { SessionComponent } from './session/session.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -53,18 +53,31 @@
     <form [formGroup]="exform" class="form">
       <div class="grid2">
         <div class="grid_item">
-        <label class="label">اسم الموكل </label> 
+        <label class="label">اسم الموكل </label>
         <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control">
 
     </div>
     <div  class="grid_item">
-      <label class="label"> اسم الخصم  </label> 
+      <label class="label"> اسم الخصم  </label>
       <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" >
 </div>
-    <div class="grid_item">
-      <label class="label"> نوع القضية   </label>
-      <input [(ngModel)]="case.category" formControlName="category" type="text" class="form-control" >
-</div>
+        <div class="grid_item">
+          <label class="label"> نوع القضية   </label>
+
+          <select [(ngModel)]="case.category" formControlName="category" name="type" ng-model="userSelect"> نوع القضية
+            <option value="مدني جزئي">  مدني جزئي </option>
+            <option value="مدني كلي">مدني كلي</option>
+            <option value="جنح">جنح</option>
+            <option value="جنح مستئنفة">جنح مستئنفة</option>
+            <option value="استئناف عالى">استئناف عالى</option>
+            <option value="جنايات"> جنايات</option>
+            <option value=" عمالى"> عمالى</option>
+            <option value="قضاء اداري"> قضاء اداري</option>
+
+          </select>
+
+
+        </div>
     <div class="grid_item">
       <label class="label"> رقم القضية </label>
       <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1">
@@ -99,21 +112,21 @@
         </div>
         <div class="in text-center">
         <div class="container-fluid box mt-4 box" dir="rtl">
-            
+
           <label for="file-upload" class="custom-file-upload">
             <i class="fas fa-file-pdf"></i>
-        
+
         </label>
-         <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>  
-        
+         <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>
+
          <button [hidden]="!this.case.hasAttachment" class="btn m-5 px-4 savebtn"> <a [href]="downloadUrl"> تحميل الملفات</a></button>
          <div class="grid">
          <div *ngFor="let document of documentList; let i = index">
-        
+
         <div class="pdf-file-div">
           <i class="fa-solid fa-file-pdf " id="pdf">
             <i class="fa-solid fa-x" id="pdf-x" (click)="remove(i)">
-             
+
             </i>
           </i>
           <p>{{document.name}}</p>
@@ -123,7 +136,7 @@
         </div>
         <br>
         </div>
-        
+
             </div>
 
 <div *ngIf="!caseFlag" class="container-fluid box mt-4 box" dir="rtl">

@@ -51,34 +51,34 @@
     <br>
 
     <div class="in text-center">
-      
+
       <form [formGroup]="exform" class="form">
         <div class="grid2">
           <div class="grid_item">
-          <label class="label">اسم الموكل </label> 
+          <label class="label">اسم الموكل </label>
           <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control">
-  
+
       </div>
       <div  class="grid_item">
-        <label class="label"> اسم الخصم  </label> 
+        <label class="label"> اسم الخصم  </label>
         <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" >
   </div>
       <div class="grid_item">
         <label class="label"> نوع القضية   </label>
-        
-          <select [(ngModel)]="case.category" name="type" ng-model="userSelect"> نوع القضية  
-          <option value="1">  مدني جزئي </option>
-          <option value="1">مدني كلي</option>
-          <option value="1">جنح</option>
-          <option value="1">جنح مستئنفة</option>
-          <option value="1">استئناف عالى</option>
-          <option value="1"> جنايات</option>
-          <option value="1"> عمالى</option>
-          <option value="1"> قضاء اداري</option>
+
+          <select [(ngModel)]="case.category" formControlName="category" name="type" ng-model="userSelect"> نوع القضية
+
+            <option value="مدني جزئي">  مدني جزئي </option>
+            <option value="مدني كلي">مدني كلي</option>
+            <option value="جنح">جنح</option>
+            <option value="جنح مستئنفة">جنح مستئنفة</option>
+            <option value="استئناف عالى">استئناف عالى</option>
+            <option value="جنايات"> جنايات</option>
+            <option value=" عمالى"> عمالى</option>
+            <option value="قضاء اداري"> قضاء اداري</option>
 
         </select>
 
-       
   </div>
       <div class="grid_item">
         <label class="label"> رقم القضية </label>

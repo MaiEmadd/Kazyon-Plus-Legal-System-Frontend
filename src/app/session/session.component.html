@@ -61,15 +61,15 @@
   <br>
   <br>
   <div class="in text-center">
-      
+
     <form id="containerFileds" [formGroup]="exform" class="form">
       <div class="grid2">
         <div class="grid_item">
-        <label class="label"> تاريخ الجلسة الحاليه </label> 
+        <label class="label"> تاريخ الجلسة الحاليه </label>
         <input [(ngModel)]="session.startingDate" formControlName="startingDate" type="date" class="form-control" >
     </div>
     <div  class="grid_item">
-      <label class="label"> قرار الجلسة الحاليه</label> 
+      <label class="label"> قرار الجلسة الحاليه</label>
       <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  "  >
       </div>
     <div class="grid_item">
@@ -78,14 +78,18 @@
     </div>
     </div>
     </form>
-<br>
-<label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
-<br>
-  
+    <br>
+    <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
 
-      
+    <br>
+</div>
+</div>
+<br>
+<br>
 
-      
+
+
+
 
 
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case3',case.idCase]">تجاهل</button>

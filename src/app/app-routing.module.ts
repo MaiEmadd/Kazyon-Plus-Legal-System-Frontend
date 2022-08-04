@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './contracts/index/index.component';
@@ -12,14 +13,14 @@ import {SessionComponent} from "./session/session.component";
 
 
 const routes: Routes = [
-{path:'con', component:IndexComponent},
- {path:'', component:LawsuitComponent},
- {path:'case',component:Case1Component},
- {path:'procuration',component:ProcurationComponent },
-{path:'procuration1',component:Procuration1Component },
- {path:'case2',component:Case2Component },
- {path:'case3/:id',component:Case3Component },
- {path:'procuration2/:id',component:Procuration3Component},
+  {path:'con', component:IndexComponent},
+  {path:'', component:LawsuitComponent},
+  {path:'case',component:Case1Component},
+  {path:'procuration',component:ProcurationComponent },
+  {path:'procuration1',component:Procuration1Component },
+  {path:'case2',component:Case2Component },
+  {path:'case3/:id',component:Case3Component },
+  {path:'procuration2/:id',component:Procuration3Component},
   {path:'session/:id',component:SessionComponent },
 
 ];

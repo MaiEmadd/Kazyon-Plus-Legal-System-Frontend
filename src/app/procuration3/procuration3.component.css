@@ -1,25 +1,25 @@
 .box{
-    width: 90%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
-border-radius: 20px;
+  width: 90%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 .inner_box{
-    width: 70%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
+  width: 70%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  }
+}
 input{
-    text-align: center;
-    width: 30%;
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    margin-right: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: 6px;
-    color: black;
-    display: inline;
+  text-align: center;
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin-right: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  color: black;
+  display: inline;
 }
 
 .form fieldset {
@@ -34,38 +34,38 @@ input{
 }
 small
 {
-    text-align: center;
-    width: 30%;
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    margin-right: 20px;
+  text-align: center;
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin-right: 20px;
 
 }
 .form-control.ng-touched.ng-invalid{
-    border: 1px solid red;
+  border: 1px solid red;
 
 }
 #pdf {
-    color: red;
-    text-shadow: 1px 1px 1px #ccc;
-   font-size:60px;
-    position: relative;
-    
+  color: red;
+  text-shadow: 1px 1px 1px #ccc;
+  font-size:60px;
+  position: relative;
+
 }
 #pdf-x{
-    color: black;
-    position: absolute;
-    font-size:10px;
-    top: 0px;
-    left:33px;
+  color: black;
+  position: absolute;
+  font-size:10px;
+  top: 0px;
+  left:33px;
 }
 .grid{
-    display: grid;
+  display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 .grid2{
   display: grid;
-grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 input.form-control::-webkit-outer-spin-button,
 input.form-control::-webkit-inner-spin-button {
@@ -78,36 +78,36 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 input[type="file"] {
-    display: none;
+  display: none;
 }
 .custom-file-upload
 {
-    text-align: center;
-    width: 30%;
-    margin-bottom: 20px;
-    padding: 12px 20px;
-    margin-right: 20px;
-    border: 2px dashed #e7e6e6;
-    border-radius: 6px;
-    color: #a56868;
-    background: rgba(217, 217, 217, 0.2);
-   }
+  text-align: center;
+  width: 30%;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  margin-right: 20px;
+  border: 2px dashed #e7e6e6;
+  border-radius: 6px;
+  color: #a56868;
+  background: rgba(217, 217, 217, 0.2);
+}
 .savebtn{
-    background-color: #01C165;
-    padding: 12px 0px ;
-    color: white;
-    font-weight: 700;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
-  }
-  .ignorebtn{
-    background-color: #F44336;
-    padding: 12px 0px ;
-    color: white;
-    font-weight: 700;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 10px;
-  }
+  background-color: #01C165;
+  padding: 12px 0px ;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.ignorebtn{
+  background-color: #F44336;
+  padding: 12px 0px ;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
 .error{
   color: red;
   margin-bottom: 10px;
@@ -125,7 +125,7 @@ border-radius: 10px;
 }
 
 a {
-  color: white; 
+  color: white;
   text-decoration: none;
   font-weight: bolder;
 }
