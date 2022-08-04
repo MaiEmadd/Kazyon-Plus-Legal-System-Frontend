@@ -21,9 +21,9 @@ export class Case1Component implements OnInit {
       console.log(data);
       this.cases = data;
     });
-    
+
   }
-  
+
   getCase() {
     this.procurartonService.getCasesByName(this.name)
       .subscribe(data => {
@@ -31,5 +31,9 @@ export class Case1Component implements OnInit {
         this.cases=data;
       })  }
 
+  // editContact(contact: Contact) {
+  //   let route = '/contacts/edit-contact';
+  //   this.router.navigate([route], { queryParams: { id: contact.id } });
+  // }
 
 }

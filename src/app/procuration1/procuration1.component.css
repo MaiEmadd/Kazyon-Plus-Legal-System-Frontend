@@ -22,6 +22,15 @@
   color: black;
   display: inline;
 }
+
+.required-asterisk{
+  color: red;
+  font-weight: bold;
+  margin-left: 3px;
+  font-size: 1.2em;
+}
+
+
 small
 {
   text-align: center;
@@ -107,4 +116,36 @@ input[type=number] {
 .grid2{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-disabled .mat-form-field-outline {
+  color: rgba(0,0,0,0.3) !important;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: rgba(0,0,0,0.3) !important;
+}
+
+
+
+::ng-deep .mat-form-field-label {
+  color: black  !important;
+  font-size: 18px !important;
+  font-weight: 900;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-label {
+  font-weight: bolder;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label, .mat-form-field-appearance-outline.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label {
+  top: 1.6em !important;
+  padding-left: 2px;
+  background-color: white;
+  width: fit-content;
+  font-size: 22px !important;
+}
+
+::ng-deep .mat-form-field-label-wrapper {
+  overflow:unset !important;
+
 }

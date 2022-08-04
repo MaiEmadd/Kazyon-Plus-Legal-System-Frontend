@@ -24,12 +24,12 @@ export class Procuration1Component implements OnInit {
       'office_procuration_number':new FormControl(null, [Validators.required])
     });
     }
-   
+
   addProcurartion() {
     this.service.addProcurartion(this.procuration)
       .subscribe(data => {
         console.log(data)
-      })      
+      })
   }
   onSave(){
     this.addProcurartion();
@@ -37,6 +37,17 @@ export class Procuration1Component implements OnInit {
       console.log('sad');
       this._navigate.navigate(['procuration']);
     });
+  }
+
+  letterOnly(event: { keyCode: any; })
+  {
+    var charCode = event.keyCode;
+
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8)
+
+      return true;
+    else
+      return false;
   }
 
 }

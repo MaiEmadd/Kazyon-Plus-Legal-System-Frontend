@@ -53,16 +53,22 @@
     <form [formGroup]="exform" class="form">
       <div class="grid2">
         <div class="grid_item">
-        <label class="label">اسم الموكل </label>
-        <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control">
+        <label class="label">اسم الموكل
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
 
     </div>
     <div  class="grid_item">
-      <label class="label"> اسم الخصم  </label>
-      <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" >
+      <label class="label"> اسم الخصم
+        <span class="required-asterisk">*</span>
+      </label>
+      <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
 </div>
         <div class="grid_item">
-          <label class="label"> نوع القضية   </label>
+          <label class="label"> نوع القضية
+            <span class="required-asterisk">*</span>
+          </label>
 
           <select [(ngModel)]="case.category" formControlName="category" name="type" ng-model="userSelect"> نوع القضية
             <option value="مدني جزئي">  مدني جزئي </option>
@@ -79,34 +85,44 @@
 
         </div>
     <div class="grid_item">
-      <label class="label"> رقم القضية </label>
-      <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1">
+      <label class="label"> رقم القضية
+        <span class="required-asterisk">*</span>
+      </label>
+      <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+             type = "number"
+             maxlength = "6">
     </div>
     <div class="grid_item">
-      <label class="label">السنة </label>
-      <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000" >
+      <label class="label">السنة
+        <span class="required-asterisk">*</span>
+      </label>
+      <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+             type = "number"
+             maxlength = "4">
     </div>
     <div class="grid_item">
       <label class="label"> رقم الملف</label>
-      <input [(ngModel)]="case.filenumber" formControlName="filenumber" class="form-control"  type="number"  min="1">
+      <input [(ngModel)]="case.filenumber" formControlName="filenumber" class="form-control"  type="number"  min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+             type = "number"
+             maxlength = "6">
     </div>
     <div class="grid_item">
       <label class="label">الدائرة </label>
-      <input [(ngModel)]="case.area" formControlName="area"  type="text" >
+      <input [(ngModel)]="case.area" formControlName="area"  type="text" (keypress)="letterOnly($event)" maxlength="150">
     </div>
     <div class="grid_item">
       <label class="label">صفة الموكل</label>
-      <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text"  >
+      <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text" (keypress)="letterOnly($event)" maxlength="150">
     </div>
     <div class="grid_item">
       <label class="label">صفة الخصم </label>
-      <input [(ngModel)]="case.againststat" formControlName="againststat" type="text"  >
+      <input [(ngModel)]="case.againststat" formControlName="againststat" type="text" (keypress)="letterOnly($event)" maxlength="150">
 
     </div>
     </div>
     </form>
     <br>
-    <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+<!--    <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
     <br>
           <br>
         </div>

@@ -28,7 +28,7 @@ table {
   }
   .case i {
 
-    float: left;    
+    float: left;
     padding: 12px;
     color: rgba(142, 142, 142, 0.6);
     font-size: 17px;
@@ -45,3 +45,20 @@ table {
    border-radius: 10px;
   }
   tr:nth-child(even) {background-color: #f2f2f2;}
+
+.mostly-customized-scrollbar::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: rgb(252, 252, 252);
+}
+
+.mostly-customized-scrollbar::-webkit-scrollbar-thumb
+{
+  height: 20px;
+  border-radius:20px;
+  background: rgb(116, 116, 116);
+  -webkit-border-radius:20px;
+  -moz-border-radius:20px;
+  -ms-border-radius:20px;
+  -o-border-radius:20px;
+}

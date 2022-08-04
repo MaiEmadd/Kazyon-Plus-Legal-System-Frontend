@@ -134,6 +134,17 @@ export class Case3Component implements OnInit {
    this.documentList = this.files2;
    this.files=this.files2;
   }
-  
+
+
+  letterOnly(event: { keyCode: any; })
+  {
+    var charCode = event.keyCode;
+
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8)
+
+      return true;
+    else
+      return false;
+  }
 
 }
