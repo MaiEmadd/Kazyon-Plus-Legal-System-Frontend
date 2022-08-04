@@ -74,7 +74,11 @@ th, td {
 
 }
 tr:nth-child(even) {background-color: #f2f2f2;}
-
+select{
+  width: 60%;
+    height: 50%;
+    border-radius: 6px;
+}
 td.mat-cell {
   /* row padding */
   padding: 16px 0;

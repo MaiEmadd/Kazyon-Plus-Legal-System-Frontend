@@ -50,25 +50,30 @@ input{
     color: #a56868;
     background: rgba(217, 217, 217, 0.2);
    }
-.savebtn{
+   .savebtn{
     background-color: #01C165;
+    width: 199px;
+    background: #01C165;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  
     padding: 12px 0px ;
     color: white;
     font-weight: 700;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-
+  
   }
   .ignorebtn{
     background-color: #F44336;
+    width: 199px;
+  
     padding: 12px 0px ;
     color: white;
     font-weight: 700;
+    background: #F44336;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
-
+    margin-left: 5.5rem;
   }
-
   input.form-control::-webkit-outer-spin-button,
   input.form-control::-webkit-inner-spin-button {
     -webkit-appearance: none;
