@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Procuration } from '../procurartion';
 import { ProcurartonService } from '../procurarton.service';
 import { Route, Router } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({ selector: 'app', templateUrl: 'procuration.component.html',styleUrls: ['./procuration.component.css'] })
 export class ProcurationComponent implements OnInit {

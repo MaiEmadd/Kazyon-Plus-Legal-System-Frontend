@@ -63,16 +63,14 @@
         <label class="label"> السنة
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-controll" placeholder="السنة " min="2000"      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-               type = "number"
-               maxlength = "4">
+        <input [(ngModel)]="proc.year" formControlName="year" type="date" class="form-controll" >
        <!-- <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> -->
       </div>
       <div class="grid_item">
         <label class="label"> رقم التوكيل
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control"   min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                type = "number"
                maxlength = "6">
        </div>
@@ -80,13 +78,13 @@
         <label class="label"> مكتب التوثيق
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق" (keypress)="letterOnly($event)" maxlength="150">
+        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
         </div>
       <div class="grid_item">
         <label class="label"> رقم التوكيل بالمكتب
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب "     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                type = "number"
                maxlength = "6">
         </div>
