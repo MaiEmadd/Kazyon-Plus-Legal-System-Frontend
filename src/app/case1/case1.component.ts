@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-case1',

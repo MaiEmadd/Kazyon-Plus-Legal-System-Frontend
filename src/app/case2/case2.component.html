@@ -98,9 +98,7 @@
         <label class="label">السنة
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="number" class="form-controll" min="2000"      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-               type = "number"
-               maxlength = "4">
+        <input [(ngModel)]="case.caseyear" formControlName="caseyear" type="date" class="form-controll" >
       </div>
       <div class="grid_item">
         <label class="label"> رقم الملف</label>

@@ -4,7 +4,7 @@ export class Case{
     client?:string | undefined;
     against?:string;
     filenumber?:number;
-    caseyear?:number;
+    caseyear?:string;
     category?:string;
     clientstat?:string;
     againststat?:string;
