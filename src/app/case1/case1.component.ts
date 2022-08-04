@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
 
@@ -11,10 +12,10 @@ export class Case1Component implements OnInit {
 
 
 
-  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','رقم الملف','btn'];
+  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','رقم الملف'];
   cases: Case[]=[] ;
   name:String="";
-  constructor(private procurartonService: ProcurartonService) { }
+  constructor(private procurartonService: ProcurartonService,private _router:Router) { }
 
   ngOnInit(): void {
     this.procurartonService.getCases().subscribe((data: Case[]) => {
@@ -30,10 +31,9 @@ export class Case1Component implements OnInit {
         console.log(data)
         this.cases=data;
       })  }
-
-  // editContact(contact: Contact) {
-  //   let route = '/contacts/edit-contact';
-  //   this.router.navigate([route], { queryParams: { id: contact.id } });
-  // }
-
+      details(id:number){
+        let route = 'case3/'+id;
+      this._router.navigate([route]);
+      }
+ 
 }
