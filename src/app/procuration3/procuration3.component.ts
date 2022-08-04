@@ -85,6 +85,7 @@ export class Procuration3Component implements OnInit {
 
 
     getProcurartionbyID() {
+      console.log(this.id);
       this.service.getProcurartionByID(this.id)
         .subscribe(data => {
           console.log(data);
