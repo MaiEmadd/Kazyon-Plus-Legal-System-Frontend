@@ -95,16 +95,25 @@
           </th>
           <td mat-cell *matCellDef="let element"> {{element.numbercase}} </td>
       </ng-container>
-      <ng-container matColumnDef="btn">
-        <th mat-header-cell *matHeaderCellDef class="text-center">تفاصيل</th>
-        <td mat-cell *matCellDef="let element"><a [routerLink]="['/case3', element.idCase]" ><i class="fas fa-edit"></i></a></td>
-      </ng-container>
+<!--<<<<<<< HEAD-->
+<!--      <ng-container matColumnDef="btn">-->
+<!--        <th mat-header-cell *matHeaderCellDef class="text-center">تفاصيل</th>-->
+<!--        <td mat-cell *matCellDef="let element"><a [routerLink]="['/case3', element.idCase]" ><i class="fas fa-edit"></i></a></td>-->
+<!--      </ng-container>-->
+
+<!--      <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>-->
+<!--&lt;!&ndash;      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editContact(row)"></tr>&ndash;&gt;-->
+
+<!--    &lt;!&ndash;      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>&ndash;&gt;-->
+<!--  </table>-->
+<!--=======-->
+
 
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
-<!--      <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="editContact(row)"></tr>-->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
 
-    <!--      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>-->
-  </table>
+    </table>
+>>>>>>> 318fdef3ae24b15e4d0592321c084880ebb5b12a
   <br>
 </div>
 <a [routerLink]="['/case2']"><button class="btn m-5 px-4 addbtn">اضافة قضية </button></a>
