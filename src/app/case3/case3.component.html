@@ -155,7 +155,7 @@
 
 <div *ngIf="!caseFlag" class="container-fluid box mt-4 box" dir="rtl">
   <div class="in text-center">
-
+  <div class="scroll">
     <table mat-table [dataSource]="sessions" #table  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
 
       <ng-container matColumnDef="تاريخ الجلسة الحاليه ">
@@ -177,6 +177,7 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
 
     </table>
+    </div>
     <button (click)="addRow(table)" class="btn m-5 px-4 sessionbtn " [routerLink]="['/session', case.idCase]">اضافة جلسة</button>
 
   </div>
