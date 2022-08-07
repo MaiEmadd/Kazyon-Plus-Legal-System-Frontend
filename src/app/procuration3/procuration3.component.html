@@ -55,7 +55,7 @@
           <label class="label">اسم الموكل
             <span class="required-asterisk">*</span>
           </label>
-        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل" (keypress)="letterOnly($event)" maxlength="150">
+        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل" (keypress)="isNumberKey($event)"  maxlength="150">
         <!-- <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>  -->
 
       </div>
@@ -78,7 +78,7 @@
         <label class="label"> مكتب التوثيق
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
+        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150">
         </div>
       <div class="grid_item">
         <label class="label"> رقم التوكيل بالمكتب

@@ -46,7 +46,7 @@
 <div class="in text-center">
   <button class="btn m-1 px-4 tablebtn toggle" (click)="toggle()" [disabled]='!caseFlag'>الجلسات</button>
   <button class="btn m-1 px-4 tablebtn toggle" (click)="toggle()" [disabled]='caseFlag'>القضية</button>
-  
+
 </div>
 <div *ngIf="caseFlag" class="container-fluid box mt-1 box" dir="rtl">
   <div class="in text-center">
@@ -57,14 +57,14 @@
           <label class="label">اسم الموكل
             <span class="required-asterisk">*</span>
           </label>
-          <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
+          <input [(ngModel)]="case.client" formControlName="client"  type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150">
 
         </div>
         <div  class="grid_item">
           <label class="label"> اسم الخصم
             <span class="required-asterisk">*</span>
           </label>
-          <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
+          <input [(ngModel)]="case.against" formControlName="against" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150">
         </div>
         <div class="grid_item">
           <label class="label"> نوع القضية
@@ -107,15 +107,15 @@
         </div>
         <div class="grid_item">
           <label class="label">الدائرة </label>
-          <input [(ngModel)]="case.area" formControlName="area"  type="text" (keypress)="letterOnly($event)" maxlength="150">
+          <input [(ngModel)]="case.area" formControlName="area"  type="text" (keypress)="isNumberKey($event)" maxlength="150">
         </div>
         <div class="grid_item">
           <label class="label">صفة الموكل</label>
-          <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text" (keypress)="letterOnly($event)" maxlength="150">
+          <input [(ngModel)]="case.clientstat" formControlName="clientstat" type="text" (keypress)="isNumberKey($event)" maxlength="150">
         </div>
         <div class="grid_item">
           <label class="label">صفة الخصم </label>
-          <input [(ngModel)]="case.againststat" formControlName="againststat" type="text" (keypress)="letterOnly($event)" maxlength="150">
+          <input [(ngModel)]="case.againststat" formControlName="againststat" type="text" (keypress)="isNumberKey($event)" maxlength="150">
 
         </div>
       </div>

@@ -74,7 +74,7 @@
       <label class="label"> قرار الجلسة الحالي
         <span class="required-asterisk">*</span>
       </label>
-      <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  " (keypress)="letterOnly($event)" maxlength="150" >
+      <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  " (keypress)="isNumberKey($event)" maxlength="150" >
       </div>
     <div class="grid_item">
       <label class="label"> تاريخ الجلسة القادمه
