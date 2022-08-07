@@ -52,7 +52,7 @@
 
   <div class="container-fluid box  " dir="rtl">
 
-  <table mat-table [dataSource]="procs"  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
+  <table mat-table [dataSource]="procs"  class="mat-elevation-z8  text-center" dir="rtl">
     <ng-container matColumnDef="#" >
         <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
@@ -95,4 +95,4 @@
   </table>
 
 </div>
-<a [routerLink]="['/procuration1']"><button class="btn m-5 px-4 addbtn">اضافة توكيل جديد</button></a>
+<a [routerLink]="['/procuration1']"><button class="btn m-2 px-4 addbtn">اضافة توكيل جديد</button></a>

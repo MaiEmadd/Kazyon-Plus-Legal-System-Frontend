@@ -32,21 +32,22 @@ export class Case2Component implements OnInit {
   }
   onSave(){
     this.addCase();
+    
   }
   addCase() {
     //let obj= <Case> Object.assign ({},this.exform);
     this.case.sessionRequests=[];
     this.service.addCase(this.case)
-    .subscribe(
-      suc => {
-        Swal.fire({title:"تم الحفظ"}).then(() => {
-          this._navigate.navigate(['procuration']);
-        });
-      },
-      err => {
-        Swal.fire({title:"تعذر الحفظ"}).then(() => {
-        });
-      })
+      .subscribe(
+        suc => {
+          Swal.fire({title:"تم الحفظ"}).then(() => {
+            this._navigate.navigate(['case']);
+          });
+        },
+        err => {
+          Swal.fire({title:"تعذر الحفظ"}).then(() => {
+          });
+        })
   }
 
   letterOnly(event: { keyCode: any; })

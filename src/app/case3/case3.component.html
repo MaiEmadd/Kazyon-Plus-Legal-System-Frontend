@@ -44,10 +44,11 @@
 
 </style>
 <div class="in text-center">
-  <button class="btn m-5 px-4 tablebtn toggle" (click)="toggle()" [disabled]='!caseFlag'>القضية</button>
-  <button class="btn m-5 px-4 tablebtn toggle" (click)="toggle()" [disabled]='caseFlag'>الجلسات</button>
+  <button class="btn m-1 px-4 tablebtn toggle" (click)="toggle()" [disabled]='!caseFlag'>الجلسات</button>
+  <button class="btn m-1 px-4 tablebtn toggle" (click)="toggle()" [disabled]='caseFlag'>القضية</button>
+  
 </div>
-<div *ngIf="caseFlag" class="container-fluid box mt-4 box" dir="rtl">
+<div *ngIf="caseFlag" class="container-fluid box mt-1 box" dir="rtl">
   <div class="in text-center">
     <br>
     <form [formGroup]="exform" class="form">
@@ -155,7 +156,7 @@
 
 </div>
 
-<div *ngIf="!caseFlag" class="container-fluid box mt-4 box" dir="rtl">
+<div *ngIf="!caseFlag" class="container-fluid box mt-1 box" dir="rtl">
   <div class="in text-center">
     <div class="scroll">
       <table mat-table [dataSource]="sessions" #table  class="mat-elevation-z8 mt-5 text-center" dir="rtl">

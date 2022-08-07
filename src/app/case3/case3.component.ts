@@ -76,6 +76,7 @@ export class Case3Component implements OnInit {
           }) ;
         }
       }
+
   }
   getSessionByID(){
     this.service.getSessionByCaseID(this.id).subscribe((data: Session[]) => {
@@ -100,7 +101,7 @@ export class Case3Component implements OnInit {
     this.service.addSession(this.id,this.session).subscribe(
       suc => {
         Swal.fire({title:"تم الحفظ"}).then(() => {
-          this._navigate.navigate(['procuration']);
+          this._navigate.navigate(['case']);
         });
       },
       err => {
