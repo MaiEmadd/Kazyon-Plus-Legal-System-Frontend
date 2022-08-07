@@ -123,7 +123,12 @@ input[type="file"] {
   margin-right: 15px;
   display: block;
 }
-
+.pdf-title{
+  font-weight: bolder;
+  font-size: x-large;
+  margin-top: 10px;
+  margin-left: 900px;
+}
 .required-asterisk{
   color: red;
   font-weight: bold;

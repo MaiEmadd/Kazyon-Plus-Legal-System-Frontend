@@ -111,6 +111,13 @@ td.mat-cell:last-child {
 table {
   /* row spacing / margin */
   border-spacing: 0 8px !important;
+  table-layout: fixed;
+}
+.pdf-title{
+  font-weight: bolder;
+  font-size: x-large;
+  margin-top: 10px;
+  margin-left: 900px;
 }
 .savebtn{
   background-color: #01C165;

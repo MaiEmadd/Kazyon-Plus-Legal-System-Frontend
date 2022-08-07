@@ -11,7 +11,7 @@ direction: ltr;
 }
 table {
   width: 100%;
-
+  table-layout: fixed;
 }
 .case input[type=text] {
   float: left;

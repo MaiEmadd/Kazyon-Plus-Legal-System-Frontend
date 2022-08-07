@@ -96,7 +96,7 @@ export class Procuration3Component implements OnInit {
   {
     var charCode = event.keyCode;
 
-    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8)
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode==32)
 
       return true;
     else
