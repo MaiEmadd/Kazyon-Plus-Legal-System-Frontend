@@ -102,6 +102,18 @@ export class Procuration3Component implements OnInit {
     else
       return false;
   }
+
+  isNumberKey(event: { keyCode: any; }){
+
+    var charCode = event.keyCode;
+    if ((charCode > 31 && (charCode < 48) || charCode > 57))
+
+      return true;
+    else
+      return false;
+  }
+
+
 }
 
 

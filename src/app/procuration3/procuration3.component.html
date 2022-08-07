@@ -70,7 +70,7 @@
         <label class="label"> رقم التوكيل
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control"   min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control"   min="1"  (keypress)="!isNumberKey($event)"    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                type = "number"
                maxlength = "6">
        </div>
@@ -84,7 +84,7 @@
         <label class="label"> رقم التوكيل بالمكتب
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"  (keypress)="!isNumberKey($event)"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                type = "number"
                maxlength = "6">
         </div>

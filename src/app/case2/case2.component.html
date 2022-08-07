@@ -90,7 +90,7 @@
         <label class="label"> رقم القضية
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        <input [(ngModel)]="case.numbercase" formControlName="numbercase" type="number" class="form-control"  min="1"   (keypress)="!isNumberKey($event)"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                type = "number"
                maxlength = "6">
       </div>
@@ -102,7 +102,7 @@
       </div>
       <div class="grid_item">
         <label class="label"> رقم الملف</label>
-        <input [(ngModel)]="case.filenumber" formControlName="filenumber" class="form-control"  type="number"  min="1"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+        <input [(ngModel)]="case.filenumber" formControlName="filenumber" class="form-control"  type="number"  min="1"  (keypress)="!isNumberKey($event)"   oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                type = "number"
                maxlength = "6">
       </div>
