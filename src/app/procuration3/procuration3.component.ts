@@ -56,8 +56,16 @@ export class Procuration3Component implements OnInit {
    }
     updateProcurartion() {
       this.service.updateProcurartion(this.proc)
-        .subscribe(data => {
-        })
+        .subscribe(
+          suc => {
+            Swal.fire({title:"تم الحفظ"}).then(() => {
+              this._navigate.navigate(['procuration']);
+            });
+          },
+          err => {
+            Swal.fire({title:"تعذر الحفظ"}).then(() => {
+            });
+          })
     }
     onSave(){
       this.updateProcurartion();
@@ -78,9 +86,7 @@ export class Procuration3Component implements OnInit {
         }
       }
 
-      Swal.fire({title:"تم الحفظ"}).then(() => {
-        this._navigate.navigate(['procuration']);
-      });
+      
     }
 
 

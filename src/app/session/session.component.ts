@@ -34,12 +34,16 @@ export class SessionComponent implements OnInit {
 
   onSave(){
     this.service.addSession(this.id,this.session)
-      .subscribe(data => {
-        console.log(data);
-      })  ;
-    Swal.fire({title:"تم الحفظ"}).then(() => {
-      this._navigate.navigate(['/case3',this.id]);
-    });
+    .subscribe(
+      suc => {
+        Swal.fire({title:"تم الحفظ"}).then(() => {
+          this._navigate.navigate(['procuration']);
+        });
+      },
+      err => {
+        Swal.fire({title:"تعذر الحفظ"}).then(() => {
+        });
+      })
   }
 
   letterOnly(event: { keyCode: any; })
