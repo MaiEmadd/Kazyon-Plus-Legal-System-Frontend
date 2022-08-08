@@ -66,7 +66,7 @@
           </label>
 
 
-        <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150" >
+        <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control input-lg" (keypress)="letterOnly($event)" maxlength="150" >
 
       </div>
       <div  class="grid_item">
@@ -87,7 +87,7 @@
         <label class="label"> مكتب التوثيق
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150" >
+        <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150" >
         </div>
       <div class="grid_item">
         <label class="label"> رقم التوكيل بالمكتب
@@ -102,11 +102,12 @@
       <br>
 <!--      <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
       <br>
+      
   </div>
 </div>
 
-
+<div class="buttons">
 <button class="btn  px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
 
 <button class="btn m-2 px-4 savebtn" (click)="onSave()"  [disabled]="exform.invalid" type="button" >حفظ</button>
-
+</div>

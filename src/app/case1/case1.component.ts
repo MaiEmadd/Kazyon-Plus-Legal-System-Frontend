@@ -13,7 +13,7 @@ export class Case1Component implements OnInit {
 
 
 
-  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم','رقم الملف'];
+  displayedColumns: string[] = ['#','رقم القضيه', 'نوع القضية', 'السنة', 'اسم الموكل', 'اسم الخصم'];
   cases: Case[]=[] ;
   name:String="";
   constructor(private procurartonService: ProcurartonService,private _router:Router) { }

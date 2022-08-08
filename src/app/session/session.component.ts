@@ -36,12 +36,12 @@ export class SessionComponent implements OnInit {
     this.service.addSession(this.id,this.session)
     .subscribe(
       suc => {
-        Swal.fire({title:"تم الحفظ"}).then(() => {
+        Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
           this._navigate.navigate(['procuration']);
         });
       },
       err => {
-        Swal.fire({title:"تعذر الحفظ"}).then(() => {
+        Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
         });
       })
   }

@@ -27,16 +27,16 @@ export class Procuration1Component implements OnInit {
 
   addProcurartion() {
     this.service.addProcurartion(this.procuration)
-      .subscribe(
-        suc => {
-          Swal.fire({title:"تم الحفظ"}).then(() => {
-            this._navigate.navigate(['procuration']);
-          });
-        },
-        err => {
-          Swal.fire({title:"تعذر الحفظ"}).then(() => {
-          });
-        })
+    .subscribe(
+      suc => {
+        Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
+          this._navigate.navigate(['procuration']);
+        });
+      },
+      err => {
+        Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
+        });
+      })
   }
   onSave(){
     this.addProcurartion();

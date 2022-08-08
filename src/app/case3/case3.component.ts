@@ -100,12 +100,12 @@ export class Case3Component implements OnInit {
   addSession(table : MatTable<any>){
     this.service.addSession(this.id,this.session).subscribe(
       suc => {
-        Swal.fire({title:"تم الحفظ"}).then(() => {
+        Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
           this._navigate.navigate(['case']);
         });
       },
       err => {
-        Swal.fire({title:"تعذر الحفظ"}).then(() => {
+        Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
         });
       })
 

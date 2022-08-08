@@ -53,9 +53,9 @@
         <div class="grid2">
           <div class="grid_item">
           <label class="label">اسم الموكل
-            <span class="required-asterisk">*</span>
+            <span class="required-asterisk" >*</span>
           </label>
-        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل" (keypress)="isNumberKey($event)"  maxlength="150">
+        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل" (keypress)="letterOnly($event)" maxlength="150">
         <!-- <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>  -->
 
       </div>
@@ -63,7 +63,7 @@
         <label class="label"> السنة
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.year" formControlName="year" type="date" class="form-controll" >
+        <input [(ngModel)]="proc.year" formControlName="year" type="date" class="form-controll" value="2018-07-22" >
        <!-- <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> -->
       </div>
       <div class="grid_item">
@@ -78,7 +78,7 @@
         <label class="label"> مكتب التوثيق
           <span class="required-asterisk">*</span>
         </label>
-        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150">
+        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" (keypress)="letterOnly($event)" maxlength="150">
         </div>
       <div class="grid_item">
         <label class="label"> رقم التوكيل بالمكتب
@@ -94,7 +94,7 @@
 <!--  <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
   <br>
   <p class="pdf-title">الملحقات</p>
-  <div class="container-fluid box mt-4 box" dir="rtl">
+  <div class="container-fluid box2 mt-4" dir="rtl">
     <br>
   <label for="file-upload" class="custom-file-upload">
     <i class="fas fa-file-pdf"></i>
@@ -123,8 +123,8 @@
 <br>
     </div>
 </div>
+<button class="btn m px-4 ignorebtn" [routerLink]="['/procuration']">  تجاهل</button>
 
+        <button (click)="onSave()" class="btn m-2 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
 
-        <button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
-
-        <button class="btn m-5 px-4 ignorebtn" [routerLink]="['/procuration']">  تجاهل</button>
+        
