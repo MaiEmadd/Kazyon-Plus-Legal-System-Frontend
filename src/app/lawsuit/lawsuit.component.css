@@ -7,11 +7,18 @@ button{
     padding: 60px 60px;
     border: none;
     outline: none;
-    background-color: orange;
+
     margin-right: 40px;
     color: white;
     border-radius: 10px;  
-    width: 271px;
+
+
+
+background: #F98842;
+box-shadow: 0px 5px 5px 4px rgba(185, 185, 185, 0.25);
+border-radius: 20px;
+
+width: 360px;
     height: 230px;
 }
 

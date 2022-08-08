@@ -130,7 +130,7 @@ input[type=number] {
 
 
 ::ng-deep .mat-form-field-label {
-  color: black  !important;
+  color: red  !important;
   font-size: 18px !important;
   font-weight: 900;
 }

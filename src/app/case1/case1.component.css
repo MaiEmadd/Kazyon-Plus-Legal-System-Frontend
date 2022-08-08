@@ -89,3 +89,4 @@ th{
 th.mat-header-cell{
   border-bottom-style: none;
 }
+tr:nth-child(even) {background-color: #f2f2f2;}
