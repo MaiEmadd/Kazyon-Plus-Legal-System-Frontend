@@ -65,21 +65,27 @@
     <form id="containerFileds" [formGroup]="exform" class="form">
       <div class="grid2">
         <div class="grid_item">
-        <label class="label"> تاريخ الجلسة الحاليه </label>
+        <label class="label"> تاريخ الجلسة الحاليه
+          <span class="required-asterisk">*</span>
+        </label>
         <input [(ngModel)]="session.startingDate" formControlName="startingDate" type="date" class="form-control" >
     </div>
     <div  class="grid_item">
-      <label class="label"> قرار الجلسة الحاليه</label>
-      <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  "  >
+      <label class="label"> قرار الجلسة الحالي
+        <span class="required-asterisk">*</span>
+      </label>
+      <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  " (keypress)="isNumberKey($event)" maxlength="150" >
       </div>
     <div class="grid_item">
-      <label class="label"> تاريخ الجلسة القادمه  </label>
+      <label class="label"> تاريخ الجلسة القادمه
+        <span class="required-asterisk">*</span>
+      </label>
       <input [(ngModel)]="session.endingDate" formControlName="endingDate" type="date" class="form-control" placeholder="تاريخ الجلسة القادمه"  >
     </div>
     </div>
     </form>
     <br>
-    <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+<!--    <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
 
     <br>
 </div>

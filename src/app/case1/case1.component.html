@@ -52,12 +52,12 @@
 </div>
 
   <div class="container-fluid box " dir="rtl">
-  <table mat-table [dataSource]="cases"  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
+  <table mat-table [dataSource]="cases"  class="mat-elevation-z8 text-center" dir="rtl">
     <ng-container matColumnDef="#" >
         <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
         <td mat-cell *matCellDef="let element"> {{element.idCase}} </td>
     </ng-container>
-  
+
       <ng-container matColumnDef="رقم القضيه">
           <th mat-header-cell *matHeaderCellDef class="text-center"> رقم القضيه
           </th>
@@ -75,7 +75,7 @@
           <th mat-header-cell *matHeaderCellDef class="text-center">  السنة
 
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.caseyear}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.caseyear | date:"yyyy/MM/dd"}} </td>
       </ng-container>
       <ng-container matColumnDef="اسم الموكل">
           <th mat-header-cell *matHeaderCellDef class="text-center">  اسم الموكل
@@ -94,12 +94,12 @@
           </th>
           <td mat-cell *matCellDef="let element"> {{element.numbercase}} </td>
       </ng-container>
-     
+
+
 
       <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" (click)="details(row.idCase)"></tr>
 
     </table>
-  <br>
 </div>
-<a [routerLink]="['/case2']"><button class="btn m-5 px-4 addbtn">اضافة قضية </button></a>
+<a [routerLink]="['/case2']"><button class="btn m-2 px-4 addbtn">اضافة قضية </button></a>

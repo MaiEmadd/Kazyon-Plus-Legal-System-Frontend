@@ -52,7 +52,7 @@
 
   <div class="container-fluid box  " dir="rtl">
 
-  <table mat-table [dataSource]="procs"  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
+  <table mat-table [dataSource]="procs"  class="mat-elevation-z8  text-center" dir="rtl">
     <ng-container matColumnDef="#" >
         <th mat-header-cell *matHeaderCellDef class="text-center"> # </th>
         <td mat-cell *matCellDef="let element"> {{element.id}} </td>
@@ -72,7 +72,7 @@
           <th mat-header-cell *matHeaderCellDef class="text-center">السنة
 
           </th>
-          <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+          <td mat-cell *matCellDef="let element"> {{element.year | date:"yyyy/MM/dd"}} </td>
       </ng-container>
       <ng-container matColumnDef="مكتب التوثيق">
           <th mat-header-cell *matHeaderCellDef class="text-center">مكتب التوثيق
@@ -86,18 +86,13 @@
           </th>
           <td mat-cell *matCellDef="let element"> {{element.office_procuration_number}} </td>
       </ng-container>
-      <ng-container matColumnDef="btn">
-        <th mat-header-cell *matHeaderCellDef class="text-center">تفاصيل
-
-        </th>
-        <td mat-cell *matCellDef="let element"><a [routerLink]="['/procuration2', element.id]" ><i class="fas fa-edit"></i></a></td>
-    </ng-container>
+     
 
 
 
-      <tr mat-header-row  *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" ></tr>
+      <tr mat-header-row  *matHeaderRowDef="displayedColumns"  ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns; let index = index;"[ngClass]="{alternate: index % 2 == 0 }" (click)="details(row.id)"></tr>
   </table>
 
 </div>
-<a [routerLink]="['/procuration1']"><button class="btn m-5 px-4 addbtn">اضافة توكيل جديد</button></a>
+<a [routerLink]="['/procuration1']"><button class="btn m-2 px-4 addbtn">اضافة توكيل جديد</button></a>

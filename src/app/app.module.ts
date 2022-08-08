@@ -20,7 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SessionComponent } from './session/session.component';
-
+import {MarkAsteriskDirectiveModule } from './directives/mark-asterisk.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +48,7 @@ import { SessionComponent } from './session/session.component';
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-
+    MarkAsteriskDirectiveModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

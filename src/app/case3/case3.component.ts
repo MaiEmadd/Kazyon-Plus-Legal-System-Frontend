@@ -76,9 +76,7 @@ export class Case3Component implements OnInit {
           }) ;
         }
       }
-    Swal.fire({title:"تم الحفظ"}).then(() => {
-      this._navigate.navigate(['case']);
-    });
+
   }
   getSessionByID(){
     this.service.getSessionByCaseID(this.id).subscribe((data: Session[]) => {
@@ -100,8 +98,16 @@ export class Case3Component implements OnInit {
   }
 
   addSession(table : MatTable<any>){
-    this.service.addSession(this.id,this.session).subscribe(data  => {
-    })
+    this.service.addSession(this.id,this.session).subscribe(
+      suc => {
+        Swal.fire({title:"تم الحفظ"}).then(() => {
+          this._navigate.navigate(['case']);
+        });
+      },
+      err => {
+        Swal.fire({title:"تعذر الحفظ"}).then(() => {
+        });
+      })
 
     table.renderRows();
     // this.sessions.push(this.session);
@@ -134,6 +140,28 @@ export class Case3Component implements OnInit {
    this.documentList = this.files2;
    this.files=this.files2;
   }
-  
+
+
+  letterOnly(event: { keyCode: any; })
+  {
+    var charCode = event.keyCode;
+
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode==32)
+
+      return true;
+    else
+      return false;
+  }
+
+  isNumberKey(event: { keyCode: any; }){
+
+    var charCode = event.keyCode;
+    if ((charCode > 31 && (charCode < 48) || charCode > 57))
+
+      return true;
+    else
+      return false;
+  }
+
 
 }

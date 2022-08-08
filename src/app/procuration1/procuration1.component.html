@@ -57,34 +57,50 @@
   <br>
   <br>
   <div class="in text-center">
-      
+
       <form [formGroup]="exform" class="form">
         <div class="grid2">
           <div class="grid_item">
-          <label class="label">اسم الموكل </label> 
-        <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" >
-      
+          <label class="label">اسم الموكل
+            <span class="required-asterisk">*</span>
+          </label>
+
+
+        <input [(ngModel)]="procuration.client_name" formControlName="client_name" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150" >
+
       </div>
       <div  class="grid_item">
-        <label class="label"> السنة   </label> 
-        <input [(ngModel)]="procuration.year" formControlName="year" type="number" class="form-controll"  min="2000"  >
+        <label class="label"> السنة
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="procuration.year" formControlName="year" class="form-controll" type = "date" >
        </div>
       <div class="grid_item">
-        <label class="label"> رقم التوكيل   </label>
-        <input [(ngModel)]="procuration.procuration_number" formControlName="procuration_number" type="number" class="form-control"  min="1">
+        <label class="label"> رقم التوكيل
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="procuration.procuration_number" formControlName="procuration_number" type="number" class="form-control"  min="1"  (keypress)="!isNumberKey($event)"    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+               type = "number"
+               maxlength = "6">
        </div>
       <div class="grid_item">
-        <label class="label"> مكتب التوثيق </label>
-        <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" >
+        <label class="label"> مكتب التوثيق
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="procuration.office" formControlName="office" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150" >
         </div>
       <div class="grid_item">
-        <label class="label"> رقم التوكيل بالمكتب </label>
-        <input [(ngModel)]="procuration.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"  >
+        <label class="label"> رقم التوكيل بالمكتب
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="procuration.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"   (keypress)="!isNumberKey($event)"    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+               type = "number"
+               maxlength = "6">
         </div>
       </div>
       </form>
       <br>
-      <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+<!--      <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
       <br>
   </div>
 </div>
@@ -93,3 +109,4 @@
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
 
 <button class="btn m-2 px-4 savebtn" (click)="onSave()"  [disabled]="exform.invalid" type="button" >حفظ</button>
+

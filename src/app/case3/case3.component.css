@@ -3,7 +3,18 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
+  margin-top: 0%;
+ 
 }
+.scroll{
+  margin-top: 0%;
+  max-height: 330px;
+  overflow:auto;
+  direction: ltr;
+  overflow-x: hidden;
+}
+
+
 .inner_box{
   width: 70%;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -63,7 +74,7 @@ table {
   background: #FFFFFF;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  margin-left: 46px;
+
 
 }
 th, td {
@@ -100,6 +111,13 @@ td.mat-cell:last-child {
 table {
   /* row spacing / margin */
   border-spacing: 0 8px !important;
+  table-layout: fixed;
+}
+.pdf-title{
+  font-weight: bolder;
+  font-size: x-large;
+  margin-top: 10px;
+  margin-left: 900px;
 }
 .savebtn{
   background-color: #01C165;
@@ -190,7 +208,12 @@ th, td {
   caption-side: bottom;
 }
 
-
+.required-asterisk{
+  color: red;
+  font-weight: bold;
+  margin-left: 3px;
+  font-size: 1.2em;
+}
 
 th {
   background: green;
@@ -209,6 +232,10 @@ th {
   font-size:10px;
   top: 0px;
   left:33px;
+}
+.toggle{
+  margin-bottom: 0%;
+  width: 44%;
 }
 .grid{
   display: grid;

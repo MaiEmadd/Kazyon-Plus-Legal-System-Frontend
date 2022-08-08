@@ -32,19 +32,43 @@ export class Case2Component implements OnInit {
   }
   onSave(){
     this.addCase();
-    Swal.fire({title:"تم الحفظ"}).then(() => {
-      console.log('sad');
-      this._navigate.navigate(['case']);
-    });
+    
   }
   addCase() {
     //let obj= <Case> Object.assign ({},this.exform);
     this.case.sessionRequests=[];
     this.service.addCase(this.case)
-      .subscribe(data  => {
-        console.log(data)
-      })
+      .subscribe(
+        suc => {
+          Swal.fire({title:"تم الحفظ"}).then(() => {
+            this._navigate.navigate(['case']);
+          });
+        },
+        err => {
+          Swal.fire({title:"تعذر الحفظ"}).then(() => {
+          });
+        })
   }
 
+  letterOnly(event: { keyCode: any; })
+  {
+    var charCode = event.keyCode;
+
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode==32)
+
+      return true;
+    else
+      return false;
+  }
+
+   isNumberKey(event: { keyCode: any; }){
+
+     var charCode = event.keyCode;
+     if ((charCode > 31 && (charCode < 48) || charCode > 57))
+
+       return true;
+     else
+       return false;
+  }
 
 }

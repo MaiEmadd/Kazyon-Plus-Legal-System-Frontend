@@ -48,44 +48,59 @@
     <br>
 <br>
     <div class="in text-center">
-      
+
       <form [formGroup]="exform" class="form">
         <div class="grid2">
           <div class="grid_item">
-          <label class="label">اسم الموكل </label> 
-        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل">
+          <label class="label">اسم الموكل
+            <span class="required-asterisk">*</span>
+          </label>
+        <input [(ngModel)]="proc.client_name" formControlName="client_name" type="text" class="form-control" placeholder=" اسم الموكل" (keypress)="isNumberKey($event)"  maxlength="150">
         <!-- <small *ngIf= "exform.get('client_name')?.invalid && exform.get('client_name')?.touched" class="text-danger">يجب ادخال اسم الموكل </small>  -->
-      
+
       </div>
       <div  class="grid_item">
-        <label class="label"> السنة   </label> 
-        <input [(ngModel)]="proc.year" formControlName="year" type="number" class="form-controll" placeholder="السنة " min="2000"  >
+        <label class="label"> السنة
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="proc.year" formControlName="year" type="date" class="form-controll" >
        <!-- <small *ngIf= "exform.get('year')?.invalid && exform.get('year')?.touched" class="text-danger">يجب ادخال السنة</small> -->
       </div>
       <div class="grid_item">
-        <label class="label"> رقم التوكيل   </label>
-        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control" placeholder="رقم التوكيل"  min="1">
+        <label class="label"> رقم التوكيل
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="proc.procuration_number" formControlName="procuration_number" type="number" class="form-control"   min="1"  (keypress)="!isNumberKey($event)"    oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+               type = "number"
+               maxlength = "6">
        </div>
       <div class="grid_item">
-        <label class="label"> مكتب التوثيق </label>
-        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" placeholder="مكتب التوثيق">
+        <label class="label"> مكتب التوثيق
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="proc.office" formControlName="office" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150">
         </div>
       <div class="grid_item">
-        <label class="label"> رقم التوكيل بالمكتب </label>
-        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1" placeholder=" رقم التوكيل بالمكتب " >
+        <label class="label"> رقم التوكيل بالمكتب
+          <span class="required-asterisk">*</span>
+        </label>
+        <input [(ngModel)]="proc.office_procuration_number" formControlName="office_procuration_number" type="number" class="form-control"  min="1"  (keypress)="!isNumberKey($event)"     oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+               type = "number"
+               maxlength = "6">
         </div>
       </div>
       </form>
   <br>
-  <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>
+<!--  <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
   <br>
+  <p class="pdf-title">الملحقات</p>
   <div class="container-fluid box mt-4 box" dir="rtl">
-            
+    <br>
   <label for="file-upload" class="custom-file-upload">
     <i class="fas fa-file-pdf"></i>
 
 </label>
- <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>  
+ <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>
 
  <button [hidden]="!this.proc.hasAttachment" class="btn m-5 px-4 savebtn"> <a [href]="downloadUrl"> تحميل الملفات</a></button>
  <div class="grid">
@@ -94,7 +109,7 @@
 <div class="pdf-file-div">
   <i class="fa-solid fa-file-pdf " id="pdf">
     <i class="fa-solid fa-x" id="pdf-x" (click)="remove(i)">
-     
+
     </i>
   </i>
   <p>{{document.name}}</p>
@@ -111,5 +126,5 @@
 
 
         <button (click)="onSave()" class="btn m-5 px-4 savebtn" [disabled]="exform.invalid">حفظ</button>
-        
+
         <button class="btn m-5 px-4 ignorebtn" [routerLink]="['/procuration']">  تجاهل</button>

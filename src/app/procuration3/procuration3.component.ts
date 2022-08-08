@@ -56,8 +56,16 @@ export class Procuration3Component implements OnInit {
    }
     updateProcurartion() {
       this.service.updateProcurartion(this.proc)
-        .subscribe(data => {
-        })
+        .subscribe(
+          suc => {
+            Swal.fire({title:"تم الحفظ"}).then(() => {
+              this._navigate.navigate(['procuration']);
+            });
+          },
+          err => {
+            Swal.fire({title:"تعذر الحفظ"}).then(() => {
+            });
+          })
     }
     onSave(){
       this.updateProcurartion();
@@ -78,18 +86,40 @@ export class Procuration3Component implements OnInit {
         }
       }
 
-      Swal.fire({title:"تم الحفظ"}).then(() => {
-        this._navigate.navigate(['procuration']);
-      });
+      
     }
 
 
     getProcurartionbyID() {
+      console.log(this.id);
       this.service.getProcurartionByID(this.id)
         .subscribe(data => {
           console.log(data);
           this.proc=data;
         })  }
+
+  letterOnly(event: { keyCode: any; })
+  {
+    var charCode = event.keyCode;
+
+    if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123) || charCode == 8 || charCode==32)
+
+      return true;
+    else
+      return false;
+  }
+
+  isNumberKey(event: { keyCode: any; }){
+
+    var charCode = event.keyCode;
+    if ((charCode > 31 && (charCode < 48) || charCode > 57))
+
+      return true;
+    else
+      return false;
+  }
+
+
 }
 
 
