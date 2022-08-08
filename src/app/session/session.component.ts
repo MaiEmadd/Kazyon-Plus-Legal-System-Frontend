@@ -35,15 +35,15 @@ export class SessionComponent implements OnInit {
   onSave(){
     this.service.addSession(this.id,this.session)
     .subscribe(
-      suc => {
-        Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
-          this._navigate.navigate(['procuration']);
-        });
-      },
-      err => {
-        Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
-        });
-      })
+        suc => {
+          Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
+            this._navigate.navigate(['/case3',this.id]);
+          });
+        },
+        err => {
+          Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
+          });
+        })
   }
 
   letterOnly(event: { keyCode: any; })
