@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 import { ProcurartonService } from '../procurarton.service';
 import { Procuration } from '../procurartion';
 import Swal from 'sweetalert2';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-procuration3',
   templateUrl: './procuration3.component.html',
@@ -29,7 +30,7 @@ export class Procuration3Component implements OnInit {
 
   ngOnInit() {
     this.getProcurartionbyID();
-
+    
     this.exform = new FormGroup({
       'client_name' : new FormControl(null, Validators.required),
       'year': new FormControl(null, [Validators.required]),
@@ -42,6 +43,7 @@ export class Procuration3Component implements OnInit {
      this.files = event.target.files;
      this.documentList = event.target.files;
     }
+    
    remove(index:number){
     this.files2=[];
     for (let i = 0; i < this.files.length; i++) {

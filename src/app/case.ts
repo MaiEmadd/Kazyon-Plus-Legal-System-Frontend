@@ -1,5 +1,5 @@
 export class Case{
-    idCase?:number;
+    idCase:number=0;
     numbercase?:number
     client?:string | undefined;
     against?:string;
@@ -10,5 +10,5 @@ export class Case{
     againststat?:string;
     area?:string;
     sessionRequests?:string[];
-    hasAttachment?:boolean;
+    hasAttachment?:boolean=false;
 }

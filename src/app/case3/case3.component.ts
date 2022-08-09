@@ -9,6 +9,7 @@ import {MatTable} from "@angular/material/table";
 import {MatDatepicker} from "@angular/material/datepicker";
 import {MatInput} from "@angular/material/input";
 import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-case3',
   templateUrl: './case3.component.html',
@@ -56,7 +57,16 @@ export class Case3Component implements OnInit {
   }
   updateCase() {
     this.service.updateCase(this.case)
-      .subscribe(data => {})
+    .subscribe(
+      suc => {
+        Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
+          this._navigate.navigate(['case']);
+        });
+      },
+      err => {
+        Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
+        });
+      })
   }
   onSave(){
     this.updateCase();

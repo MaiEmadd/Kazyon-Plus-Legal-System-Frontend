@@ -150,3 +150,46 @@ input[type=number] {
   overflow:unset !important;
 
 }
+.inputBox {
+    position:relative;
+    width: 250px;
+    }
+    
+    .inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: white;
+    border-radius: 5px;
+    outline: 1px solid black;
+    font-size: 1em;
+    }
+    
+    .inputBox input{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    text-transform: uppercase;
+    }
+    
+    .inputBox span{
+    position: absolute;
+    left:0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: black;
+    text-transform: uppercase;
+    transition: 0.5s;
+    }
+    
+    .inputBox input:valid ~ span,
+    .inputBox input:focus ~ span{
+    color: black;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #ffffff;
+    }

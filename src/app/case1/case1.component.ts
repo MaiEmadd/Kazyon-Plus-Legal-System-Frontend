@@ -22,6 +22,7 @@ export class Case1Component implements OnInit {
     this.procurartonService.getCases().subscribe((data: Case[]) => {
       console.log(data);
       this.cases = data;
+      this.cases.sort((a, b) => (a.idCase > b.idCase  ? 1 : -1));
     });
 
   }
