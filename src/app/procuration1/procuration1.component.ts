@@ -13,6 +13,15 @@ import { Router } from '@angular/router';
 export class Procuration1Component implements OnInit {
   procuration = new Procuration();
   exform!: FormGroup;
+  fileToUpload!: File | null;
+  file: any;
+  files: any[]=[];
+  files2: any[]=[];
+  documentList: any[] = [];
+  hasAttachament?:boolean;
+
+  downloadUrl = `http://adminkazyonplus.uksouth.cloudapp.azure.com/api/attachment/download/${1}?type=procurations`
+
   constructor(private service: ProcurartonService, private _navigate: Router) { }
 
   ngOnInit(): void {
@@ -32,6 +41,23 @@ export class Procuration1Component implements OnInit {
         Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
           this._navigate.navigate(['procuration']);
         });
+        if (this.files.length>0)
+      {
+        console.log(this.procuration.hasAttachment);
+
+        if (this.procuration.hasAttachment==false)
+        {
+          this.service.uploadPdfProc("procurations",this.files,suc.id).subscribe(data => {
+            console.log(data);
+          }) ;
+        }
+        else{
+          this.service.appendPdfProc("procurations",this.files,suc.id).subscribe(data => {
+            console.log(data);
+          }) ;
+        }
+      }
+        console.log(suc);
       },
       err => {
         Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
@@ -41,7 +67,23 @@ export class Procuration1Component implements OnInit {
   onSave(){
     this.addProcurartion();
   }
-
+  onChange(event: any) {
+    this.files = event.target.files;
+    this.documentList = event.target.files;
+   }
+   
+  remove(index:number){
+   this.files2=[];
+   for (let i = 0; i < this.files.length; i++) {
+     this.file = this.files[i];
+     if (index != i)
+     {
+       this.files2.push(this.file)
+      } // here you exclude the file. thus removing it.
+   }
+   this.documentList = this.files2;
+   this.files=this.files2;
+  }
   letterOnly(event: { keyCode: any; })
   {
     var charCode = event.keyCode;

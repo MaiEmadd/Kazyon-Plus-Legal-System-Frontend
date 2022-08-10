@@ -193,3 +193,43 @@ input[type=number] {
     padding: 0 10px;
     background: #ffffff;
     }
+    #pdf {
+      color: red;
+      text-shadow: 1px 1px 1px #ccc;
+      font-size:60px;
+      position: relative;
+    
+    }
+    #pdf-x{
+      color: black;
+      position: absolute;
+      font-size:10px;
+      top: 0px;
+      left:33px;
+    }
+    .pdf-title{
+      font-weight: bolder;
+      font-size: x-large;
+      margin-top: 10px;
+      margin-left: 900px;
+    }
+    .custom-file-upload
+    {
+      text-align: center;
+      width: 30%;
+      margin-bottom: 20px;
+      padding: 12px 20px;
+      margin-right: 20px;
+      border: 2px dashed #e7e6e6;
+      border-radius: 6px;
+      color: #a56868;
+      background: rgba(217, 217, 217, 0.2);
+    }
+    input[type="file"] {
+      display: none;
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    

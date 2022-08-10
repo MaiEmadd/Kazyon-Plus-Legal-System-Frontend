@@ -16,6 +16,12 @@ export class Case2Component implements OnInit {
 
   case=new Case ;
   exform!: FormGroup;
+  fileToUpload!: File | null;
+  file: any;
+  files: any[]=[];
+  files2: any[]=[];
+  documentList: any[] = [];
+  
   constructor(private service: ProcurartonService, private _build:FormBuilder, private _navigate: Router) { }
 
   ngOnInit(): void {
@@ -34,6 +40,23 @@ export class Case2Component implements OnInit {
   onSave(){
     this.addCase();
     
+    
+  }
+  onChange(event: any) {
+    this.files = event.target.files;
+    this.documentList = event.target.files;
+   }
+  remove(index:number){
+   this.files2=[];
+   for (let i = 0; i < this.files.length; i++) {
+     this.file = this.files[i];
+     if (index != i)
+     {
+       this.files2.push(this.file)
+      } // here you exclude the file. thus removing it.
+   }
+   this.documentList = this.files2;
+   this.files=this.files2;
   }
   addCase() {
     //let obj= <Case> Object.assign ({},this.exform);
@@ -44,6 +67,23 @@ export class Case2Component implements OnInit {
           Swal.fire({title:"تم الحفظ",color:'green',confirmButtonColor:'green'}).then(() => {
             this._navigate.navigate(['case']);
           });
+          if (this.files.length>0)
+          {
+            console.log(this.case.hasAttachment);
+
+            if (this.case.hasAttachment==false)
+            {
+              this.service.uploadPdfProc("cases",this.files,suc.idCase).subscribe(data => {
+                console.log(data);
+              }) ;
+            }
+            else{
+              this.service.appendPdfProc("cases",this.files,suc.idCase).subscribe(data => {
+                console.log(data);
+              }) ;
+            }
+          }
+          console.log("hi",suc.idCase);
         },
         err => {
           Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {

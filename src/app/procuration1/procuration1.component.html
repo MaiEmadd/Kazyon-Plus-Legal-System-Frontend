@@ -110,12 +110,33 @@
       <br>
 <!--      <label class="error" [hidden]="!exform.invalid">يرجي ادخال البيانات كاملة</label>-->
       <br>
-      
+      <p class="pdf-title">الملحقات</p>
+  <div class="container-fluid box mt-4" dir="rtl">
+    <br>
+  <label for="file-upload" class="custom-file-upload">
+    <i class="fas fa-file-pdf"></i>
+
+</label>
+ <input id="file-upload" type="file"  accept="application/pdf" (change)="onChange($event)" multiple>
+
+ <div class="grid">
+ <div *ngFor="let document of documentList; let i = index">
+
+<div class="pdf-file-div">
+  <i class="fa-solid fa-file-pdf " id="pdf">
+    <i class="fa-solid fa-x" id="pdf-x" (click)="remove(i)">
+
+    </i>
+  </i>
+  <p>{{document.name}}</p>
+</div>
+</div>
+
+</div>
   </div>
 </div>
-
-<div class="buttons">
-<button class="btn  px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
+<br>
+</div>
+<button class="btn m px-4 ignorebtn"  [routerLink]="['/procuration']">تجاهل</button>
 
 <button class="btn m-2 px-4 savebtn" (click)="onSave()"  [disabled]="exform.invalid" type="button" >حفظ</button>
-</div>
