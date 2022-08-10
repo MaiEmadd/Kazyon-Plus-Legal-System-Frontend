@@ -69,12 +69,12 @@ export class Case2Component implements OnInit {
           });
           if (this.files.length>0)
           {
-            console.log(this.case.hasAttachment);
+            console.log(suc.hasAttachment);
 
-            if (this.case.hasAttachment==false)
+            if (suc.hasAttachment==false)
             {
               this.service.uploadPdfProc("cases",this.files,suc.idCase).subscribe(data => {
-                console.log(data);
+                console.log("thissss",data);
               }) ;
             }
             else{

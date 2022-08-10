@@ -11,6 +11,8 @@ import { Session } from './session';
 export class ProcurartonService {
   private base1Url="http://adminkazyonplus.uksouth.cloudapp.azure.com/api/";
   private baseUrl = "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/procuration";
+  //private baseUrl = "http://localhost:8080/procuration";
+  //private base1Url="http://localhost:8080/";
   private caseUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/case";
   private sessionUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/session";
   constructor(private http: HttpClient) { }

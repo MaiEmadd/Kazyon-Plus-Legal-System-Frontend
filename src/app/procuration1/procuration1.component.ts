@@ -35,6 +35,7 @@ export class Procuration1Component implements OnInit {
     }
 
   addProcurartion() {
+    
     this.service.addProcurartion(this.procuration)
     .subscribe(
       suc => {
@@ -43,9 +44,9 @@ export class Procuration1Component implements OnInit {
         });
         if (this.files.length>0)
       {
-        console.log(this.procuration.hasAttachment);
+        console.log(suc.hasAttachment);
 
-        if (this.procuration.hasAttachment==false)
+        if (suc.hasAttachment==false)
         {
           this.service.uploadPdfProc("procurations",this.files,suc.id).subscribe(data => {
             console.log(data);
@@ -57,7 +58,7 @@ export class Procuration1Component implements OnInit {
           }) ;
         }
       }
-        console.log(suc);
+        console.log("success",suc);
       },
       err => {
         Swal.fire({title:"تعذر الحفظ",color:'red',confirmButtonColor:'red'}).then(() => {
