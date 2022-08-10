@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-case2',

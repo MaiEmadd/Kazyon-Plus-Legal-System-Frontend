@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Case } from '../case';
 import { ProcurartonService } from '../procurarton.service';
 import {Session} from "../session";
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-session',
   templateUrl: './session.component.html',
@@ -28,8 +28,30 @@ export class SessionComponent implements OnInit {
       'decisionStatus': new FormControl("", Validators.required),
       'endingDate': new FormControl("", Validators.required),
     });
+  //  const dateValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  //     const start = control.get('startingDate');
+  //     const end = control.get('endingDate');
+  //     console.log("validators called");  
+  //     return start?.value !== null && end?.value !== null && start?.value < end?.value 
+  //     ? null :{ dateValid:true };
+      
     this.id=this._router.snapshot.params?.['id'];
     this.case.idCase=this.id;
+  }
+  checkdate(){
+    console.log(this.session.startingDate);
+    console.log(this.session.endingDate);
+    if (this.session.startingDate=="" || this.session.endingDate=="" )
+    {
+      return true;
+    }
+    else if(this.session.startingDate<this.session.endingDate && this.session.startingDate!="" && this.session.endingDate!="" )
+    {
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
   onSave(){

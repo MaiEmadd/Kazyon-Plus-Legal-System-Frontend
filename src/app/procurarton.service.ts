@@ -11,7 +11,7 @@ import { Session } from './session';
 export class ProcurartonService {
 private base1Url="http://localhost:8080/";
   private baseUrl = "http://localhost:8080/procuration";
-  private caseUrl= "http://localhost:8080/case";
+  private caseUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/case";
   private sessionUrl= "http://localhost:8080/session";
   constructor(private http: HttpClient) { }
 
@@ -42,7 +42,13 @@ private base1Url="http://localhost:8080/";
     return this.http.get<Case>(`${this.caseUrl+"/"+ID}`);
   }
   addCase(cases:Case): Observable<any>{
-    const headers = { 'content-type': 'application/json'}  
+    const headers = { 
+      "Access-Control-Allow-Origin":"*",
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+      'Content-Type': 'application/json',
+      'Accept': '/'
+    }  
     const body=JSON.stringify(cases);
     console.log(body)
     return this.http.post(this.caseUrl , body,{'headers':headers})

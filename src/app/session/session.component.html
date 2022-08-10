@@ -66,22 +66,24 @@
       <div class="grid2">
         <div class="grid_item">
         <label class="label"> تاريخ الجلسة الحاليه
-          <span class="required-asterisk">*</span>
+          <span class="error">*</span>
         </label>
-        <input [(ngModel)]="session.startingDate" formControlName="startingDate" type="date" class="form-control" >
-    </div>
+        <input [(ngModel)]="session.startingDate" formControlName="startingDate" type='text' class="form-control"  onfocus="(this.type='date')" (keydown)="false">
+        </div>
     <div  class="grid_item">
       <label class="label"> قرار الجلسة الحالي
-        <span class="required-asterisk">*</span>
+        <span class="error">*</span>
       </label>
-      <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" placeholder="قرار الجلسة الحاليه  " (keypress)="isNumberKey($event)" maxlength="150" >
+      <input [(ngModel)]="session.decisionStatus" formControlName="decisionStatus" type="text" class="form-control" (keypress)="isNumberKey($event)" maxlength="150" >
       </div>
     <div class="grid_item">
       <label class="label"> تاريخ الجلسة القادمه
-        <span class="required-asterisk">*</span>
+        <span class="error">*</span>
       </label>
-      <input [(ngModel)]="session.endingDate" formControlName="endingDate" type="date" class="form-control" placeholder="تاريخ الجلسة القادمه"  >
+      <input [(ngModel)]="session.endingDate" formControlName="endingDate" type='text' class="form-control"  onfocus="(this.type='date')" (keydown)="false">
+        <label class="error" [hidden]="checkdate()">يرجي التحقق من التاريخ</label>
     </div>
+    
     </div>
     </form>
     <br>
@@ -100,4 +102,4 @@
 
 <button class="btn m-2 px-4 ignorebtn"  [routerLink]="['/case3',case.idCase]">تجاهل</button>
 
-<button class="btn m-2 px-4 savebtn" (click)="onSave()"  [disabled]="exform.invalid" type="button" >حفظ</button>
+<button class="btn m-2 px-4 savebtn" (click)="onSave()" [disabled]="exform.invalid || !checkdate()"   type="button" >حفظ</button>

@@ -97,7 +97,7 @@
           <label class="label">السنة
             <span class="required-asterisk">*</span>
           </label>
-          <input [ngModel] ="case.caseyear  | date:'yyyy-MM-dd'" formControlName="caseyear" type='text' class="form-controll"  onfocus="(this.type='date')" (keydown)="false">
+          <input [(ngModel)]="case.caseyear" [ngModel] ="case.caseyear  | date:'yyyy-MM-dd'" formControlName="caseyear" type='text' class="form-controll"  onfocus="(this.type='date')" (keydown)="false">
           </div>
         <div class="grid_item">
           <label class="label"> رقم الملف</label>
@@ -158,8 +158,9 @@
 
 <div *ngIf="!caseFlag" class="container-fluid box mt-1 box" dir="rtl">
   <div class="in text-center">
+    <br>
     <div class="scroll">
-      <table mat-table [dataSource]="sessions" #table  class="mat-elevation-z8 mt-5 text-center" dir="rtl">
+      <table mat-table [dataSource]="sessions" #table  class="mat-elevation-z8  text-center" dir="rtl">
 
         <ng-container matColumnDef="تاريخ الجلسة الحاليه ">
           <th mat-header-cell *matHeaderCellDef class="text-center">تاريخ الجلسة الحاليه </th>
