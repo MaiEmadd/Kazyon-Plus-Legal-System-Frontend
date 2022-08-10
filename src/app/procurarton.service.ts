@@ -9,10 +9,10 @@ import { Session } from './session';
   providedIn: 'root'
 })
 export class ProcurartonService {
-private base1Url="http://localhost:8080/";
-  private baseUrl = "http://localhost:8080/procuration";
+private base1Url="http://adminkazyonplus.uksouth.cloudapp.azure.com/api/";
+  private baseUrl = "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/procuration";
   private caseUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/case";
-  private sessionUrl= "http://localhost:8080/session";
+  private sessionUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/session";
   constructor(private http: HttpClient) { }
 
   getProcurartion(): Observable<Procuration[]>{

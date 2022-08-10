@@ -32,7 +32,7 @@ export class Case3Component implements OnInit {
   files: any[]=[];
   files2: any[]=[];
   documentList: any[] = [];
-  downloadUrl = `http://localhost:8080/attachment/download/${this.id}?type=cases`
+  downloadUrl = `http://adminkazyonplus.uksouth.cloudapp.azure.com/api/attachment/download/${this.id}?type=cases`
   constructor( private service: ProcurartonService,private _router: ActivatedRoute, private _navigate: Router,private fb: FormBuilder) {
 
   }

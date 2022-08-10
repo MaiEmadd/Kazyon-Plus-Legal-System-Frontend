@@ -24,7 +24,7 @@ export class Procuration3Component implements OnInit {
   documentList: any[] = [];
   hasAttachament?:boolean;
 
-  downloadUrl = `http://localhost:8080/attachment/download/${this.id}?type=procurations`
+  downloadUrl = `http://adminkazyonplus.uksouth.cloudapp.azure.com/api/attachment/download/${this.id}?type=procurations`
 
   constructor(private service: ProcurartonService, private _router: ActivatedRoute, private _navigate: Router) { }
 
