@@ -9,7 +9,7 @@ import { Session } from './session';
   providedIn: 'root'
 })
 export class ProcurartonService {
-private base1Url="http://adminkazyonplus.uksouth.cloudapp.azure.com/api/";
+  private base1Url="http://adminkazyonplus.uksouth.cloudapp.azure.com/api/";
   private baseUrl = "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/procuration";
   private caseUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/case";
   private sessionUrl= "http://adminkazyonplus.uksouth.cloudapp.azure.com/api/session";
@@ -42,13 +42,7 @@ private base1Url="http://adminkazyonplus.uksouth.cloudapp.azure.com/api/";
     return this.http.get<Case>(`${this.caseUrl+"/"+ID}`);
   }
   addCase(cases:Case): Observable<any>{
-    const headers = { 
-      "Access-Control-Allow-Origin":"*",
-      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-      'Content-Type': 'application/json',
-      'Accept': '/'
-    }  
+    const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(cases);
     console.log(body)
     return this.http.post(this.caseUrl , body,{'headers':headers})
