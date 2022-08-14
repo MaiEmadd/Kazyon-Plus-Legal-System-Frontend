@@ -193,7 +193,7 @@ input[type=number] {
 }
 table {
   width: 100%;
-  
+  table-layout: fixed;
 }
 select{
   width: 60%;
@@ -229,6 +229,8 @@ th, td {
 th {
   background: green;
   color: white;
+  position: sticky;
+  top: 0;
 }
 #pdf {
   color: red;
